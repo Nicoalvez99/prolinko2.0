@@ -1,6 +1,10 @@
 <x-guest-layout>
     <div class="shadow h-full">
-        <h1 style="font-family: 'Poppins', sans-serif;; font-size: 30px;" class="px-5 text-center">Iniciar Sesion</h1>
+        <img src="{{ asset('images/Prolinko.png') }}" class="img-fluid mx-auto pt-5 mb-2" width="370" alt="prolinko">
+        <div class="text-center">
+            <h1 style="font-family: 'Poppins', sans-serif;; font-size: 30px;" class="px-5 text-center">Iniciar Sesion</h1>
+            <span class="px-5 my-3">¿Aún no estas registrado? <a style="color: blue" href="{{ route('register') }}">¡Registrate!</a></span>
+        </div>
         <x-auth-session-status class="mb-4" :status="session('status')" />
 
         <form action="{{ route('login') }}" method="post">
@@ -29,7 +33,7 @@
                     @endif
                 </div>
             </div>
-            <div class="d-grid gap-2 col-6 mx-auto my-3">
+            <div class="d-grid gap-2 col-6 mx-auto my-3 pb-5">
                 <button class="btn btn-primary" style="background-color: blue;" type="submit">Iniciar Sesion</button>
             </div>
         </form>

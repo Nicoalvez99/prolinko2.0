@@ -21,11 +21,11 @@
 </head>
 <body>
     <div class="row">
-        <div class="col-6 p-5">
+        <div class="col-5 pt-5 px-5">
             {{ $slot }}
         </div>
-       <div class="col-6">
-
+       <div class="col-7 p-0">
+            <img src="{{ asset('images/fondo-login.png') }}" class="img-fluid shadow" alt="Fondo Prolinko">
        </div>
     </div>
 </body>
