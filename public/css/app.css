@@ -1,0 +1,62 @@
+.navBar {
+    background: rgb(7, 3, 71);
+    background: linear-gradient(90deg, rgba(7, 3, 71, 1) 0%, rgba(24, 24, 147, 1) 35%, rgba(0, 148, 255, 1) 100%);
+}
+
+.navBar a {
+    color: aliceblue;
+}
+
+.dropToggle a {
+    color: black;
+}
+
+.dropToggle a:hover {
+    background-color: rgb(33, 79, 231);
+    color: aliceblue;
+}
+
+/* Estilos base de los enlaces */
+.ulBot a {
+    text-decoration: none;
+    color: aliceblue;
+    padding: 5px 10px;
+    position: relative;
+}
+
+.ulBot a:hover {
+    color: aliceblue;
+}
+
+/* Estilo de la línea de progresión */
+.ulBot a::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(to right, orange, red);
+    /* Cambia los colores aquí */
+    transition: width 0.3s ease;
+}
+
+
+/* Efecto de línea de progresión al hacer hover */
+.ulBot a:hover::before {
+    width: 100%;
+}
+
+/* Estilo de la línea de progresión cuando el enlace está activo */
+.ulBot a:active::before {
+    width: 100%;
+}
+
+.active {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(to right, orange, red);
+}

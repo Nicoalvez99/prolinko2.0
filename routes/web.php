@@ -18,10 +18,17 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-
+// Rutas de navegación básicas
+Route::get('/tienda', function () {
+    return view('tienda');
+})->middleware(['auth', 'verified'])->name('tienda');
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/proveedores', function () {
+    return view('proveedores');
+})->middleware(['auth', 'verified'])->name('proveedores');
+
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

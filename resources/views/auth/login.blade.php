@@ -1,6 +1,8 @@
 <x-guest-layout>
     <div class="shadow h-full">
-        <img src="{{ asset('images/Prolinko.png') }}" class="img-fluid mx-auto pt-5 mb-2" width="370" alt="prolinko">
+        <div class="col-12 text-center">
+            <img src="{{ asset('images/Prolinko.png') }}" class="img-fluid pt-5 mb-2" width="370" alt="prolinko">   
+        </div>
         <div class="text-center">
             <h1 style="font-family: 'Poppins', sans-serif;; font-size: 30px;" class="px-5 text-center">Iniciar Sesion</h1>
             <span class="px-5 my-3">¿Aún no estas registrado? <a style="color: blue" href="{{ route('register') }}">¡Registrate!</a></span>
@@ -21,10 +23,13 @@
             </div>
             <div class="row d-flex px-5">
                 <div class="col-4">
-                    <label for="remember_me">
-                        <input type="checkbox" name="remember" id="remember_me" class="form-control">
-                        <span>{{ __('Recuerdame') }}</span>
-                    </label>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="remember" value="" id="flexCheckDefault">
+                        <label class="form-check-label" for="flexCheckDefault">
+                            <span>{{ __('Recuerdame') }}</span>
+                        </label>
+                    </div>
+
                 </div>
 
                 <div class="col-4 col-offset-4">
