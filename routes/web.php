@@ -2,6 +2,9 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProductoController;
+use App\Http\Controllers\CompraController;
+use App\Http\Controllers\TotalController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,10 +28,15 @@ Route::get('/tienda', function () {
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/stock', function () {
+    return view('stock');
+})->middleware(['auth', 'verified'])->name('stock');
 Route::get('/proveedores', function () {
     return view('proveedores');
 })->middleware(['auth', 'verified'])->name('proveedores');
 
+//Rutas a Controladores
+Route::post('/stock', [ProductoController::class, 'store'])->name('productos.store');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
