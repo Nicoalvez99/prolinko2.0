@@ -28,9 +28,7 @@ Route::get('/tienda', function () {
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
-Route::get('/stock', function () {
-    return view('stock');
-})->middleware(['auth', 'verified'])->name('stock');
+Route::get('/stock', [ProductoController::class, 'index'])->middleware(['auth', 'verified'])->name('stock');
 Route::get('/proveedores', function () {
     return view('proveedores');
 })->middleware(['auth', 'verified'])->name('proveedores');

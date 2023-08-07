@@ -1,6 +1,8 @@
 <x-guest-layout>
     <section class="shadow">
-        <img src="{{ asset('images/Prolinko.png') }}" class="img-fluid mx-auto pt-5 mb-2" width="370" alt="prolinko">
+        <div class="col-12 text-center">
+            <img src="{{ asset('images/Prolinko.png') }}" class="img-fluid pt-5 mb-2" width="370" alt="prolinko">
+        </div>
         <div class="text-center">
             <h1 style="font-family: 'Poppins', sans-serif;; font-size: 30px;" class="px-5 text-center">¡Registrate!</h1>
             <a href="{{ route('login') }}" style="color: blue;">¿Ya estas registrado?</a>

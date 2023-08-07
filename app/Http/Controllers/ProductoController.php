@@ -16,6 +16,12 @@ class ProductoController extends Controller
     {
         //
     }
+    public function index()
+    {
+        return view('stock', [
+            "stocks" => Productos::get()
+        ]);
+    }
     public function store(Productos $productos, Request $request)
     {
         $user = Auth::user();
