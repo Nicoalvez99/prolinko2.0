@@ -9,7 +9,7 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <p style="font-size: 30px; color: green;">Total: $0.00</p>
+          <p style="font-size: 30px; color: green;">Total: ${{ number_format($compras->sum('precio'), 2) }}</p>
           <label for="vuelto">¿Con cuánto paga?</label>
           <input type="number" name="vuelto" class="form-control">
           <button type="button" class="btn btn-primary mt-2">Vuelto</button>

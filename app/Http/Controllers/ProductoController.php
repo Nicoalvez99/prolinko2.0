@@ -42,6 +42,6 @@ class ProductoController extends Controller
             'user_id' => $user->id
         ]);
        
-        return redirect()->route('stock');//falta colocar el mensaje de session.status
+        return redirect()->route('stock')->with('status', 'Producto creado exitosamente');//falta colocar el mensaje de session.status
     }
 }

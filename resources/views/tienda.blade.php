@@ -3,7 +3,7 @@
     <!-- Cuerpo de la Tienda -->
     <div class="row container">
         <div class="col-6 my-2">
-            <form action="" method="post">
+            <form action="{{ route('compra.store') }}" method="post">
                 @csrf
                 <div class="col-10 d-block">
                     <label for="codigo">Nombre o código del producto</label>
@@ -17,7 +17,7 @@
             </form>
         </div>
         <div class="col-6 my-2">
-            <h2 style="color: green;">Total: $0.00</h2>
+            <h2 style="color: green;">Total: ${{ number_format($compras->sum('precio'), 2) }}</h2>
             <h4>Su vuelto es: $0.00</h4>
             <div class="d-flex">
                 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Vuelto</button>
@@ -26,7 +26,7 @@
         </div>
     </div>
     <div class="row mx-2">
-        <table class="table">
+        <table class="table table-hover">
             <thead>
                 <th>Código</th>
                 <th>Producto</th>
@@ -37,8 +37,32 @@
                 <th>Remover</th>
             </thead>
             <tbody>
-                
+                @if(count($compras) > 0)
+                @foreach($compras as $compra)
+                <tr>
+                    <td>{{ $compra->codigo }}</td>
+                    <td>{{ $compra->nombre }}</td>
+                    <td>{{ $compra->stock }}</td>
+                    <td>{{ $compra->cantidad }}</td>
+                    <td>${{ $compra->precio }}</td>
+                    <td>${{ number_format($compra->precio * $compra->cantidad, 2) }}</td>
+                    <form action="{{ route('compra.delete', $compra) }}" method="post">
+                        @csrf @method('delete')
+                        <td><button type="submit" class="btn btn-danger" name="delete"><i class="bi bi-trash3"></i></button></td>
+                    </form>
+                </tr>
+                @endforeach
+                @endif
             </tbody>
         </table>
+        @if(count($compras) == 0)
+        <div class="row">
+            <div class="col-12 text-center">
+                <div class="alert alert-primary" role="alert">
+                    Aún no hay productos en compra.
+                </div>
+            </div>
+        </div>
+        @endif
     </div>
 </x-app-layout>

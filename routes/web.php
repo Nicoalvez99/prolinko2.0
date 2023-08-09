@@ -22,9 +22,8 @@ Route::get('/', function () {
 });
 
 // Rutas de navegación básicas
-Route::get('/tienda', function () {
-    return view('tienda');
-})->middleware(['auth', 'verified'])->name('tienda');
+Route::get('/tienda', [CompraController::class, 'index'])->middleware(['auth', 'verified'])->name('tienda');
+//Route::get('/tienda', [CompraController::class, 'index'])->middleware(['auth', 'verified'])->name('index');
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
@@ -34,6 +33,8 @@ Route::get('/proveedores', function () {
 })->middleware(['auth', 'verified'])->name('proveedores');
 
 //Rutas a Controladores
+Route::post('/tienda', [CompraController::class, 'store'])->name('compra.store');
+Route::delete('/tienda/{compra}', [CompraController::class, 'destroy'])->name('compra.delete');
 Route::post('/stock', [ProductoController::class, 'store'])->name('productos.store');
 
 Route::middleware('auth')->group(function () {

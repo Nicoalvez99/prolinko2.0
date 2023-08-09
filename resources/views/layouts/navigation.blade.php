@@ -19,7 +19,8 @@
           <a class="nav-link {{ setActive('proveedores') }}" href="{{ route('proveedores') }}"><i class="bi bi-person-lines-fill"></i> Proveedores</a>
         </li>
       </ul>
-      <div class="nav-item dropdown">
+    </div>
+    <div class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
         <i class="bi bi-person-circle"></i> {{ Auth::user()->name }}
         </a>
@@ -31,6 +32,5 @@
           </form>
         </ul>
       </div>
-    </div>
   </div>
 </nav>

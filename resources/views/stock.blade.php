@@ -13,8 +13,9 @@
     <section class="col-12">
         <div class="mx-5">
             <button class="btn btn-primary my-2">Editar</button>
-            <input type="text" class="form-control" placeholder="Buscador de productos por código, nombre, precio o stock.">
-            <table class="table table-hover my-2">
+            @include('partials.session-status')
+            <input type="text" data-table="table_id" class="form-control light-table-filter" placeholder="Buscador de productos por código, nombre, precio o stock.">
+            <table class="table table-hover my-2 table_id">
                 <thead>
                     <th>#</th>
                     <th>Código</th>
@@ -25,14 +26,16 @@
                 </thead>
                 <tbody>
                     @foreach($stocks as $stock)
-                    <tr>
+                        @if($stock->user_id === Auth::user()->id)
+                        <tr>
                         <td>{{ $stock->id }}</td>
                         <td>{{ $stock->codigo }}</td>
                         <td>{{ $stock->nombre }}</td>
                         <td>{{ $stock->stock }}</td>
                         <td>${{ $stock->precio }}</td>
-                        <td></td>
+                        <td><a href="#"><i class="bi bi-pencil-square"></i></a></td>
                     </tr>
+                    @endif
                     @endforeach
                 </tbody>
             </table>

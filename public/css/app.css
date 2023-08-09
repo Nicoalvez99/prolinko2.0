@@ -6,6 +6,9 @@
 .navBar a {
     color: aliceblue;
 }
+.activo {
+    border-bottom: 2px linear-gradient(to right, orange, red);
+}
 
 .dropToggle a {
     color: black;
@@ -51,4 +54,5 @@
 .ulBot a:active::before {
     width: 100%;
 }
+
 
