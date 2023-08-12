@@ -18,6 +18,7 @@ return new class extends Migration
             $table->bigInteger('telefono');
             $table->string('direccion');
             $table->text('descripcion');
+            $table->bigInteger('user_id');
             $table->timestamps();
         });
     }

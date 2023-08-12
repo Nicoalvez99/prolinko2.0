@@ -7,6 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Compras extends Model
 {
-    protected $fillable = ['nombre', 'codigo', 'cantidad', 'precio', 'stock','user_id'];
+    protected $fillable = ['nombre', 'codigo', 'cantidad', 'precio', 'precioTotal', 'stock','user_id'];
     use HasFactory;
 }

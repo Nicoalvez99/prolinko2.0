@@ -9,10 +9,13 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <p style="font-size: 30px; color: green;">Total: ${{ number_format($compras->sum('precio'), 2) }}</p>
+          <div class="d-flex">
+            <p style="font-size: 30px; color: green;">Total: $</p>
+            <p style="font-size: 30px; color: green;" id="total">{{ number_format($compras->sum('precioTotal'), 2) }}</p>
+          </div>
           <label for="vuelto">¿Con cuánto paga?</label>
-          <input type="number" name="vuelto" class="form-control">
-          <button type="button" class="btn btn-primary mt-2">Vuelto</button>
+          <input type="number" id="inpVuelto" name="vuelto" class="form-control">
+          <button type="button" id="btnVuelto" class="btn btn-primary mt-2" data-bs-dismiss="modal">Vuelto</button>
         </div>
       </div>
     </div>

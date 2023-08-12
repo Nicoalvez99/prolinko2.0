@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductoController;
 use App\Http\Controllers\CompraController;
+use App\Http\Controllers\ProveedorController;
 use App\Http\Controllers\TotalController;
 
 /*
@@ -23,19 +24,19 @@ Route::get('/', function () {
 
 // Rutas de navegación básicas
 Route::get('/tienda', [CompraController::class, 'index'])->middleware(['auth', 'verified'])->name('tienda');
-//Route::get('/tienda', [CompraController::class, 'index'])->middleware(['auth', 'verified'])->name('index');
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 Route::get('/stock', [ProductoController::class, 'index'])->middleware(['auth', 'verified'])->name('stock');
-Route::get('/proveedores', function () {
-    return view('proveedores');
-})->middleware(['auth', 'verified'])->name('proveedores');
+Route::get('/proveedores', [ProveedorController::class, 'index'])->middleware(['auth', 'verified'])->name('proveedores');
 
 //Rutas a Controladores
 Route::post('/tienda', [CompraController::class, 'store'])->name('compra.store');
 Route::delete('/tienda/{compra}', [CompraController::class, 'destroy'])->name('compra.delete');
+route::delete('/tienda', [CompraController::class, 'cobrarDestroy'])->name('cobro.delete');
 Route::post('/stock', [ProductoController::class, 'store'])->name('productos.store');
+Route::post('/proveedores', [ProveedorController::class, 'store'])->name('proveedor.store');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

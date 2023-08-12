@@ -14,8 +14,9 @@ class CompraController extends Controller
      */
     public function index()
     {
+        $user = Auth::user();
         return view('tienda', [
-            "compras" => Compras::get()
+            "compras" => Compras::where('user_id', '=', $user->id)->get()
         ]);
     }
 
@@ -38,6 +39,7 @@ class CompraController extends Controller
         $user = Auth::user();
         //Luego si esos valores coinciden con algún producto que tengas en la BBDD, lo guarda en la table de compras
         $aProductos = Productos::where('user_id', '=', $user->id)->get();
+        $productoNoEncontrado = 0;
         foreach($aProductos as $producto){
             if($producto->codigo == $codigo || $producto->nombre == $codigo){
                 Compras::create([
@@ -45,13 +47,24 @@ class CompraController extends Controller
                     'codigo' => $producto->codigo,
                     'cantidad' => $cantidad,
                     'precio' => $producto->precio,
+                    'precioTotal' => $producto->precio * $cantidad,
                     'stock' => $producto->stock,
                     'user_id' => $user->id
                 ]);
+                $productoNoEncontrado - 1;
+
+            } else {
+                $productoNoEncontrado++;
             }
         }
+        $totalProductos = count($aProductos);
+        if($productoNoEncontrado == $totalProductos){
+            return redirect()->route('tienda')->with('status', 'Este producto no está en su stock.');
+        } else {
+            return redirect()->route('tienda');
+        }
         // Sino manda un mensaje de session que diga "Este producto no está en tu stock".
-        return redirect()->route('tienda');
+        
     }
 
     /**
@@ -84,6 +97,13 @@ class CompraController extends Controller
     public function destroy(Compras $compra)
     {
         $compra->delete();
+        return redirect()->route('tienda');
+    }
+    public function cobrarDestroy(Compras $compra)
+    {
+        $userId = auth()->user()->id;
+        Compras::where('user_id', $userId)->delete();
+
         return redirect()->route('tienda');
     }
 }

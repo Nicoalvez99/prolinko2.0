@@ -15,13 +15,17 @@
                 </div>
                 <button type="submit" name="btnAgregarCompra" class="btn btn-primary mt-2">Agregar a la compra</button>
             </form>
+            @include('partials.session-status-danger')
         </div>
         <div class="col-6 my-2">
-            <h2 style="color: green;">Total: ${{ number_format($compras->sum('precio'), 2) }}</h2>
-            <h4>Su vuelto es: $0.00</h4>
+            <h2 style="color: green;">Total: ${{ number_format($compras->sum('precioTotal'), 2) }}</h2>
+            <h4 id="vuelto"></h4>
             <div class="d-flex">
                 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Vuelto</button>
-                <button type="button" class="btn btn-success mx-2">Cobrar</button>
+                <form action="{{ route('cobro.delete') }}" method="post">
+                    @csrf @method('delete')
+                    <button type="submit" class="btn btn-success mx-2">Cobrar</button>
+                </form>
             </div>
         </div>
     </div>

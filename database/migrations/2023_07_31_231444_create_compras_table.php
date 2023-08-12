@@ -18,6 +18,7 @@ return new class extends Migration
             $table->integer('cantidad');
             $table->decimal('precio', $precision = 6, $scale = 2);
             $table->integer('stock');
+            $table->decimal('precioTotal', $precision = 6, $scale = 2);
             $table->foreignId('user_id');
             $table->timestamps();
         });
