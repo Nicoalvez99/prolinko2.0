@@ -30,7 +30,7 @@
                     <th>Stock</th>
                     <th>Precio</th>
                     <th>Rubro</th>
-                    <th>Editar</th>
+                    <th>Acción</th>
                 </thead>
                 <tbody>
                     @foreach($stocks as $id => $stock)
@@ -46,7 +46,13 @@
                         @endif
                         <td>${{ $stock->precio }}</td>
                         <td><!-- Poner rubro en Backend --></td>
-                        <td><button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal{{ $stock->nombre }}"><i class="bi bi-pencil-square"></i></button></td>
+                        <td class="d-flex">
+                            <button class="botonEdit" data-bs-toggle="modal" data-bs-target="#exampleModal{{ $stock->nombre }}"><i class="bi bi-pencil-square"></i></button>
+                            <form action="{{ route('producto.delete', $stock) }}" method="post">
+                                @csrf @method('delete')
+                                <button type="submit" class="botonDelete mx-2"><i class="bi bi-trash3"></i></button>
+                            </form>
+                        </td>
                     </tr>
                     @endif
                     @endforeach

@@ -35,6 +35,7 @@ Route::get('/proveedores', [ProveedorController::class, 'index'])->middleware(['
 Route::post('/tienda', [CompraController::class, 'store'])->name('compra.store');
 Route::delete('/tienda/{compra}', [CompraController::class, 'destroy'])->name('compra.delete');
 route::delete('/tienda', [CompraController::class, 'cobrarDestroy'])->name('cobro.delete');
+Route::delete('stock/{producto}', [ProductoController::class, 'destroy'])->name('producto.delete');
 Route::post('/stock', [ProductoController::class, 'store'])->name('productos.store');
 Route::post('/proveedores', [ProveedorController::class, 'store'])->name('proveedor.store');
 Route::patch('/stock/{producto}', [ProductoController::class, 'update'])->name('producto.edit');

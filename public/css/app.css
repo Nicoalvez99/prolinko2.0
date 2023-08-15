@@ -59,5 +59,44 @@
     position: fixed;
     bottom: 0;
 }
+.botonEdit {
+    background: none;
+    border: none;
+}
+.botonEdit i {
+    color: blue;
+}
+.botonDelete {
+    background: none;
+    border: none;
+}
+.botonDelete i {
+    color: red;
+}
 
+.backgroundModals {
+    background: rgb(7, 3, 71);
+    background: linear-gradient(90deg, rgba(7, 3, 71, 1) 0%, rgba(24, 24, 147, 1) 35%, rgba(0, 148, 255, 1) 100%);
+} 
+.backgroundModals h2 {
+    color:aliceblue;
+}
+.dashPanel {
+    border-radius: 5px;
+}
+.total {
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 700;
+    font-size: 15px;
+    padding-top: 10px;
+}
+.caja span {
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 500;
+    font-size: 35px;
+} 
+.dashPanel i {
+    font-size: 50px;
+    color: rgb(7, 3, 71);;
+}
 

@@ -62,5 +62,11 @@ class ProductoController extends Controller
         ]);
         return redirect()->route('stock')->with('status', 'Producto actualizado correctamente');
     }
+
+    public function destroy(Productos $producto)
+    {
+        $producto->delete();
+        return redirect()->route('stock')->with('status', 'Producto eliminado correctamente');
+    }
     
 }
