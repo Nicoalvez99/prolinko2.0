@@ -42,6 +42,25 @@ class ProductoController extends Controller
             'user_id' => $user->id
         ]);
        
-        return redirect()->route('stock')->with('status', 'Producto creado exitosamente');//falta colocar el mensaje de session.status
+        return redirect()->route('stock')->with('status', 'Producto creado exitosamente');
     }
+
+    public function update(Productos $producto, Request $request)
+    {
+        $validatedData = $request->validate([
+            'nombre' => 'required',
+            'codigo' => 'required|numeric',
+            'precio' => 'required|numeric',
+            'stock' => 'required|numeric',
+        ]);
+        
+        $producto->update([
+            'nombre' => $validatedData['nombre'],
+            'codigo' => $validatedData['codigo'],
+            'precio' => $validatedData['precio'],
+            'stock' => $validatedData['stock']
+        ]);
+        return redirect()->route('stock')->with('status', 'Producto actualizado correctamente');
+    }
+    
 }

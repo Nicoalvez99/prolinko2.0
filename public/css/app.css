@@ -55,4 +55,9 @@
     width: 100%;
 }
 
+.status-danger {
+    position: fixed;
+    bottom: 0;
+}
+
 

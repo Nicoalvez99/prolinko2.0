@@ -6,7 +6,6 @@ btnVuelto.addEventListener("click", ()=>{
     let vuelto = document.getElementById('vuelto');
 
     let totalVuelto = inpVuelto - total;
-    console.log(inpVuelto + " " + total);
-    vuelto.innerHTML = "Su vuelto es: $" + totalVuelto;
+    vuelto.innerHTML = "$" + totalVuelto;
 
 });

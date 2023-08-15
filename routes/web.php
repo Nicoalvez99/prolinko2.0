@@ -37,6 +37,7 @@ Route::delete('/tienda/{compra}', [CompraController::class, 'destroy'])->name('c
 route::delete('/tienda', [CompraController::class, 'cobrarDestroy'])->name('cobro.delete');
 Route::post('/stock', [ProductoController::class, 'store'])->name('productos.store');
 Route::post('/proveedores', [ProveedorController::class, 'store'])->name('proveedor.store');
+Route::patch('/stock/{producto}', [ProductoController::class, 'update'])->name('producto.edit');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
