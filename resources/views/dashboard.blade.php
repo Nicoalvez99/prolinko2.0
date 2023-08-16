@@ -4,7 +4,7 @@
             <div class="my-3 shadow text-center px-3 dashPanel">
                 <div class="row">
                     <div class="col-6 caja">
-                        <h6 class="total">Total de productos</h6>
+                        <h6 class="total">Productos:</h6>
                         <span>46</span>
                     </div>
                     <div class="col-6 text-center">
@@ -17,11 +17,11 @@
             <div class="my-3 shadow text-center px-3 dashPanel">
                 <div class="row">
                     <div class="col-6 caja">
-                        <h6 class="total">Total de productos</h6>
-                        <span>46</span>
+                        <h6 class="total">Rubros:</h6>
+                        <span>7</span>
                     </div>
                     <div class="col-6 text-center">
-                        <i class="bi bi-stack"></i>
+                        <i class="bi bi-diagram-3"></i>
                     </div>
                 </div>
             </div>
@@ -30,11 +30,11 @@
             <div class="my-3 shadow text-center px-3 dashPanel">
                 <div class="row">
                     <div class="col-6 caja">
-                        <h6 class="total">Total de productos</h6>
-                        <span>46</span>
+                        <h6 class="total">Proveedores:</h6>
+                        <span>10</span>
                     </div>
                     <div class="col-6 text-center">
-                        <i class="bi bi-stack"></i>
+                        <i class="bi bi-person-lines-fill"></i>
                     </div>
                 </div>
             </div>
@@ -43,11 +43,11 @@
             <div class="my-3 shadow text-center px-3 dashPanel">
                 <div class="row">
                     <div class="col-6 caja">
-                        <h6 class="total">Total de productos</h6>
-                        <span>46</span>
+                        <h6 class="total">Ventas:</h6>
+                        <span>$46K</span>
                     </div>
                     <div class="col-6 text-center">
-                        <i class="bi bi-stack"></i>
+                        <i class="bi bi-bag-check"></i>
                     </div>
                 </div>
             </div>

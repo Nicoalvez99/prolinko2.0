@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="csrf-token" content="{{ csrf_token() }}">
+    <link rel="shortcut icon" href="{{ asset('images/Logo.PNG') }}" type="image/x-icon">
 
     <title>{{ config('app.name', 'Prolinko') }}</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
@@ -25,11 +26,11 @@
 
 <body>
     <div class="row">
-        <div class="col-5 pt-5 px-5">
+        <div class="col-5 px-5">
             {{ $slot }}
         </div>
         <div class="col-7 p-0">
-            <img src="{{ asset('images/fondo-login.png') }}" class="img-fluid shadow" alt="Fondo Prolinko">
+            <img src="{{ asset('images/fondo.png') }}" class="img-fluid shadow" alt="Fondo Prolinko">
         </div>
     </div>
 </body>

@@ -2,7 +2,7 @@
     @include('layouts.modal')
     <!-- Cuerpo de la Tienda -->
     <div class="row container">
-        <div class="col-6 my-2">
+        <div class="col-12 col-sm-6 my-2">
             <form action="{{ route('compra.store') }}" method="post">
                 @csrf
                 <div class="col-10 d-block">
@@ -16,7 +16,7 @@
                 <button type="submit" name="btnAgregarCompra" class="btn btn-primary mt-2">Agregar a la compra</button>
             </form>
         </div>
-        <div class="col-6 my-2">
+        <div class="col-12 col-sm-6 my-2">
             <h2 style="color: green;">Total: ${{ number_format($compras->sum('precioTotal'), 2) }}</h2>
             <h4>Su vuelto es: <span id="vuelto"></span></h4>
             <div class="d-flex">
