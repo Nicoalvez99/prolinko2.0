@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductoController;
 use App\Http\Controllers\CompraController;
 use App\Http\Controllers\ProveedorController;
+use App\Http\Controllers\HistorialController;
 use App\Http\Controllers\TotalController;
 
 /*
@@ -25,9 +26,8 @@ Route::get('/', function () {
 // Rutas de navegación básicas
 Route::get('/tienda', [CompraController::class, 'index'])->middleware(['auth', 'verified'])->name('tienda');
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::get('/dashboard', [HistorialController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
 Route::get('/stock', [ProductoController::class, 'index'])->middleware(['auth', 'verified'])->name('stock');
 Route::get('/proveedores', [ProveedorController::class, 'index'])->middleware(['auth', 'verified'])->name('proveedores');
 

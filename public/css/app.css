@@ -99,5 +99,8 @@
     font-size: 50px;
     color: rgb(7, 3, 71);;
 }
-
+.tablaHistorial {
+    overflow-y: scroll;
+    height: 450px;
+}
 

@@ -65,4 +65,33 @@
             </div>
         </div>
     </div>
+    <div class="row">
+        <div class="col-6">
+            <div class="shadow p-2">
+                <h3>Historial de ventas</h3>
+                <input type="text" class="form-control light-table-filter mb-1" data-table="table_id" placeholder="Buscador por fecha, producto o total">
+                <div class="tablaHistorial">
+                    <table class="table table-hover table_id">
+                        <thead>
+                            <th>Fecha y hora</th>
+                            <th>Productos</th>
+                            <th>Total</th>
+                        </thead>
+                        <tbody>
+                            @foreach($historials as $historial)
+                            <tr>
+                                <td>{{ $historial->fecha }}</td>
+                                <td>{{ $historial->aProductos }}</td>
+                                <td>${{ $historial->total }}</td>
+                            </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="col-6">
+
+        </div>
+    </div>
 </x-app-layout>

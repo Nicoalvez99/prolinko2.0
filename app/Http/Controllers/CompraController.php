@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Compras;
 use App\Models\Productos;
+use App\Models\Historial;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -98,17 +99,32 @@ class CompraController extends Controller
         $compra->delete();
         return redirect()->route('tienda');
     }
-    public function cobrarDestroy(Productos $producto, Compras $compra)
+    public function cobrarDestroy(Productos $producto, Compras $compra, Historial $historial)
     {
-        $userId = auth()->user()->id;
         $userId = auth()->user()->id;
 
         // Obtener las compras del usuario actual
         $comprasUsuario = Compras::where('user_id', $userId)->get();
 
+        //Agregar al historial la compra
+        $aProductos = [];
+        $totalCompra = 0;
+        foreach($comprasUsuario as $compra){
+            $aProductos[] = $compra->cantidad > 1 ? $compra->nombre . "(" . $compra->cantidad . ")" : $compra->nombre;
+            $totalCompra += $compra->precioTotal;
+        }
+        $cadenaProductos = implode(', ', $aProductos);
+
+        Historial::create([
+            "aProductos" => $cadenaProductos,
+            "total" => $totalCompra,
+            "user_id" => $userId
+
+        ]);
+    
         // Procesar las compras y actualizar los productos
         foreach ($comprasUsuario as $compra) {
-            $codigoProducto = $compra->codigo; // Asume que hay una columna 'codigo' en la tabla 'compras'
+            $codigoProducto = $compra->codigo;
             $cantidadCompra = $compra->cantidad;
 
             // Buscar el producto correspondiente por su código

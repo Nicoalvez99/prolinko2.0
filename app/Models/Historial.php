@@ -7,5 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Historial extends Model
 {
+    protected $fillable = ['aProductos', 'total', 'user_id'];
     use HasFactory;
 }

@@ -20,7 +20,7 @@
         </li>
       </ul>
     </div>
-    <div class="nav-item dropdown">
+    <div class="nav-item dropstart">
         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
         <i class="bi bi-person-circle"></i> {{ Auth::user()->name }}
         </a>

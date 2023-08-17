@@ -5,6 +5,9 @@
         <div class="col-12 text-end my-2">
             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">+ Agregar producto</button>
         </div>
+        <div class="col-12 text-end mt-1">
+            <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">+ Agregar rubro</button>
+        </div>
     </div>
     <div class="row">
         <div class="col-12">
