@@ -1,11 +1,13 @@
 <x-app-layout>
+    @include('layouts.modalProveedor')
+    @include('layouts.modalFactura')
+    @include('partials.session-status')
     <div class="row my-3">
-        @include('layouts.modalProveedor')
         <div class="col-6">
             <h1>Mis Proveedores</h1>
         </div>
         <div class="col-6">
-            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Agregar proveedor</button>
+            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">+ Agregar proveedor</button>
         </div>
     </div>
     <div class="row my-5">
@@ -27,4 +29,12 @@
         </div>
         @endforeach
     </div>
+    <section class="row">
+        <div class="col-6 d-flex">
+            <h2>Mis Facturas</h2>
+        </div>
+        <div class="col-6 text-end">
+            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModalFactura">+ Agregar factura</button>
+        </div>
+    </section>
 </x-app-layout>

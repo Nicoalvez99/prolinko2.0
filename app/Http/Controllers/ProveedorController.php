@@ -40,7 +40,7 @@ class ProveedorController extends Controller
             'user_id' => Auth::user()->id
         ]);
 
-        return redirect()->route('proveedores');
+        return redirect()->route('proveedores')->with('status', 'Proveedor agregado correctamente.');
     }
 
     /**
