@@ -30,6 +30,7 @@
     <main class="container-fluid">
         {{ $slot }}
     </main>
+    <script src="{{ asset('js/modalFactura.js') }}"></script>
     <script src="{{ asset('js/vuelto.js') }}"></script>
     <script src="{{ asset('js/app.js') }}"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Proveedores;
+use App\Models\Facturas;
 
 class ProveedorController extends Controller
 {
@@ -14,7 +15,8 @@ class ProveedorController extends Controller
     public function index()
     {
         return view('proveedores', [
-            "proveedores" => Proveedores::get()
+            "proveedores" => Proveedores::get(),
+            "facturas" => Facturas::get()
         ]);
     }
 
@@ -29,19 +31,38 @@ class ProveedorController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(Request $request, $tipo)
     {
-        Proveedores::create([
-            'nombre' => request('nombre'),
-            'email' => request('email'),
-            'telefono' => request('telefono'),
-            'direccion' => request('direccion'),
-            'descripcion' => request('descripcion'),
-            'user_id' => Auth::user()->id
-        ]);
+        if ($tipo == 'proveedor') {
+            Proveedores::create([
+                'nombre' => request('nombre'),
+                'email' => request('email'),
+                'telefono' => request('telefono'),
+                'direccion' => request('direccion'),
+                'descripcion' => request('descripcion'),
+                'user_id' => Auth::user()->id
+            ]);
 
-        return redirect()->route('proveedores')->with('status', 'Proveedor agregado correctamente.');
+            return redirect()->route('proveedores')->with('status', 'Proveedor agregado correctamente.');
+        } elseif ($tipo == 'factura') {
+            $userId = Auth::user()->id;
+            if ($request->hasFile('imagen')) {
+                $file = $request->file('imagen');
+                $destinationPath = 'images/facturas/';
+                $fileName = time() . "-" . $file->getClientOriginalName();
+                $request->file('imagen')->move($destinationPath, $fileName);
+                $nameFinal = $fileName;
+            }
+
+            Facturas::create([
+                'nombre' => $nameFinal,
+                'user_id' => $userId
+            ]);
+            return redirect()->route('proveedores')->with('status', 'Factura guardada correctamente.');
+        }
     }
+
+
 
     /**
      * Display the specified resource.

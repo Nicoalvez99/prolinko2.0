@@ -6,7 +6,7 @@
         <div class="col-6">
             <h1>Mis Proveedores</h1>
         </div>
-        <div class="col-6">
+        <div class="col-6 text-end">
             <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">+ Agregar proveedor</button>
         </div>
     </div>
@@ -35,6 +35,11 @@
         </div>
         <div class="col-6 text-end">
             <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModalFactura">+ Agregar factura</button>
+        </div>
+        <div class="row">
+            @foreach($facturas as $factura)
+            <div class="col-3"><a href="{{ asset('images/facturas/' . $factura->nombre)}}" target="_blank" rel="noopener noreferrer">{{ $factura->nombre }}</a></div>
+            @endforeach
         </div>
     </section>
 </x-app-layout>

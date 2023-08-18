@@ -8,16 +8,6 @@ use App\Http\Controllers\ProveedorController;
 use App\Http\Controllers\HistorialController;
 use App\Http\Controllers\TotalController;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/
 
 Route::get('/', function () {
     return view('welcome');
@@ -33,12 +23,14 @@ Route::get('/proveedores', [ProveedorController::class, 'index'])->middleware(['
 
 //Rutas a Controladores
 Route::post('/tienda', [CompraController::class, 'store'])->name('compra.store');
+Route::post('/stock', [ProductoController::class, 'store'])->name('productos.store');
+Route::post('/proveedores/{tipo}', [ProveedorController::class, 'store'])->name('proveedor.store');
+
+Route::patch('/stock/{producto}', [ProductoController::class, 'update'])->name('producto.edit');
+
 Route::delete('/tienda/{compra}', [CompraController::class, 'destroy'])->name('compra.delete');
 route::delete('/tienda', [CompraController::class, 'cobrarDestroy'])->name('cobro.delete');
 Route::delete('stock/{producto}', [ProductoController::class, 'destroy'])->name('producto.delete');
-Route::post('/stock', [ProductoController::class, 'store'])->name('productos.store');
-Route::post('/proveedores', [ProveedorController::class, 'store'])->name('proveedor.store');
-Route::patch('/stock/{producto}', [ProductoController::class, 'update'])->name('producto.edit');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
