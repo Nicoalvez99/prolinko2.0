@@ -17,6 +17,7 @@ class AuthenticatedSessionController extends Controller
      */
     public function create(): View
     {
+        session()->put('mensaje', '¡Bienvenido a Prolinko!');
         return view('auth.login');
     }
 

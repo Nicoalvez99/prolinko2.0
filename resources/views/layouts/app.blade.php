@@ -30,6 +30,20 @@
     <main class="container-fluid">
         {{ $slot }}
     </main>
+    <footer>
+        <div class="row sesionWelcome">
+            <div class="col-12 text-center">
+                @if(session()->has('mensaje'))
+                <div class="alert alert-success">
+                    {{ session()->get('mensaje') }}
+                </div>
+                @php
+                session()->forget('mensaje'); // Elimina el mensaje de la sesión después de mostrarlo
+                @endphp
+                @endif
+            </div>
+        </div>
+    </footer>
     <script src="{{ asset('js/modalFactura.js') }}"></script>
     <script src="{{ asset('js/vuelto.js') }}"></script>
     <script src="{{ asset('js/app.js') }}"></script>

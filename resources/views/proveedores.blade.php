@@ -12,8 +12,8 @@
     </div>
     <div class="row my-5">
         @foreach($proveedores as $proveedor)
-        <div class="col-3">
-            <div class="card" style="width: 18rem;">
+        <div class="col-12 col-sm-3 my-2">
+            <div class="card mx-auto" style="width: 18rem;">
                 <div class="card-body">
                     <h5 class="card-title">{{$proveedor->nombre}}</h5>
                     <h6 class="card-subtitle mb-2 text-body-secondary">{{ $proveedor->telefono }}</h6>
@@ -37,9 +37,26 @@
             <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModalFactura">+ Agregar factura</button>
         </div>
         <div class="row">
-            @foreach($facturas as $factura)
-            <div class="col-3"><a href="{{ asset('images/facturas/' . $factura->nombre)}}" target="_blank" rel="noopener noreferrer">{{ $factura->nombre }}</a></div>
+            @foreach($proveedores as $proveedor)
+            <div class="col-12">
+                <h5>{{ $proveedor->nombre }}</h5>
+                <div class="row">
+                    @foreach($facturas as $factura)
+                    @if($factura->proveedor == $proveedor->nombre)
+                    <div class="col-12 col-sm-3 my-3">
+                        <div class="text-center p-3 factura shadow">
+                            <div class="text-center">
+                                <i style="font-size: 50px;" class="bi bi-file-earmark-text"></i>
+                            </div>
+                            <a href="{{ asset('images/facturas/' . $factura->nombre)}}" target="_blank" rel="noopener noreferrer">{{ $factura->nombre }}</a>
+                        </div>
+                    </div>
+                    @endif
+                    @endforeach
+                </div>
+            </div>
             @endforeach
         </div>
+
     </section>
 </x-app-layout>

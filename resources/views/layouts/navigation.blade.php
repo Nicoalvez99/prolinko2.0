@@ -21,16 +21,16 @@
       </ul>
     </div>
     <div class="nav-item dropstart">
-        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+      <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
         <i class="bi bi-person-circle"></i> {{ Auth::user()->name }}
-        </a>
-        <ul class="dropdown-menu dropToggle">
-          <li><a class="dropdown-item" href="{{ route('profile.edit') }}">Perfil</a></li>
-          <form action="{{ route('logout') }}" method="post">
-            @csrf 
-            <li><a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); this.closest('form').submit();">Cerrar sesion</a></li>
-          </form>
-        </ul>
-      </div>
+      </a>
+      <ul class="dropdown-menu dropToggle">
+        <li><a class="dropdown-item" href="{{ route('profile.edit') }}">Perfil</a></li>
+        <form action="{{ route('logout') }}" method="post">
+          @csrf
+          <li><a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); this.closest('form').submit();">Cerrar sesion</a></li>
+        </form>
+      </ul>
+    </div>
   </div>
 </nav>

@@ -1,3 +1,7 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
 .navBar {
     background: rgb(7, 3, 71);
     background: linear-gradient(90deg, rgba(7, 3, 71, 1) 0%, rgba(24, 24, 147, 1) 35%, rgba(0, 148, 255, 1) 100%);
@@ -6,6 +10,7 @@
 .navBar a {
     color: aliceblue;
 }
+
 .activo {
     border-bottom: 2px linear-gradient(to right, orange, red);
 }
@@ -59,17 +64,21 @@
     position: fixed;
     bottom: 0;
 }
+
 .botonEdit {
     background: none;
     border: none;
 }
+
 .botonEdit i {
     color: blue;
 }
+
 .botonDelete {
     background: none;
     border: none;
 }
+
 .botonDelete i {
     color: red;
 }
@@ -77,28 +86,35 @@
 .backgroundModals {
     background: rgb(7, 3, 71);
     background: linear-gradient(90deg, rgba(7, 3, 71, 1) 0%, rgba(24, 24, 147, 1) 35%, rgba(0, 148, 255, 1) 100%);
-} 
-.backgroundModals h2 {
-    color:aliceblue;
 }
+
+.backgroundModals h2 {
+    color: aliceblue;
+}
+
 .dashPanel {
     border-radius: 5px;
 }
+
 .total {
     font-family: 'Quicksand', sans-serif;
     font-weight: 700;
     font-size: 15px;
     padding-top: 10px;
 }
+
 .caja span {
     font-family: 'Quicksand', sans-serif;
     font-weight: 500;
     font-size: 35px;
-} 
+}
+
 .dashPanel i {
     font-size: 50px;
-    color: rgb(7, 3, 71);;
+    color: rgb(7, 3, 71);
+    ;
 }
+
 .tablaHistorial {
     overflow-y: scroll;
     height: 450px;
@@ -120,32 +136,56 @@
     background-color: rgba(255, 255, 255, 1);
     padding: 1.5rem;
     border-radius: 10px;
-    box-shadow: 0px 48px 35px -48px rgba(0,0,0,0.1);
-  }
-  
-  .custum-file-upload .icon {
+    box-shadow: 0px 48px 35px -48px rgba(0, 0, 0, 0.1);
+}
+
+.custum-file-upload .icon {
     display: flex;
     align-items: center;
     justify-content: center;
-  }
-  
-  .custum-file-upload .icon svg {
+}
+
+.custum-file-upload .icon svg {
     height: 80px;
     fill: rgba(75, 85, 99, 1);
-  }
-  
-  .custum-file-upload .text {
+}
+
+.custum-file-upload .text {
     display: flex;
     align-items: center;
     justify-content: center;
-  }
-  
-  .custum-file-upload .text span {
+}
+
+.custum-file-upload .text span {
     font-weight: 400;
     color: rgba(75, 85, 99, 1);
-  }
-  
-  .custum-file-upload input {
-    display: none;
-  }
+}
 
+.custum-file-upload input {
+    display: none;
+}
+
+.sesionWelcome {
+    position: absolute;
+    bottom: 10px;
+}
+
+.factura {
+    border-radius: 5px;
+}
+
+.modoOscuro {
+    background-color: #000;
+    color: aliceblue;
+}
+
+.modoClaro {
+    @apply bg-white text-black;
+    /* Aplica estilos de Tailwind CSS */
+}
+
+/* Estilos para el modo oscuro */
+.modoOscuro {
+    @apply bg-black text-white;
+    /* Aplica estilos de Tailwind CSS */
+}

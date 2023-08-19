@@ -7,6 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Facturas extends Model
 {
-    protected $fillable = ['nombre', 'user_id'];
+    protected $fillable = ['nombre', 'proveedor', 'user_id'];
     use HasFactory;
 }

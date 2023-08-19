@@ -56,6 +56,7 @@ class ProveedorController extends Controller
 
             Facturas::create([
                 'nombre' => $nameFinal,
+                'proveedor' => request('proveedor'),
                 'user_id' => $userId
             ]);
             return redirect()->route('proveedores')->with('status', 'Factura guardada correctamente.');

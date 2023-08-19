@@ -69,4 +69,5 @@
         @endif
     </div>
     @include('partials.session-status-danger')
+    
 </x-app-layout>

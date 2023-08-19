@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('facturas', function (Blueprint $table) {
             $table->id();
             $table->string('nombre');
+            $table->string('proveedor');
             $table->integer('user_id');
             $table->timestamps();
         });
