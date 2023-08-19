@@ -1,7 +1,6 @@
 <x-app-layout>
     @include('layouts.modalProveedor')
     @include('layouts.modalFactura')
-    @include('partials.session-status')
     <div class="row my-3">
         <div class="col-6">
             <h1>Mis Proveedores</h1>
@@ -57,6 +56,7 @@
             </div>
             @endforeach
         </div>
-
     </section>
+    @include('partials.session-status')
+    @include('partials.data-error')
 </x-app-layout>

@@ -33,6 +33,35 @@ class ProveedorController extends Controller
      */
     public function store(Request $request, $tipo)
     {
+        // Reglas de validación comunes
+        $commonRules = [
+            
+        ];
+
+        // Agregar reglas específicas según el tipo
+        $validationRules = [];
+        $customMessages = [];
+        if ($tipo == 'proveedor') {
+            $validationRules = [
+                'nombre' => 'required',
+                'email' => 'required|email',
+                'telefono' => 'required',
+                'direccion' => 'required',
+                'descripcion' => 'required'
+            ];
+        } elseif ($tipo == 'factura') {
+            $validationRules = [
+                'imagen' => 'required|mimes:png,jpg,jpeg,pdf'
+            ];
+            $customMessages = [
+                // Mensajes de error personalizados para validaciones específicas
+                'imagen.required' => 'Debes seleccionar un archivo para la factura.',
+                'imagen.mimes' => 'ERROR | El formato de archivo debe ser PNG, JPG, JPEG o PDF.'
+            ];
+        }
+        // Validar los campos del formulario
+        $request->validate($validationRules, $customMessages);
+
         if ($tipo == 'proveedor') {
             Proveedores::create([
                 'nombre' => request('nombre'),

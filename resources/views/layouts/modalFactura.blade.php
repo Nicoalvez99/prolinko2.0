@@ -29,6 +29,9 @@
                                 </div>
                                 <input type="file" name="imagen" id="file">
                             </label>
+                            <div class="col-12 text-center">
+                                <small style="color: green;">*Podes subir archivos .png, .jpg, .jpeg o .pdf</small>
+                            </div>
                         </div>
                         <div class="col-12 my-1">
                             <label for="txtProveedor">Proveedor:</label>
