@@ -10,10 +10,10 @@
           <a href="{{ route('tienda') }}" class="nav-link {{ setActive('tienda') }}" aria-current="page"><i class="bi bi-shop-window"></i> Tienda</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link {{ setActive('dashboard') }}" href="{{ route('dashboard') }}"> <i class="bi bi-bar-chart"></i> Dashboard</a>
+          <a class="nav-link {{ setActive('stock') }}" href="{{ route('stock') }}"><i class="bi bi-stack"></i> Stock</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link {{ setActive('stock') }}" href="{{ route('stock') }}"><i class="bi bi-stack"></i> Stock</a>
+          <a class="nav-link {{ setActive('dashboard') }}" href="{{ route('dashboard') }}"> <i class="bi bi-bar-chart"></i> Dashboard</a>
         </li>
         <li class="nav-item">
           <a class="nav-link {{ setActive('proveedores') }}" href="{{ route('proveedores') }}"><i class="bi bi-person-lines-fill"></i> Proveedores</a>

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Auth\loginSuperAdminController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductoController;
@@ -7,11 +8,18 @@ use App\Http\Controllers\CompraController;
 use App\Http\Controllers\ProveedorController;
 use App\Http\Controllers\HistorialController;
 use App\Http\Controllers\TotalController;
+use App\Http\Controllers\SuperAdminController;
 
 
 Route::get('/', function () {
     return view('welcome');
 });
+
+//SuperAdmin
+Route::get('/loginSuperAdmin', function(){
+    return view('auth.loginSuperAdmin');
+});
+Route::post('/loginSuperAdmin', [loginSuperAdminController::class, 'login'])->name('loginSuperAdmin');
 
 // Rutas de navegación básicas
 Route::get('/tienda', [CompraController::class, 'index'])->middleware(['auth', 'verified'])->name('tienda');

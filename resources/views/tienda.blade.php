@@ -18,7 +18,7 @@
         </div>
         <div class="col-12 col-sm-6 my-2">
             <h2 style="color: green;">Total: ${{ number_format($compras->sum('precioTotal'), 2) }}</h2>
-            <h4>Su vuelto es: <span id="vuelto"></span></h4>
+            <h4>Su vuelto es: <span id="vuelto">$0.00</span></h4>
             <div class="d-flex">
                 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Vuelto</button>
                 <form action="{{ route('cobro.delete') }}" method="post">

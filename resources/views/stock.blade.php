@@ -2,14 +2,6 @@
     @include('layouts.modalStock')
     @include('partials.session-status')
     <div class="row">
-        <div class="col-12 text-end my-2">
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">+ Agregar producto</button>
-        </div>
-        <div class="col-12 text-end mt-1">
-            <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">+ Agregar rubro</button>
-        </div>
-    </div>
-    <div class="row">
         <div class="col-12">
             <h1 style="font-size: 60px;">Mi Stock</h1>
         </div>
@@ -25,6 +17,10 @@
                 </ul>
             </div>
             @endif
+            <div class="my-1">
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">+ Agregar producto</button>
+                <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">+ Agregar rubro</button>
+            </div>
             <input type="text" data-table="table_id" class="form-control light-table-filter" placeholder="Buscador de productos por código, nombre, precio o stock.">
             <table class="table table-hover my-2 table_id">
                 <thead>
