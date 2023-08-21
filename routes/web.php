@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdministradorAuthController;
 use App\Http\Controllers\Auth\loginSuperAdminController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
@@ -16,11 +17,7 @@ Route::get('/', function () {
 });
 
 //SuperAdmin
-Route::get('/loginSuperAdmin', function(){
-    return view('auth.loginSuperAdmin');
-});
-Route::post('/loginSuperAdmin', [loginSuperAdminController::class, 'login'])->name('loginSuperAdmin');
-
+Route::get('administrador', [AdministradorAuthController::class, 'index'])->middleware(['auth', 'verified'])->name('administrador');
 // Rutas de navegación básicas
 Route::get('/tienda', [CompraController::class, 'index'])->middleware(['auth', 'verified'])->name('tienda');
 

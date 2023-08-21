@@ -13,6 +13,10 @@ use Illuminate\View\View;
 
 class loginSuperAdminController extends Controller
 {
+    public function showLoginForm()
+    {
+        return view('auth.loginSuperAdmin');
+    }
     public function login()
     {
         $credentials = $this->validate(request(), [

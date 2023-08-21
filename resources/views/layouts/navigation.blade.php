@@ -18,6 +18,11 @@
         <li class="nav-item">
           <a class="nav-link {{ setActive('proveedores') }}" href="{{ route('proveedores') }}"><i class="bi bi-person-lines-fill"></i> Proveedores</a>
         </li>
+        @if(Auth::user()->email == 'nicoalvez99@gmail.com')
+        <li class="nav-item">
+          <a class="nav-link {{ setActive('administrador') }}" href="{{ route('administrador') }}"><i class="bi bi-gear"></i></i> Administrador</a>
+        </li>
+        @endif
       </ul>
     </div>
     <div class="nav-item dropstart">
