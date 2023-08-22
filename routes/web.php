@@ -17,7 +17,7 @@ Route::get('/', function () {
 });
 
 //SuperAdmin
-Route::get('administrador', [AdministradorAuthController::class, 'index'])->middleware(['auth', 'verified'])->name('administrador');
+Route::get('administrador', [AdministradorAuthController::class, 'index'])->middleware(['admin.access'])->name('administrador');
 // Rutas de navegación básicas
 Route::get('/tienda', [CompraController::class, 'index'])->middleware(['auth', 'verified'])->name('tienda');
 

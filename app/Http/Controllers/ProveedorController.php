@@ -14,9 +14,10 @@ class ProveedorController extends Controller
      */
     public function index()
     {
+        $userId = Auth::user()->id;
         return view('proveedores', [
-            "proveedores" => Proveedores::get(),
-            "facturas" => Facturas::get()
+            "proveedores" => Proveedores::where('user_id', '=', $userId)->get(),
+            "facturas" => Facturas::where('user_id', '=', $userId)->get()
         ]);
     }
 

@@ -12,11 +12,13 @@ class SuperadminMiddleware
 {
     public function handle($request, Closure $next)
     {
-        if (Auth::check() && Auth::user()->isSuperAdmin()) {
+        $user = auth()->user();
+
+        if ($user && $user->email === 'nicoalvez99@gmail.com') {
             return $next($request);
         }
 
-        return redirect('/'); // o redirecciona a donde desees para usuarios no superadmin
+        return abort(404, 'Página no encontrada'); 
     }
 }
 
