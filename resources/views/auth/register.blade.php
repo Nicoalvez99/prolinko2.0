@@ -27,18 +27,25 @@
                     <x-input-error :messages="$errors->get('email')" class="mt-2" />
                 </div>
 
-                <!-- Password -->
                 <div class="col-12 my-2 px-3">
-                    <label for="password">Contraseña</label>
-                    <input type="password" name="password" id="password" class="form-control" required autocomplete="new-password">
-                    <x-input-error :messages="$errors->get('password')" class="mt-2" />
+                    <label for="txtDni">DNI</label>
+                    <input type="number" name="dni" class="form-control" id="">
                 </div>
 
-                <!-- Confirm Password -->
-                <div class="col-12 my-2 px-3">
-                    <label for="confirmar_contraseña">Confirmar contraseña</label>
-                    <input type="password" name="password_confirmation" class="form-control" required autocomplete="new-password">
-                    <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
+                <div class="row">
+                    <!-- Password -->
+                    <div class="col-6 my-2 px-3">
+                        <label for="password">Contraseña</label>
+                        <input type="password" name="password" id="password" class="form-control" required autocomplete="new-password">
+                        <x-input-error :messages="$errors->get('password')" class="mt-2" />
+                    </div>
+
+                    <!-- Confirm Password -->
+                    <div class="col-6 my-2 px-3">
+                        <label for="confirmar_contraseña">Confirmar contraseña</label>
+                        <input type="password" name="password_confirmation" class="form-control" required autocomplete="new-password">
+                        <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
+                    </div>
                 </div>
                 <div class="col-12 d-grid gap-2 col-6 mx-auto mt-3 mb-2 pb-4 px-3">
                     <button type="submit" class="btn btn-primary">Registrarme</button>

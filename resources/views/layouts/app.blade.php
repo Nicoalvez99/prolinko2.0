@@ -44,6 +44,7 @@
             </div>
         </div>
     </footer>
+    <script src="{{ asset('js/contador.js') }}"></script>
     <script src="{{ asset('js/modalFactura.js') }}"></script>
     <script src="{{ asset('js/vuelto.js') }}"></script>
     <script src="{{ asset('js/app.js') }}"></script>

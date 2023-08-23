@@ -14,9 +14,11 @@ class AdministradorAuthController extends Controller
         //
     }
     public function index()
-    {
+    {   
+        $totalUsers = count(User::get());
         return view('super-admin.administrador', [
-            "users" => User::get()
+            "users" => User::get(),
+            "totalUsers" => $totalUsers
         ]);
     }
     

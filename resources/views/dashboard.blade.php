@@ -5,7 +5,7 @@
                 <div class="row">
                     <div class="col-6 caja">
                         <h6 class="total">Productos:</h6>
-                        <span>{{ $totalProductos }}</span>
+                        <span class="contador">{{ $totalProductos }}</span>
                     </div>
                     <div class="col-6 text-center">
                         <i class="bi bi-stack"></i>
@@ -18,7 +18,7 @@
                 <div class="row">
                     <div class="col-6 caja">
                         <h6 class="total">Rubros:</h6>
-                        <span>7</span>
+                        <span class="contador">7</span>
                     </div>
                     <div class="col-6 text-center">
                         <i class="bi bi-diagram-3"></i>
@@ -31,7 +31,7 @@
                 <div class="row">
                     <div class="col-6 caja">
                         <h6 class="total">Proveedores:</h6>
-                        <span>{{ $totalProveedores }}</span>
+                        <span class="contador">{{ $totalProveedores }}</span>
                     </div>
                     <div class="col-6 text-center">
                         <i class="bi bi-person-lines-fill"></i>
@@ -44,7 +44,9 @@
                 <div class="row">
                     <div class="col-6 caja">
                         <h6 class="total">Ventas:</h6>
-                        <span>${{ $totalHistorial }}</span>
+                        <div class="d-flex">
+                        <p>$</p><span class="contador">{{ $totalHistorial }}</span>
+                        </div>
                     </div>
                     <div class="col-6 text-center">
                         <i class="bi bi-bag-check"></i>

@@ -103,7 +103,7 @@
     padding-top: 10px;
 }
 
-.caja span {
+.caja p, span {
     font-family: 'Quicksand', sans-serif;
     font-weight: 500;
     font-size: 35px;
