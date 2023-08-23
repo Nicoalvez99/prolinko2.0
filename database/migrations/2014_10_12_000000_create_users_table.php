@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('email')->unique();
             $table->bigInteger('dni');
-            $table->string('premium');
+            $table->string('premium')->default('Simple');
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();

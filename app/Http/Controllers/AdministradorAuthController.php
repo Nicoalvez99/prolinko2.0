@@ -16,9 +16,13 @@ class AdministradorAuthController extends Controller
     public function index()
     {   
         $totalUsers = count(User::get());
+        $totalUserPremium = count(User::where('premium', '=', 'Premium')->get());
+        $totalUserSimple = count(User::where('premium', '=', 'Simple')->get());
         return view('super-admin.administrador', [
             "users" => User::get(),
-            "totalUsers" => $totalUsers
+            "totalUsers" => $totalUsers,
+            "totalUserPremium" => $totalUserPremium,
+            "totalUserSimple" => $totalUserSimple
         ]);
     }
     

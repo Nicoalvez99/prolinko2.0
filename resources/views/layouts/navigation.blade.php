@@ -12,12 +12,24 @@
         <li class="nav-item">
           <a class="nav-link {{ setActive('stock') }}" href="{{ route('stock') }}"><i class="bi bi-stack"></i> Stock</a>
         </li>
+        @if(Auth::user()->premium == 'Premium')
         <li class="nav-item">
           <a class="nav-link {{ setActive('dashboard') }}" href="{{ route('dashboard') }}"> <i class="bi bi-bar-chart"></i> Dashboard</a>
         </li>
         <li class="nav-item">
           <a class="nav-link {{ setActive('proveedores') }}" href="{{ route('proveedores') }}"><i class="bi bi-person-lines-fill"></i> Proveedores</a>
         </li>
+        @else
+        <li class="nav-item noPremium">
+          <button class="nav-link" disabled>
+            <i class="bi bi-bar-chart"></i>
+            Dashboard
+          </button>
+        </li>
+        <li class="nav-item noPremium">
+          <button class="nav-link" disabled><i class="bi bi-person-lines-fill"></i> Proveedores</button>
+        </li>
+        @endif
       </ul>
     </div>
     <div class="nav-item dropstart">

@@ -29,6 +29,7 @@
         <header class="col-2 p-0">
             @include('layouts.navAdmin')
         </header>
+        
         <main class="col-10">
             <div class="row">
                 <div class="col-12 backgroundTitle">
@@ -88,7 +89,7 @@
                         </div>
                         <div class="data">
                             <p>
-                                {{ $totalUsers }}
+                                {{ $totalUserPremium }}
                             </p>
                         </div>
                     </div>
@@ -102,38 +103,47 @@
                                 </svg>
                             </span>
                             <p class="title-text">
-                                Usuarios
+                                Usuarios Simples
                             </p>
                         </div>
                         <div class="data">
                             <p>
-                                {{ $totalUsers }}
+                                {{ $totalUserSimple }}
                             </p>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="col-12 px-2 my-2">
-                <input type="text" data-table="table_id" class="form-control light-table-filter" placeholder="Buscador de usuario por nombre, email o DNI.">
+                <input type="text" data-table="table_id" class="form-control light-table-filter" placeholder="Buscador de usuario por nombre, email, DNI o tipo de usuario.">
             </div>
             <div class="row">
-                <div class="col-12">
+                <div class="col-12 tablaUsers">
                     <table class="table table-hover table_id">
                         <thead>
                             <th>Imagen</th>
                             <th>Nombre</th>
                             <th>DNI</th>
                             <th>Email</th>
+                            <th>Tipo de usuario</th>
                             <th>Acción</th>
                         </thead>
                         <tbody>
                             @foreach($users as $user)
+                            @include('layouts.modalAdmin')
                             <tr>
                                 <td></td>
                                 <td>{{ $user->name }}</td>
                                 <td>{{ $user->dni }}</td>
                                 <td>{{ $user->email }}</td>
-                                <td></td>
+                                <td>{{ $user->premium }}</td>
+                                <td class="d-flex">
+                                    <button class="botonEdit" data-bs-toggle="modal" data-bs-target="#exampleModal{{ $user->dni }}"><i class="bi bi-pencil-square"></i></button>
+                                    <form action="" method="post">
+                                        @csrf @method('delete')
+                                        <button type="submit" class="botonDelete mx-2"><i class="bi bi-trash3"></i></button>
+                                    </form>
+                                </td>
                             </tr>
                             @endforeach
                         </tbody>

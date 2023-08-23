@@ -25,14 +25,14 @@
 }
 
 /* Estilos base de los enlaces */
-.ulBot a {
+.ulBot a, button {
     text-decoration: none;
     color: aliceblue;
     padding: 5px 10px;
     position: relative;
 }
 
-.ulBot a:hover {
+.ulBot a, button:hover {
     color: aliceblue;
 }
 

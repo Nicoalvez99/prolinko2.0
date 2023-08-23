@@ -22,14 +22,14 @@ Route::get('administrador', [AdministradorAuthController::class, 'index'])->midd
 Route::get('/tienda', [CompraController::class, 'index'])->middleware(['auth', 'verified'])->name('tienda');
 
 
-Route::get('/dashboard', [HistorialController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/dashboard', [HistorialController::class, 'index'])->middleware(['premium.user'])->name('dashboard');
 Route::get('/stock', [ProductoController::class, 'index'])->middleware(['auth', 'verified'])->name('stock');
-Route::get('/proveedores', [ProveedorController::class, 'index'])->middleware(['auth', 'verified'])->name('proveedores');
+Route::get('/proveedores', [ProveedorController::class, 'index'])->middleware(['premium.user'])->name('proveedores');
 
 //Rutas a Controladores
 Route::post('/tienda', [CompraController::class, 'store'])->name('compra.store');
 Route::post('/stock', [ProductoController::class, 'store'])->name('productos.store');
-Route::post('/proveedores/{tipo}', [ProveedorController::class, 'store'])->name('proveedor.store');
+Route::post('/proveedores/{tipo}', [ProveedorController::class, 'store'])->middleware(['premium.user'])->name('proveedor.store');
 
 Route::patch('/stock/{producto}', [ProductoController::class, 'update'])->name('producto.edit');
 
