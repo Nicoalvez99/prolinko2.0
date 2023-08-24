@@ -64,6 +64,11 @@
     position: fixed;
     bottom: 0;
 }
+.premium {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+}
 
 .botonEdit {
     background: none;
@@ -103,7 +108,7 @@
     padding-top: 10px;
 }
 
-.caja p, span {
+.caja p, .contador {
     font-family: 'Quicksand', sans-serif;
     font-weight: 500;
     font-size: 35px;

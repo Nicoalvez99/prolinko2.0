@@ -29,7 +29,6 @@
         <header class="col-2 p-0">
             @include('layouts.navAdmin')
         </header>
-        
         <main class="col-10">
             <div class="row">
                 <div class="col-12 backgroundTitle">
@@ -88,7 +87,7 @@
                             </p>
                         </div>
                         <div class="data">
-                            <p>
+                            <p class="contador">
                                 {{ $totalUserPremium }}
                             </p>
                         </div>
@@ -107,7 +106,7 @@
                             </p>
                         </div>
                         <div class="data">
-                            <p>
+                            <p class="contador">
                                 {{ $totalUserSimple }}
                             </p>
                         </div>
@@ -138,7 +137,7 @@
                                 <td>{{ $user->email }}</td>
                                 <td>{{ $user->premium }}</td>
                                 <td class="d-flex">
-                                    <button class="botonEdit" data-bs-toggle="modal" data-bs-target="#exampleModal{{ $user->dni }}"><i class="bi bi-pencil-square"></i></button>
+                                    <button class="botonEdit" data-bs-toggle="modal" data-bs-target="#exampleModal{{ $user->email }}"><i class="bi bi-pencil-square"></i></button>
                                     <form action="" method="post">
                                         @csrf @method('delete')
                                         <button type="submit" class="botonDelete mx-2"><i class="bi bi-trash3"></i></button>
@@ -152,6 +151,7 @@
             </div>
         </main>
     </div>
+    @include('partials.session-status')
     <script src="{{ asset('js/contador.js') }}"></script>
     <script src="{{ asset('js/app.js') }}"></script>
 </body>

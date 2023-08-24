@@ -25,5 +25,13 @@ class AdministradorAuthController extends Controller
             "totalUserSimple" => $totalUserSimple
         ]);
     }
+
+    public function update(User $user, Request $request)
+    {
+        $user->update([
+            "premium" => request('premium')
+        ]);
+        return redirect()->route('administrador')->with('status', 'Usuario editado correctamente');
+    }
     
 }
