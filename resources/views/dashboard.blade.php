@@ -77,6 +77,7 @@
                         <thead>
                             <th>Fecha y hora</th>
                             <th>Productos</th>
+                            <th>Rubros</th>
                             <th>Total</th>
                         </thead>
                         <tbody>
@@ -84,6 +85,7 @@
                             <tr>
                                 <td>{{ $historial->created_at }}</td>
                                 <td>{{ $historial->aProductos }}</td>
+                                <td>{{ $historial->aRubros }}</td>
                                 <td>${{ $historial->total }}</td>
                             </tr>
                             @endforeach
@@ -100,7 +102,6 @@
             <p>Ventas del día Jueves: <span id="jueves">{{ $ventasPorDiasSemana['jueves'] ?? 0 }}</span></p>
             <p>Ventas del día viernes: <span id="viernes">{{ $ventasPorDiasSemana['viernes'] ?? 0 }}</span></p>
             <p>Ventas del día sabado: <span id="sabado">{{ $ventasPorDiasSemana['sabado'] ?? 0 }}</span></p>
-
         </div>
     </div>
 </x-app-layout>

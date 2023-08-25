@@ -1,5 +1,5 @@
 <!-- Modal -->
-<form action="{{ route('productos.store') }}" method="post">
+<form action="{{ route('productos.store', 'producto') }}" method="post">
     @csrf
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
@@ -24,6 +24,15 @@
                     <div class="col-12">
                         <label for="stock">Stock</label>
                         <input type="number" name="stock" id="stock" class="form-control" required>
+                    </div>
+                    <div class="col-12">
+                        <label for="rubro">Rubro</label>
+                        <select name="rubro" id="" class="form-control">
+                            <option value="seleccionar" selected>Seleccionar</option>
+                            @foreach($rubros as $rubro)
+                            <option value="{{ $rubro->nombre }}">{{ $rubro->nombre }}</option>
+                            @endforeach
+                        </select>
                     </div>
                 </div>
                 <div class="modal-footer">

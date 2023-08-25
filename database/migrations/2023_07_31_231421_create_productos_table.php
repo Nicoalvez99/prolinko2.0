@@ -17,6 +17,7 @@ return new class extends Migration
             $table->bigInteger('codigo');
             $table->integer('precio');
             $table->integer('stock');
+            $table->string('rubro');
             $table->unsignedInteger('contador_semanal')->default(0);
             $table->foreignId('user_id');
             $table->timestamps();

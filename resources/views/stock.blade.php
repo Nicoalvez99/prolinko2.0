@@ -1,5 +1,6 @@
 <x-app-layout>
     @include('layouts.modalStock')
+    @include('layouts.modalRubro')
     @include('partials.session-status')
     <div class="row">
         <div class="col-12">
@@ -19,7 +20,14 @@
             @endif
             <div class="my-1">
                 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">+ Agregar producto</button>
-                <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">+ Agregar rubro</button>
+                <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModalRubro">+ Agregar rubro</button>
+            </div>
+            <div class="row">
+                <div class="col-12 my-3">
+                    @foreach($rubros as $rubro)
+                    <small style="padding: 10px;" class="alert alert-success">{{ $rubro->nombre }}</small>
+                    @endforeach
+                </div>
             </div>
             <input type="text" data-table="table_id" class="form-control light-table-filter" placeholder="Buscador de productos por código, nombre, precio o stock.">
             <table class="table table-hover my-2 table_id">
@@ -44,9 +52,9 @@
                         <td>{{ $stock->stock }}</td>
                         @endif
                         <td>${{ $stock->precio }}</td>
-                        <td><!-- Poner rubro en Backend --></td>
+                        <td>{{ $stock->rubro }}</td>
                         <td class="d-flex">
-                            <button class="botonEdit" data-bs-toggle="modal" data-bs-target="#exampleModal{{ $stock->nombre }}"><i class="bi bi-pencil-square"></i></button>
+                            <button class="botonEdit" data-bs-toggle="modal" data-bs-target="#exampleModal{{ $stock->id }}"><i class="bi bi-pencil-square"></i></button>
                             <form action="{{ route('producto.delete', $stock) }}" method="post">
                                 @csrf @method('delete')
                                 <button type="submit" class="botonDelete mx-2"><i class="bi bi-trash3"></i></button>

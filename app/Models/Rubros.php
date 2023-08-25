@@ -5,8 +5,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Compras extends Model
+class Rubros extends Model
 {
-    protected $fillable = ['nombre', 'codigo', 'cantidad', 'precio', 'precioTotal', 'stock', 'rubro', 'user_id'];
+    protected $fillable = ['nombre', 'user_id'];
     use HasFactory;
 }

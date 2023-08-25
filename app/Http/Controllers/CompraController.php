@@ -50,6 +50,7 @@ class CompraController extends Controller
                     'precio' => $producto->precio,
                     'precioTotal' => $producto->precio * $cantidad,
                     'stock' => $producto->stock,
+                    'rubro' => $producto->rubro,
                     'user_id' => $user->id
                 ]);
                 $productoNoEncontrado - 1;
@@ -108,16 +109,20 @@ class CompraController extends Controller
 
         //Agregar al historial la compra
         $aProductos = [];
+        $aRubros = [];
         $totalCompra = 0;
         foreach($comprasUsuario as $compra){
             $aProductos[] = $compra->cantidad > 1 ? $compra->nombre . "(" . $compra->cantidad . ")" : $compra->nombre;
+            $aRubros[] = $compra->rubro;
             $totalCompra += $compra->precioTotal;
         }
         $cadenaProductos = implode(', ', $aProductos);
+        $cadenaRubros = implode(', ', $aRubros);
 
         Historial::create([
             "aProductos" => $cadenaProductos,
             "total" => $totalCompra,
+            "aRubros" => $cadenaRubros,
             "user_id" => $userId
 
         ]);

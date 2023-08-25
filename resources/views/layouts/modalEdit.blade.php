@@ -1,7 +1,7 @@
 <!-- Modal -->
 <form action="{{ route('producto.edit', $stock) }}" method="post">
     @csrf @method('patch')
-    <div class="modal fade" id="exampleModal{{ $stock->nombre }}" tabindex="-1" aria-labelledby="exampleModalLabel{{ $stock->nombre }}" aria-hidden="true">
+    <div class="modal fade" id="exampleModal{{ $stock->id }}" tabindex="-1" aria-labelledby="exampleModalLabel{{ $stock->id }}" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header backgroundModals">

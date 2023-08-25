@@ -29,7 +29,7 @@ Route::get('/proveedores', [ProveedorController::class, 'index'])->middleware(['
 
 //Rutas a Controladores
 Route::post('/tienda', [CompraController::class, 'store'])->name('compra.store');
-Route::post('/stock', [ProductoController::class, 'store'])->name('productos.store');
+Route::post('/stock/{tipo}', [ProductoController::class, 'store'])->name('productos.store');
 Route::post('/proveedores/{tipo}', [ProveedorController::class, 'store'])->middleware(['premium.user'])->name('proveedor.store');
 
 Route::patch('/stock/{producto}', [ProductoController::class, 'update'])->name('producto.edit');

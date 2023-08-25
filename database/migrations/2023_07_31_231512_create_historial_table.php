@@ -16,6 +16,7 @@ return new class extends Migration
             $table->timestamp('fecha');
             $table->text('aProductos');
             $table->integer('total');
+            $table->text('aRubros');
             $table->foreignId('user_id');
             $table->timestamps();
         });
