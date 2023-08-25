@@ -82,7 +82,7 @@
                         <tbody>
                             @foreach($historials as $historial)
                             <tr>
-                                <td>{{ $historial->fecha }}</td>
+                                <td>{{ $historial->created_at }}</td>
                                 <td>{{ $historial->aProductos }}</td>
                                 <td>${{ $historial->total }}</td>
                             </tr>
@@ -91,6 +91,16 @@
                     </table>
                 </div>
             </div>
+        </div>
+        <div class="col-12 col-sm-6">
+            <p>Ventas del día domingo: <span id="domingo">{{ $ventasPorDiasSemana['domingo'] ?? 0 }}</span></p>
+            <p>Ventas del día Lunes: <span id="lunes">{{ $ventasPorDiasSemana['lunes'] ?? 0 }}</span></p>
+            <p>Ventas del día Martes: <span id="martes">{{ $ventasPorDiasSemana['martes'] ?? 0 }}</span></p>
+            <p>Ventas del día Miercoles: <span id="miercoles">{{ $ventasPorDiasSemana['miercoles'] ?? 0 }}</span></p>
+            <p>Ventas del día Jueves: <span id="jueves">{{ $ventasPorDiasSemana['jueves'] ?? 0 }}</span></p>
+            <p>Ventas del día viernes: <span id="viernes">{{ $ventasPorDiasSemana['viernes'] ?? 0 }}</span></p>
+            <p>Ventas del día sabado: <span id="sabado">{{ $ventasPorDiasSemana['sabado'] ?? 0 }}</span></p>
+
         </div>
     </div>
 </x-app-layout>
