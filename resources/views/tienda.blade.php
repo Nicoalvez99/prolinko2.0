@@ -3,7 +3,7 @@
     <!-- Cuerpo de la Tienda -->
     <div class="row container">
         <div class="col-12 col-sm-6 my-2">
-            <form action="{{ route('compra.store') }}" method="post">
+            <form action="{{ route('compra.store', 'compra') }}" method="post">
                 @csrf
                 <div class="col-10 d-block">
                     <label for="codigo">Nombre o código del producto</label>
@@ -24,6 +24,9 @@
                 <form action="{{ route('cobro.delete') }}" method="post">
                     @csrf @method('delete')
                     <button type="submit" class="btn btn-success mx-2">Cobrar</button>
+                </form>
+                <form action="{{ route('compra.store', 'ticket') }}" method="post">
+                    <button type="submit" class="btn btn-danger {{ count($compras) == 0 ? 'disabled' : '' }}">Ticket</button>
                 </form>
             </div>
         </div>

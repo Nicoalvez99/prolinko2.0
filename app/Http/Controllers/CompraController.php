@@ -7,6 +7,10 @@ use App\Models\Productos;
 use App\Models\Historial;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Mike42\Escpos\PrintConnectors\FilePrintConnector;
+use Mike42\Escpos\Printer;
+use Mike42\Escpos\EscposImage;
+use Mike42\Escpos\PrintConnectors\WindowsPrintConnector;
 
 class CompraController extends Controller
 {
@@ -32,40 +36,45 @@ class CompraController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function print()
     {
-        //Tomar los valores de los input
-        $codigo = $request->codigo;
-        $cantidad = $request->cantidad == "" ? 1 : intval($request->cantidad);
-        $user = Auth::user();
-        //Luego si esos valores coinciden con algún producto que tengas en la BBDD, lo guarda en la table de compras
-        $aProductos = Productos::where('user_id', '=', $user->id)->get();
-        $productoNoEncontrado = 0;
-        foreach ($aProductos as $producto) {
-            if ($producto->codigo == $codigo || $producto->nombre == $codigo) {
-                Compras::create([
-                    'nombre' => $producto->nombre,
-                    'codigo' => $producto->codigo,
-                    'cantidad' => $cantidad,
-                    'precio' => $producto->precio,
-                    'precioTotal' => $producto->precio * $cantidad,
-                    'stock' => $producto->stock,
-                    'rubro' => $producto->rubro,
-                    'user_id' => $user->id
-                ]);
-                $productoNoEncontrado - 1;
-            } else {
-                $productoNoEncontrado++;
+    }
+    public function store(Request $request, $tipo)
+    {
+        if ($tipo == 'compra') {
+            //Tomar los valores de los input
+            $codigo = $request->codigo;
+            $cantidad = $request->cantidad == "" ? 1 : intval($request->cantidad);
+            $user = Auth::user();
+            //Luego si esos valores coinciden con algún producto que tengas en la BBDD, lo guarda en la table de compras
+            $aProductos = Productos::where('user_id', '=', $user->id)->get();
+            $productoNoEncontrado = 0;
+            foreach ($aProductos as $producto) {
+                if ($producto->codigo == $codigo || $producto->nombre == $codigo) {
+                    Compras::create([
+                        'nombre' => $producto->nombre,
+                        'codigo' => $producto->codigo,
+                        'cantidad' => $cantidad,
+                        'precio' => $producto->precio,
+                        'precioTotal' => $producto->precio * $cantidad,
+                        'stock' => $producto->stock,
+                        'rubro' => $producto->rubro,
+                        'user_id' => $user->id
+                    ]);
+                    $productoNoEncontrado - 1;
+                } else {
+                    $productoNoEncontrado++;
+                }
             }
-        }
-        $totalProductos = count($aProductos);
-        if ($productoNoEncontrado == $totalProductos) {
-            return redirect()->route('tienda')->with('status', 'Este producto no está en su stock.');
-        } else {
-            return redirect()->route('tienda');
-        }
-        // Sino manda un mensaje de session que diga "Este producto no está en tu stock".
+            $totalProductos = count($aProductos);
+            if ($productoNoEncontrado == $totalProductos) {
+                return redirect()->route('tienda')->with('status', 'Este producto no está en su stock.');
+            } else {
+                return redirect()->route('tienda');
+            }
+        } elseif ($tipo == 'print'){
 
+        }
     }
 
     /**
@@ -111,7 +120,7 @@ class CompraController extends Controller
         $aProductos = [];
         $aRubros = [];
         $totalCompra = 0;
-        foreach($comprasUsuario as $compra){
+        foreach ($comprasUsuario as $compra) {
             $aProductos[] = $compra->cantidad > 1 ? $compra->nombre . "(" . $compra->cantidad . ")" : $compra->nombre;
             $aRubros[] = $compra->rubro;
             $totalCompra += $compra->precioTotal;
@@ -126,7 +135,7 @@ class CompraController extends Controller
             "user_id" => $userId
 
         ]);
-    
+
         // Procesar las compras y actualizar los productos
         foreach ($comprasUsuario as $compra) {
             $codigoProducto = $compra->codigo;
