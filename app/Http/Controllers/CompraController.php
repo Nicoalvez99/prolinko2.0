@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Compras;
 use App\Models\Productos;
-use App\Models\Historial;
+use App\Models\Historials;
+use App\Models\Historialmes;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Mike42\Escpos\PrintConnectors\FilePrintConnector;
@@ -109,7 +110,7 @@ class CompraController extends Controller
         $compra->delete();
         return redirect()->route('tienda');
     }
-    public function cobrarDestroy(Productos $producto, Compras $compra, Historial $historial)
+    public function cobrarDestroy(Productos $producto, Compras $compra, Historials $historial)
     {
         $userId = auth()->user()->id;
 
@@ -128,12 +129,18 @@ class CompraController extends Controller
         $cadenaProductos = implode(', ', $aProductos);
         $cadenaRubros = implode(', ', $aRubros);
 
-        Historial::create([
+        Historials::create([
             "aProductos" => $cadenaProductos,
             "total" => $totalCompra,
             "aRubros" => $cadenaRubros,
             "user_id" => $userId
 
+        ]);
+        Historialmes::create([
+            "aProductos" => $cadenaProductos,
+            "total" => $totalCompra,
+            "aRubros" => $cadenaRubros,
+            "user_id" => $userId
         ]);
 
         // Procesar las compras y actualizar los productos

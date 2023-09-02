@@ -20,7 +20,11 @@ Route::get('/', function () {
 Route::get('administrador', [AdministradorAuthController::class, 'index'])->middleware(['admin.access'])->name('administrador');
 Route::patch('administrador/{user}', [AdministradorAuthController::class, 'update'])->middleware(['admin.access'])->name('update.user');
 // Rutas de navegación básicas
-Route::get('/tienda', [CompraController::class, 'index'])->middleware(['auth', 'verified'])->name('tienda');
+
+
+Route::get('/tienda', [CompraController::class, 'index'])
+->middleware(['auth', 'verified'])
+->name('tienda');
 
 
 Route::get('/dashboard', [HistorialController::class, 'index'])->middleware(['premium.user'])->name('dashboard');
@@ -34,8 +38,9 @@ Route::post('/proveedores/{tipo}', [ProveedorController::class, 'store'])->middl
 
 Route::patch('/stock/{producto}', [ProductoController::class, 'update'])->name('producto.edit');
 
+Route::delete('/dashboard', [HistorialController::class, 'destroy'])->name('historial.semana.delete');
 Route::delete('/tienda/{compra}', [CompraController::class, 'destroy'])->name('compra.delete');
-route::delete('/tienda', [CompraController::class, 'cobrarDestroy'])->name('cobro.delete');
+Route::delete('/tienda', [CompraController::class, 'cobrarDestroy'])->name('cobro.delete');
 Route::delete('stock/{producto}', [ProductoController::class, 'destroy'])->name('producto.delete');
 
 Route::middleware('auth')->group(function () {

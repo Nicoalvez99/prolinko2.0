@@ -26,7 +26,7 @@
                     <button type="submit" class="btn btn-success mx-2">Cobrar</button>
                 </form>
                 <form action="{{ route('compra.store', 'ticket') }}" method="post">
-                    <button type="submit" class="btn btn-danger {{ count($compras) == 0 ? 'disabled' : '' }}">Ticket</button>
+                    <button type="submit" class="btn btn-danger {{ count($compras) == 0 ? 'disabled' : '' }}"><i class="bi bi-printer"></i> Ticket</button>
                 </form>
             </div>
         </div>

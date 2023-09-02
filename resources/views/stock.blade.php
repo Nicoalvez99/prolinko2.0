@@ -39,6 +39,7 @@
                     <th>Rubro</th>
                     <th>Acción</th>
                 </thead>
+                @if(count($stocks) > 0)
                 <tbody>
                     @foreach($stocks as $id => $stock)
                     @if($stock->user_id === Auth::user()->id)
@@ -46,24 +47,33 @@
                     <tr>
                         <td>{{ $stock->codigo }}</td>
                         <td>{{ $stock->nombre }}</td>
-                        @if($stock->stock <= 10)
-                        <td style="color: red;">Stock crítico({{ $stock->stock }})</td>
-                        @else
-                        <td>{{ $stock->stock }}</td>
-                        @endif
-                        <td>${{ $stock->precio }}</td>
-                        <td>{{ $stock->rubro }}</td>
-                        <td class="d-flex">
-                            <button class="botonEdit" data-bs-toggle="modal" data-bs-target="#exampleModal{{ $stock->id }}"><i class="bi bi-pencil-square"></i></button>
-                            <form action="{{ route('producto.delete', $stock) }}" method="post">
-                                @csrf @method('delete')
-                                <button type="submit" class="botonDelete mx-2"><i class="bi bi-trash3"></i></button>
-                            </form>
-                        </td>
+                        @if($stock->stock <= 10) <td style="color: red;">Stock crítico({{ $stock->stock }})</td>
+                            @else
+                            <td>{{ $stock->stock }}</td>
+                            @endif
+                            <td>${{ $stock->precio }}</td>
+                            <td>{{ $stock->rubro }}</td>
+                            <td class="d-flex">
+                                <button class="botonEdit" data-bs-toggle="modal" data-bs-target="#exampleModal{{ $stock->id }}"><i class="bi bi-pencil-square"></i></button>
+                                <form action="{{ route('producto.delete', $stock) }}" method="post">
+                                    @csrf @method('delete')
+                                    <button type="submit" class="botonDelete mx-2"><i class="bi bi-trash3"></i></button>
+                                </form>
+                            </td>
                     </tr>
                     @endif
                     @endforeach
                 </tbody>
+                @endif
+                @if(count($stocks) == 0)
+                <div class="row">
+                    <div class="col-12">
+                        <div class="alert alert-primary" role="alert">
+                            Aún no hay productos en stock.
+                        </div>
+                    </div>
+                </div>
+                @endif
             </table>
         </div>
     </section>

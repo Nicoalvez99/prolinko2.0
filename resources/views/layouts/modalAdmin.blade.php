@@ -24,7 +24,15 @@
             @csrf @method('patch')
             <div class="col-12">
               <label for="name">Tipo de usuario: </label>
-              <input type="text" class="form-control" name="premium" value="{{ $user->premium }}" name="">
+              <select name="premium" id="" class="form-control">
+                @if($user->premium == "Simple")
+                <option value="{{ $user->premium }}" selected>{{ $user->premium }}</option>
+                <option value="Premium">Premium</option>
+                @else
+                <option value="{{ $user->premium }}" selected>{{ $user->premium }}</option>
+                <option value="Simple">Simple</option>
+                @endif
+              </select>
             </div>
             <button type="submit" class="btn btn-primary my-2">Editar</button>
           </form>
