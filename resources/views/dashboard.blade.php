@@ -129,7 +129,7 @@
                             <th>Total</th>
                         </thead>
                         <tbody>
-                            @foreach($historials as $historial)
+                            @foreach($historialmes as $historial)
                             <tr>
                                 <td>{{ $historial->created_at }}</td>
                                 <td>{{ $historial->aProductos }}</td>
@@ -143,7 +143,7 @@
             </div>
         </div>
     </div>
-    <div class="row">
+    <div class="row visually-hidden">
         <div class="col-12 col-sm-6">
             <p>Ventas del día domingo: <span id="domingo">{{ $ventasPorDiasSemana['domingo'] ?? 0 }}</span></p>
             <p>Ventas del día Lunes: <span id="lunes">{{ $ventasPorDiasSemana['lunes'] ?? 0 }}</span></p>

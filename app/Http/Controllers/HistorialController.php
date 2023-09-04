@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Historials;
 use App\Models\Productos;
 use App\Models\Proveedores;
+use App\Models\Historialmes;
 use Illuminate\Support\Facades\Auth;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -22,7 +23,7 @@ class HistorialController extends Controller
         $totalProveedores = count(Proveedores::where('user_id', '=', $user->id)->get());
         $totalHistorial = Historials::where('user_id', '=', $user->id)->sum('total');
 
-        if (now()->dayOfWeek == Carbon::SUNDAY) {
+        if (now()->dayOfWeek == Carbon::SUNDAY && now()->format('H:i') === '00:00') {
             // Si es domingo, eliminar todos los registros de la tabla Historials
             Historials::truncate();
             $totalHistorial = 0; // Establecer el totalHistorial en 0
@@ -61,7 +62,7 @@ class HistorialController extends Controller
         }
 
         // Obtener ventas por mes del año actual
-        $ventasPorMes = Historials::where('user_id', '=', $user->id)
+        $ventasPorMes = Historialmes::where('user_id', '=', $user->id)
             ->whereYear('created_at', now()->year) // Filtrar por el año actual
             ->selectRaw('MONTH(created_at) as mes, COUNT(*) as cantidad_ventas')
             ->groupBy('mes')
@@ -83,6 +84,9 @@ class HistorialController extends Controller
             "historials" => Historials::where('user_id', '=', $user->id)
                 ->orderByDesc('created_at')
                 ->get(),
+            "historialmes" => Historialmes::where('user_id', '=', $user->id)
+            ->orderByDesc('created_at')
+            ->get(),
             "totalProductos" => $totalProductos,
             "totalProveedores" => $totalProveedores,
             "totalHistorial" => $totalHistorial,

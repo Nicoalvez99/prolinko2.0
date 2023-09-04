@@ -55,6 +55,8 @@ class ProductoController extends Controller
                 "user_id" => $user->id
             ]);
             return redirect()->route('stock')->with('status', 'Rubro creado exitosamente');
+        } elseif ($tipo == 'excel'){
+            //
         }
 
         

@@ -1,6 +1,7 @@
 <x-app-layout>
     @include('layouts.modalStock')
     @include('layouts.modalRubro')
+    @include('layouts.modalExcel')
     @include('partials.session-status')
     <div class="row">
         <div class="col-12">
@@ -21,6 +22,7 @@
             <div class="my-1">
                 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">+ Agregar producto</button>
                 <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModalRubro">+ Agregar rubro</button>
+                <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModalExcel"><i class="bi bi-file-earmark-spreadsheet"></i> Agregar Excel</button>
             </div>
             <div class="row">
                 <div class="col-12 my-3">
