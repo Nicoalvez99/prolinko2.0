@@ -33,3 +33,38 @@ button {
     font-family: 'Montserrat', sans-serif;
     font-size: 50px;
   }
+
+  .degradado-texto {
+    background-image: linear-gradient(to right, #090979, #00d4ff);
+    color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+  }
+
+  h3, span {
+    font-size: 44px;
+  }
+
+  h3 {
+    font-family: 'Josefin Sans', sans-serif;
+
+  }
+  ul, li {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 20px;
+  }
+
+  .lista-check {
+    list-style-type: none;
+    padding-left: 0;
+  }
+  
+  .lista-check li::before {
+    content: '\2713'; /* Código para el símbolo de check (✓) */
+    color: #293db1; /* Color del check */
+    font-size: 1.2em; /* Tamaño del check */
+    margin-right: 0.5em; /* Espacio entre el check y el texto */
+  }
+  
+  
+  

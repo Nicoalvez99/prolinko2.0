@@ -46,6 +46,15 @@
                 </div>
             @endif
         </div>
+        <div class="col-3 my-2">
+            <label for="">¿En que vendes?</label>
+            <select name="cantidad" class="form-control" id="">
+                <option value="seleccionar" selected disabled>Seleccionar</option>
+                <option value="Cantidad">Cantidad</option>
+                <option value="Gramos">Gramos</option>
+                <option value="Metros">Metros</option>
+            </select>
+        </div>
 
         <div class="flex items-center gap-4">
             <x-primary-button>{{ __('Save') }}</x-primary-button>

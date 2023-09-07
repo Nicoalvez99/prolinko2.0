@@ -10,7 +10,7 @@
                     <input type="text" name="codigo" class="form-control" autofocus>
                 </div>
                 <div class="col-10 d-block">
-                    <label for="cantidad">Cantidad</label>
+                    <label for="cantidad">{{ Auth::user()->tipoDeTienda }}</label>
                     <input type="number" name="cantidad" class="form-control">
                 </div>
                 <button type="submit" name="btnAgregarCompra" class="btn btn-primary mt-2">Agregar a la compra</button>
