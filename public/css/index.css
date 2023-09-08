@@ -1,3 +1,34 @@
+.fondo {
+  background: rgb(20,16,79);
+  background: linear-gradient(90deg, rgba(20,16,79,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%);
+  height: 100vh;
+}
+.fondo h1 {
+  color:aliceblue;
+}
+.fondoAdaptable {
+  background: rgb(20,16,79);
+  background: linear-gradient(90deg, rgba(20,16,79,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%);
+  color:aliceblue;
+}
+
+.fondoAdaptable i {
+  font-size: 30px;
+}
+.fondoAdaptable h4 {
+  font-size: 30px;
+}
+.fondoAdaptable p {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 15px;
+}
+
+header {
+  background: rgb(20,16,79);
+  background: linear-gradient(90deg, rgba(20,16,79,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%);
+}
+
+
 button {
     font-size: 18px;
     display: inline-block;
@@ -66,5 +97,9 @@ button {
     margin-right: 0.5em; /* Espacio entre el check y el texto */
   }
   
-  
+  @media (max-width: 650px) {
+    .beneficios {
+      margin: 50px 0px;
+    }
+  }
   
