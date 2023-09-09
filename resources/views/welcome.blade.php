@@ -21,6 +21,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@600&display=swap" rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
@@ -36,7 +37,7 @@
             <div class="col-6 p-1 text-end">
                 @if (Route::has('login'))
                 @auth
-                <button><a href="{{ url('/tienda') }}" class="">Dashboard</a></button>
+                <button><a href="{{ url('/tienda') }}" class="">Tienda</a></button>
                 @else
                 <button><a href="{{ route('login') }}" class="">Log in</a></button>
 
@@ -49,9 +50,11 @@
         </div>
     </header>
     <main class="container-fluid p-0">
-        <div class="row p-3 fondo">
+        <div class="row p-3 fondo" data-aos="fade-right">
             <div class="col-12 col-sm-6 my-auto">
-                <h1 data-aos="fade-right">Tu solución de Punto de Venta en Linea</h1>
+                <h1 class="degradado-texto-h1">Prolinko</h1>
+                <hr style="color:aliceblue;">
+                <h2>Tu solución de Punto de Venta <span class="typed"></span></h2>
             </div>
             <div class="col-12 col-sm-6 my-auto">
                 <img src="{{ asset('images/657shots_so.png') }}" data-aos="fade-up" class="img-fluid" style="border-radius: 10px;" alt="">
@@ -140,6 +143,8 @@
             <h4>hola</h4>
         </section>
     </main>
+    <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
+    <script src="{{ asset('js/typed.js') }}"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         AOS.init();
