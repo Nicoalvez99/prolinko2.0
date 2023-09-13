@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Historials;
 use App\Models\Productos;
 use App\Models\Proveedores;
+use App\Models\Rubros;
 use App\Models\Historialmes;
 use Illuminate\Support\Facades\Auth;
 use Carbon\Carbon;
@@ -21,6 +22,7 @@ class HistorialController extends Controller
         $user = Auth::user();
         $totalProductos = count(Productos::where('user_id', '=', $user->id)->get());
         $totalProveedores = count(Proveedores::where('user_id', '=', $user->id)->get());
+        $totalRubros = count(Rubros::where('user_id', '=', $user->id)->get());
         $totalHistorial = Historials::where('user_id', '=', $user->id)->sum('total');
 
         if (now()->dayOfWeek == Carbon::SUNDAY && now()->format('H:i') === '00:00') {
@@ -89,6 +91,7 @@ class HistorialController extends Controller
             ->get(),
             "totalProductos" => $totalProductos,
             "totalProveedores" => $totalProveedores,
+            "totalRubros" => $totalRubros,
             "totalHistorial" => $totalHistorial,
             "ventasPorDiasSemana" => $ventasPorDiasSemana,
             "ventasPorMeses" => $ventasPorMeses

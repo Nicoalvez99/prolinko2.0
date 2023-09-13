@@ -18,7 +18,7 @@
                 <div class="row">
                     <div class="col-6 caja">
                         <h6 class="total">Rubros:</h6>
-                        <span class="contador">7</span>
+                        <span class="contador">{{ $totalRubros }}</span>
                     </div>
                     <div class="col-6 text-center">
                         <i class="bi bi-diagram-3"></i>
