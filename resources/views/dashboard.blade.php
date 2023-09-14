@@ -143,6 +143,14 @@
             </div>
         </div>
     </div>
+    <div class="row">
+        <div class="col-12 flex-end">
+            <form action="{{ route('dashboard.pdf') }}" method="post">
+                @csrf
+                <button type="submit" class="btn btn-danger">Generar PDF <i class="bi bi-file-pdf"></i></button>
+            </form>
+        </div>
+    </div>
     <div class="row visually-hidden">
         <div class="col-12 col-sm-6">
             <p>Ventas del día domingo: <span id="domingo">{{ $ventasPorDiasSemana['domingo'] ?? 0 }}</span></p>

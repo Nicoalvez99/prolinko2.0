@@ -9,6 +9,7 @@ use App\Models\Rubros;
 use App\Models\Historialmes;
 use Illuminate\Support\Facades\Auth;
 use Carbon\Carbon;
+use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Http\Request;
 
 class HistorialController extends Controller
@@ -97,7 +98,16 @@ class HistorialController extends Controller
             "ventasPorMeses" => $ventasPorMeses
         ]);
     }
+    public function pdf(){
+        $user = Auth::user();
+        $productos = Productos::where('user_id', '=', $user->id)->get();
+        $totalProveedores = count(Proveedores::where('user_id', '=', $user->id)->get());
+        $totalRubros = count(Rubros::where('user_id', '=', $user->id)->get());
+        $totalHistorial = Historials::where('user_id', '=', $user->id)->sum('total');
 
+        $pdf = Pdf::loadView('pdf', compact('productos'));
+        return $pdf->download('pdf');
+    }
     public function destroy()
     {
         Historials::truncate();
