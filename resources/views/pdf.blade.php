@@ -28,8 +28,6 @@
         background-color: #246355;
         color: aliceblue;
     }
-
-    
 </style>
 
 <body>
@@ -37,6 +35,7 @@
         <h1 class="degradado-texto-h1">Prolinko</h1>
     </div>
     <div class="main-container">
+        <h2>Mis productos</h2>
         <table>
             <thead>
                 <th>Código</th>
@@ -46,13 +45,27 @@
                 <th>Rubro</th>
             </thead>
             <tbody>
-                @foreach($productos as $producto)
+                
+            </tbody>
+
+        </table>
+    </div>
+    <div class="main-container">
+        <h2>Mi Historial</h2>
+        <table>
+            <thead>
+                <th>Fecha y hora</th>
+                <th>Productos</th>
+                <th>Rubros</th>
+                <th>Total</th>
+            </thead>
+            <tbody>
+                @foreach($historials as $historial)
                 <tr>
-                    <td>{{ $producto->codigo }}</td>
-                    <td>{{ $producto->nombre }}</td>
-                    <td>{{ $producto->stock }}</td>
-                    <td>{{ $producto->precio }}</td>
-                    <td>{{ $producto->rubro }}</td>
+                    <td>{{ $historial->created_at }}</td>
+                    <td>{{ $historial->aProductos }}</td>
+                    <td>{{ $historial->aRubros }}</td>
+                    <td>${{ $historial->total }}</td>
                 </tr>
                 @endforeach
             </tbody>

@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\Proveedores;
 use App\Models\Facturas;
 
+
 class ProveedorController extends Controller
 {
     /**

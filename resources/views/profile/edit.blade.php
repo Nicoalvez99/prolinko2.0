@@ -4,7 +4,21 @@
             {{ __('Profile') }}
         </h2>
     </x-slot>
-
+    <div class="row">
+        <div class="col-3 my-2">
+            <form action="{{ route('profile.tipo') }}" method="post">
+                @csrf @method('patch')
+                <label for="">¿En que vendes?</label>
+                <select name="tipoDeTienda" class="form-control" id="">
+                    <option value="seleccionar" selected disabled>Seleccionar</option>
+                    <option value="Cantidad">Cantidad</option>
+                    <option value="Gramos">Gramos</option>
+                    <option value="Metros">Metros</option>
+                </select>
+                <button type="submit" class="btn btn-primary my-2">Guardar</button>
+            </form>
+        </div>
+    </div>
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 space-y-6">
             <div class="p-4 sm:p-8 bg-white shadow sm:rounded-lg">

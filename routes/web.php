@@ -8,6 +8,7 @@ use App\Http\Controllers\ProductoController;
 use App\Http\Controllers\CompraController;
 use App\Http\Controllers\ProveedorController;
 use App\Http\Controllers\HistorialController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\TotalController;
 use App\Http\Controllers\SuperAdminController;
 
@@ -46,7 +47,8 @@ Route::delete('stock/{producto}', [ProductoController::class, 'destroy'])->name(
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::patch('/profile', [UserController::class, 'update'])->name('profile.tipo');
+    Route::patch('/profile/{tipo}', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 

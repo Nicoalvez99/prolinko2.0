@@ -103,10 +103,12 @@ class HistorialController extends Controller
         $productos = Productos::where('user_id', '=', $user->id)->get();
         $totalProveedores = count(Proveedores::where('user_id', '=', $user->id)->get());
         $totalRubros = count(Rubros::where('user_id', '=', $user->id)->get());
-        $totalHistorial = Historials::where('user_id', '=', $user->id)->sum('total');
+        $historials = Historials::where('user_id', '=', $user->id)->orderByDesc('created_at')->get();
 
-        $pdf = Pdf::loadView('pdf', compact('productos'));
-        return $pdf->download('pdf');
+        $pdf = Pdf::loadView('pdf', compact('historials'));
+              
+
+        return $pdf->stream('pdf');
     }
     public function destroy()
     {
