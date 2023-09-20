@@ -45,23 +45,46 @@ class CompraController extends Controller
         if ($tipo == 'compra') {
             //Tomar los valores de los input
             $codigo = $request->codigo;
-            $cantidad = $request->cantidad == "" ? 1 : intval($request->cantidad);
+            if(Auth::user()->tipoDeTienda == 'Kilogramos'){
+                $cantidad = $request->cantidad == "" ? 1 : floatval($request->cantidad);
+                
+            } else {
+                $cantidad = $request->cantidad == "" ? 1 : intval($request->cantidad);
+            }
+            
             $user = Auth::user();
             //Luego si esos valores coinciden con algún producto que tengas en la BBDD, lo guarda en la table de compras
             $aProductos = Productos::where('user_id', '=', $user->id)->get();
             $productoNoEncontrado = 0;
             foreach ($aProductos as $producto) {
                 if ($producto->codigo == $codigo || $producto->nombre == $codigo) {
-                    Compras::create([
-                        'nombre' => $producto->nombre,
-                        'codigo' => $producto->codigo,
-                        'cantidad' => $cantidad,
-                        'precio' => $producto->precio,
-                        'precioTotal' => $producto->precio * $cantidad,
-                        'stock' => $producto->stock,
-                        'rubro' => $producto->rubro,
-                        'user_id' => $user->id
-                    ]);
+                    //Si el usuario tiene Kilogramos por tipo de tienda agregamos la cantidad decimal a cantidadKg
+                    if($user->tipoDeTienda == 'Kilogramos'){
+                        Compras::create([
+                            'nombre' => $producto->nombre,
+                            'codigo' => $producto->codigo,
+                            'cantidad' => null,
+                            'cantidadKg' => $cantidad,
+                            'precio' => $producto->precio,
+                            'precioTotal' => $producto->precio * $cantidad,
+                            'stock' => $producto->stock,
+                            'rubro' => $producto->rubro,
+                            'user_id' => $user->id
+                        ]);
+                    } else {
+                        //sino a cantidad solo
+                        Compras::create([
+                            'nombre' => $producto->nombre,
+                            'codigo' => $producto->codigo,
+                            'cantidad' => $cantidad,
+                            'cantidadKg' => null,
+                            'precio' => $producto->precio,
+                            'precioTotal' => $producto->precio * $cantidad,
+                            'stock' => $producto->stock,
+                            'rubro' => $producto->rubro,
+                            'user_id' => $user->id
+                        ]);
+                    }
                     $productoNoEncontrado - 1;
                 } else {
                     $productoNoEncontrado++;

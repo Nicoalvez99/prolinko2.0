@@ -46,7 +46,9 @@ Route::delete('/tienda', [CompraController::class, 'cobrarDestroy'])->name('cobr
 Route::delete('stock/{producto}', [ProductoController::class, 'destroy'])->name('producto.delete');
 
 Route::middleware('auth')->group(function () {
+    Route::get('/configuracion', [UserController::class, 'index'])->name('config.user');
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('configuracion', [UserController::class, 'update'])->name('config.update');
     Route::patch('/profile', [UserController::class, 'update'])->name('profile.tipo');
     Route::patch('/profile/{tipo}', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');

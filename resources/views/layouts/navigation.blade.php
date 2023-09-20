@@ -37,10 +37,11 @@
         <i class="bi bi-person-circle"></i> {{ Auth::user()->name }}
       </a>
       <ul class="dropdown-menu dropToggle">
-        <li><a class="dropdown-item" href="{{ route('profile.edit') }}">Perfil</a></li>
+        <li><a class="dropdown-item" href="{{ route('profile.edit') }}"><i class="bi bi-person px-2"></i>Perfil</a></li>
+        <li><a class="dropdown-item" href="{{ route('config.user') }}"><i class="bi bi-gear px-2"></i>Configuración</a></li>
         <form action="{{ route('logout') }}" method="post">
           @csrf
-          <li><a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); this.closest('form').submit();">Cerrar sesion</a></li>
+          <li><a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); this.closest('form').submit();"><i class="bi bi-box-arrow-left px-2"></i>Cerrar sesion</a></li>
         </form>
       </ul>
     </div>

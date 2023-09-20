@@ -11,7 +11,7 @@
                 </div>
                 <div class="col-10 d-block">
                     <label for="cantidad">{{ Auth::user()->tipoDeTienda }}</label>
-                    <input type="number" name="cantidad" class="form-control">
+                    <input type="number" step="0.01" name="cantidad" class="form-control">
                 </div>
                 <button type="submit" name="btnAgregarCompra" class="btn btn-primary mt-2">Agregar a la compra</button>
             </form>
@@ -37,7 +37,7 @@
                 <th>Código</th>
                 <th>Producto</th>
                 <th>En Stock</th>
-                <th>Cantidad</th>
+                <th>{{ Auth::user()->tipoDeTienda }}</th>
                 <th>Precio unitario</th>
                 <th>Precio total</th>
                 <th>Remover</th>
@@ -49,9 +49,17 @@
                     <td>{{ $compra->codigo }}</td>
                     <td>{{ $compra->nombre }}</td>
                     <td>{{ $compra->stock }}</td>
+                    @if(Auth::user()->tipoDeTienda == 'Kilogramos')
+                    <td>{{ $compra->cantidadKg }}</td>
+                    @else
                     <td>{{ $compra->cantidad }}</td>
+                    @endif
                     <td>${{ $compra->precio }}</td>
+                    @if(Auth::user()->tipoDeTienda == 'Kilogramos')
+                    <td>${{ number_format($compra->precio * $compra->cantidadKg, 2) }}</td>
+                    @else
                     <td>${{ number_format($compra->precio * $compra->cantidad, 2) }}</td>
+                    @endif
                     <form action="{{ route('compra.delete', $compra) }}" method="post">
                         @csrf @method('delete')
                         <td><button type="submit" class="btn btn-danger" name="delete"><i class="bi bi-trash3"></i></button></td>

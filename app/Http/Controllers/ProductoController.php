@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Imports\ProductosImport;
 use App\Models\Productos;
 use App\Models\Rubros;
 use Illuminate\Support\Facades\Storage;
@@ -9,7 +10,10 @@ use Illuminate\Http\Request;
 use App\Http\Requests\SaveProjectRequest;
 use Illuminate\Support\Facades\Auth;
 use PhpParser\Node\Expr\Print_;
+use Maatwebsite\Excel\Facades\Excel;
 use Carbon\Carbon;
+use Maatwebsite\Excel\Excel as ExcelExcel;
+use Maatwebsite\Excel\Facades\Excel as FacadesExcel;
 
 class ProductoController extends Controller
 {
@@ -56,7 +60,8 @@ class ProductoController extends Controller
             ]);
             return redirect()->route('stock')->with('status', 'Rubro creado exitosamente');
         } elseif ($tipo == 'excel'){
-            //
+            Excel::import(new ProductosImport, request()->file('excel'));
+                return redirect()->back()->with('status', 'Los datos se han importado correctamente.');
         }
 
         
