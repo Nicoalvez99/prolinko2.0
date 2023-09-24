@@ -189,8 +189,32 @@
     /* Aplica estilos de Tailwind CSS */
 }
 
+
 /* Estilos para el modo oscuro */
 .modoOscuro {
     @apply bg-black text-white;
     /* Aplica estilos de Tailwind CSS */
+}
+#btn {
+    display: none;
+}
+.btnSesionNone {
+    display: none;
+}
+.btnBlock {
+    display: block;
+}
+.logoProlinkoLogin {
+    width: 70px;
+}
+@media (max-width: 650px) {
+    .fondoNoneLogin{
+        display: none;
+    }
+    .logoProlinkoLogin {
+        width: 50px;
+    }
+    .paraResponsive {
+        display: none;
+    }
 }

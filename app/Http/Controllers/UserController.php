@@ -27,6 +27,7 @@ class UserController extends Controller
         // Actualizar el perfil del usuario autenticado
         $user = Auth::user();
         $user->tipoDeTienda = $request->input('optCantidad');
+        $user->impresora = $request->input('impresora');
         // Actualiza otras columnas según sea necesario
 
         $user->save();

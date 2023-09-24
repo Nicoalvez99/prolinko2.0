@@ -12,6 +12,7 @@ use Mike42\Escpos\PrintConnectors\FilePrintConnector;
 use Mike42\Escpos\Printer;
 use Mike42\Escpos\EscposImage;
 use Mike42\Escpos\PrintConnectors\WindowsPrintConnector;
+use PhpParser\Node\Stmt\TryCatch;
 
 class CompraController extends Controller
 {
@@ -37,9 +38,7 @@ class CompraController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function print()
-    {
-    }
+    
     public function store(Request $request, $tipo)
     {
         if ($tipo == 'compra') {
@@ -96,8 +95,24 @@ class CompraController extends Controller
             } else {
                 return redirect()->route('tienda');
             }
-        } elseif ($tipo == 'print'){
+        } elseif ($tipo == 'ticket'){
+            try {
+                $user = Auth::user();
+                $tickets = Compras::where('user_id', '=', $user->id)->get();
+                foreach($tickets as $ticket){
+                    print_r($ticket->nombre);
+                }
+                $printer_name = "";
+                $connector = new WindowsPrintConnector($printer_name);
+                $printer = new Printer($connector);
+                $printer->text("Hola");
+                $printer->cut();
+                $printer->close();
 
+                return redirect()->route('tienda');
+            } catch (\Throwable $th) {
+                return redirect()->route('tienda')->with('status', 'Error al encontrar la impresora');
+            }
         }
     }
 

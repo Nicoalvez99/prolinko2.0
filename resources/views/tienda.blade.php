@@ -26,6 +26,7 @@
                     <button type="submit" class="btn btn-success mx-2">Cobrar</button>
                 </form>
                 <form action="{{ route('compra.store', 'ticket') }}" method="post">
+                    @csrf
                     <button type="submit" class="btn btn-danger {{ count($compras) == 0 ? 'disabled' : '' }}"><i class="bi bi-printer"></i> Ticket</button>
                 </form>
             </div>
@@ -36,9 +37,9 @@
             <thead>
                 <th>Código</th>
                 <th>Producto</th>
-                <th>En Stock</th>
+                <th class="paraResponsive">En Stock</th>
                 <th>{{ Auth::user()->tipoDeTienda }}</th>
-                <th>Precio unitario</th>
+                <th class="paraResponsive">Precio unitario</th>
                 <th>Precio total</th>
                 <th>Remover</th>
             </thead>
@@ -48,13 +49,13 @@
                 <tr>
                     <td>{{ $compra->codigo }}</td>
                     <td>{{ $compra->nombre }}</td>
-                    <td>{{ $compra->stock }}</td>
+                    <td class="paraResponsive">{{ $compra->stock }}</td>
                     @if(Auth::user()->tipoDeTienda == 'Kilogramos')
                     <td>{{ $compra->cantidadKg }}</td>
                     @else
                     <td>{{ $compra->cantidad }}</td>
                     @endif
-                    <td>${{ $compra->precio }}</td>
+                    <td class="paraResponsive">${{ $compra->precio }}</td>
                     @if(Auth::user()->tipoDeTienda == 'Kilogramos')
                     <td>${{ number_format($compra->precio * $compra->cantidadKg, 2) }}</td>
                     @else

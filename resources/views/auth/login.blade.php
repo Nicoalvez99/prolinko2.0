@@ -2,10 +2,10 @@
     <div class="pt-5">
         <div class="shadow h-full">
             <div class="col-12 pt-2 text-center">
-                <img src="{{ asset('images/Logo.PNG') }}" class="img-fluid" width="70" alt="">
+                <img src="{{ asset('images/Logo.PNG') }}" class="img-fluid logoProlinkoLogin"  alt="">
             </div>
             <div class="col-12 text-center mb-2">
-                <img src="{{ asset('images/Prolinko.png') }}" class="img-fluid" width="370" alt="prolinko">
+                <img src="{{ asset('images/Prolinko.png') }}" class="img-fluid logoNombreProlinkoLogin px-5"  alt="prolinko">
             </div>
             <div class="text-center">
                 <h1 style="font-family: 'Poppins', sans-serif;; font-size: 30px;" class="px-5 text-center">Iniciar Sesion</h1>
@@ -25,8 +25,8 @@
                     <label for="password">Contraseña</label>
                     <input type="password" id="password" name="password" class="form-control" :value="old('password')" required autocomplete="current-password">
                 </div>
-                <div class="row d-flex px-5">
-                    <div class="col-4">
+                <div class="row d-block d-sm-flex px-5">
+                    <div class="col-12 col-sm-4">
                         <div class="form-check">
                             <input class="form-check-input" type="checkbox" name="remember" value="" id="flexCheckDefault">
                             <label class="form-check-label" for="flexCheckDefault">
@@ -36,7 +36,7 @@
 
                     </div>
 
-                    <div class="col-4 col-offset-4">
+                    <div class="col-12 col-sm-4 col-offset-sm-4 text-center">
                         @if (Route::has('password.request'))
                         <a href="{{ route('password.request') }}" style="color: blue;">{{ __('¿Olvidaste tu contraseña?') }}</a>
                         @endif

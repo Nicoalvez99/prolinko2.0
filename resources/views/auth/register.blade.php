@@ -2,10 +2,10 @@
     <section class="pt-3">
         <div class="shadow">
             <div class="col-12 pt-2 text-center">
-                <img src="{{ asset('images/Logo.PNG') }}" class="img-fluid" width="70" alt="">
+                <img src="{{ asset('images/Logo.PNG') }}" class="img-fluid logoProlinkoLogin" alt="prolinko">
             </div>
             <div class="col-12 text-center">
-                <img src="{{ asset('images/Prolinko.png') }}" class="img-fluid mb-2" width="370" alt="prolinko">
+                <img src="{{ asset('images/Prolinko.png') }}" class="img-fluid px-5" alt="prolinko">
             </div>
             <div class="text-center">
                 <h1 style="font-family: 'Poppins', sans-serif;; font-size: 30px;" class="px-5 text-center">¡Registrate!</h1>
