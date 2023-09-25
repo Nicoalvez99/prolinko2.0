@@ -45,7 +45,7 @@
                     <div class="col-6 caja">
                         <h6 class="total">Ventas:</h6>
                         <div class="d-flex">
-                            <p>$</p><span class="contador">{{ $totalHistorial }}</span>
+                            <p class="m-0">$</p><span class="contador">{{ $totalHistorial }}</span>
                         </div>
                     </div>
                     <div class="col-6 text-center">
@@ -77,7 +77,7 @@
                     <div class="col-4 text-end">
                         <form action="{{ route('historial.semana.delete') }}" method="post">
                             @csrf @method('delete')
-                            <button type="submit" class="btn btn-danger btn-sm"><i class="bi bi-grid-3x3"></i> Elimiar historial</button>
+                            <button type="submit" class="btn btn-danger btn-sm"><i class="bi bi-grid-3x3"></i> Eliminar historial</button>
                         </form>
                     </div>
                 </div>
@@ -114,7 +114,7 @@
                     <div class="col-4 text-end">
                         <form action="{{ route('historial.semana.delete') }}" method="post">
                             @csrf @method('delete')
-                            <button type="submit" class="btn btn-danger btn-sm"><i class="bi bi-grid-3x3"></i> Elimiar historial</button>
+                            <button type="submit" class="btn btn-danger btn-sm"><i class="bi bi-grid-3x3"></i> Eliminar historial</button>
                         </form>
                     </div>
                 </div>

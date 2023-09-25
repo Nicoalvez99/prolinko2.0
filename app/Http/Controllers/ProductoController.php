@@ -43,15 +43,27 @@ class ProductoController extends Controller
                 ->whereBetween('created_at', [$fechaActual->startOfWeek(), $fechaActual->endOfWeek()])
                 ->count();
             // CAMBIAR EL CONTADOR PORQUE NO ES CADA VEZ QUE SE CREA SINO CADA VEZ QUE ALGUIEN COMPRA EL PRODUCTO POR SEMANA
-            Productos::create([
-                'nombre' => request('nombre'),
-                'codigo' => request('codigo'),
-                'precio' => request('precio'),
-                'stock' => request('stock'),
-                'rubro' => request('rubro'),
-                'contador_semanal' => $cantidadPorSemana + 1, //corregir
-                'user_id' => $user->id
-            ]);
+            if($user->tipoDeTienda == 'Kilogramos'){
+                Productos::create([
+                    'nombre' => request('nombre'),
+                    'codigo' => request('codigo'),
+                    'precio' => request('precio'),
+                    'stockKg' => request('stock'),
+                    'rubro' => request('rubro'),
+                    'contador_semanal' => $cantidadPorSemana + 1, //corregir
+                    'user_id' => $user->id
+                ]);
+            } else {
+                Productos::create([
+                    'nombre' => request('nombre'),
+                    'codigo' => request('codigo'),
+                    'precio' => request('precio'),
+                    'stock' => request('stock'),
+                    'rubro' => request('rubro'),
+                    'contador_semanal' => $cantidadPorSemana + 1, //corregir
+                    'user_id' => $user->id
+                ]);
+            }
             return redirect()->route('stock')->with('status', 'Producto creado exitosamente');
         } elseif ($tipo == 'rubro'){
             Rubros::create([

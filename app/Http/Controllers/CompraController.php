@@ -66,7 +66,7 @@ class CompraController extends Controller
                             'cantidadKg' => $cantidad,
                             'precio' => $producto->precio,
                             'precioTotal' => $producto->precio * $cantidad,
-                            'stock' => $producto->stock,
+                            'stockKg' => $producto->stockKg,
                             'rubro' => $producto->rubro,
                             'user_id' => $user->id
                         ]);
@@ -188,10 +188,12 @@ class CompraController extends Controller
 
             // Buscar el producto correspondiente por su código
             $producto = Productos::where('codigo', $codigoProducto)->first();
-
-            if ($producto) {
+            $userTienda = Auth::user()->tipoDeTienda;
+            if ($producto && $userTienda != 'Kilogramos') {
                 // Restar la cantidad de la compra al stock del producto
                 $producto->decrement('stock', $cantidadCompra);
+            } elseif($producto) {
+                $producto->decrement('stockKg', $cantidadCompra);
             }
         }
         Compras::where('user_id', $userId)->delete();

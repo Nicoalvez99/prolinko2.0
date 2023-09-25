@@ -16,7 +16,8 @@ return new class extends Migration
             $table->string('nombre');
             $table->bigInteger('codigo');
             $table->integer('precio');
-            $table->integer('stock');
+            $table->integer('stock')->nullable();
+            $table->decimal('stockKg')->nullable();
             $table->string('rubro');
             $table->unsignedInteger('contador_semanal')->default(0);
             $table->foreignId('user_id');

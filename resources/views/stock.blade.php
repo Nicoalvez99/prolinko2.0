@@ -49,10 +49,20 @@
                     <tr>
                         <td>{{ $stock->codigo }}</td>
                         <td>{{ $stock->nombre }}</td>
-                        @if($stock->stock <= 10) 
-                        <td style="color: red;">Stock crítico({{ $stock->stock }})</td>
+                        @if(Auth::user()->tipoDeTienda == 'Kilogramos')
+                            @if($stock->stockKg <= 10) 
+                            <td style="color: red;">Stock crítico({{ $stock->stockKg }})</td>
+                            @else
+                            <td>{{ $stock->stockKg }}</td>
+                            @endif
+
                         @else
-                        <td>{{ $stock->stock }}</td>
+                            @if($stock->stock <= 10) 
+                            <td style="color: red;">Stock crítico({{ $stock->stock }})</td>
+                            @else
+                            <td>{{ $stock->stock }}</td>
+                            @endif
+
                         @endif
                         <td>${{ $stock->precio }}</td>
                         <td>{{ $stock->rubro }}</td>

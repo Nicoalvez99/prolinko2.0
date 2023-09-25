@@ -88,8 +88,8 @@ class HistorialController extends Controller
                 ->orderByDesc('created_at')
                 ->get(),
             "historialmes" => Historialmes::where('user_id', '=', $user->id)
-            ->orderByDesc('created_at')
-            ->get(),
+                ->orderByDesc('created_at')
+                ->get(),
             "totalProductos" => $totalProductos,
             "totalProveedores" => $totalProveedores,
             "totalRubros" => $totalRubros,
@@ -98,15 +98,32 @@ class HistorialController extends Controller
             "ventasPorMeses" => $ventasPorMeses
         ]);
     }
-    public function pdf(){
+    public function pdf()
+    {
         $user = Auth::user();
         $productos = Productos::where('user_id', '=', $user->id)->get();
         $totalProveedores = count(Proveedores::where('user_id', '=', $user->id)->get());
         $totalRubros = count(Rubros::where('user_id', '=', $user->id)->get());
-        $historials = Historials::where('user_id', '=', $user->id)->orderByDesc('created_at')->get();
+        $historials = Historialmes::where('user_id', '=', $user->id)->orderByDesc('created_at')->get();
 
-        $pdf = Pdf::loadView('pdf', compact('historials'));
-              
+        $ventasPorMes = Historialmes::where('user_id', '=', $user->id)
+            ->whereYear('created_at', now()->year) // Filtrar por el año actual
+            ->selectRaw('MONTH(created_at) as mes, COUNT(*) as cantidad_ventas')
+            ->groupBy('mes')
+            ->orderBy('mes')
+            ->get();
+
+        $ventasPorMeses = [];
+        foreach ($ventasPorMes as $venta) {
+            // Obtener el nombre del mes
+            $nombreMes = date('F', mktime(0, 0, 0, $venta->mes, 1));
+
+            // Almacenar en el arreglo asociativo
+            $ventasPorMeses[$nombreMes] = $venta->cantidad_ventas;
+        }
+
+        $pdf = Pdf::loadView('pdf', compact('historials', 'productos', 'ventasPorMeses'));
+
 
         return $pdf->stream('pdf');
     }
