@@ -27,6 +27,9 @@ Route::get('/tienda', [CompraController::class, 'index'])
 ->middleware(['auth', 'verified'])
 ->name('tienda');
 
+Route::get('/plan', function() {
+    return view('plan');
+})->name('plan');
 
 Route::get('/dashboard', [HistorialController::class, 'index'])->middleware(['premium.user'])->name('dashboard');
 Route::get('/stock', [ProductoController::class, 'index'])->middleware(['auth', 'verified'])->name('stock');

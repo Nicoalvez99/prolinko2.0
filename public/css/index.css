@@ -29,7 +29,7 @@ header {
 }
 
 
-button {
+.btn-welcome {
     font-size: 18px;
     display: inline-block;
     outline: 0;
@@ -46,16 +46,16 @@ button {
     transition: box-shadow 0.15s ease, transform 0.15s ease;
   }
   
-  button:hover {
+  .btn-welcome:hover {
     box-shadow: 0px 0.1em 0.2em rgb(45 35 66 / 40%), 0px 0.4em 0.7em -0.1em rgb(45 35 66 / 30%), inset 0px -0.1em 0px #3c4fe0;
     transform: translateY(-0.1em);
   }
   
-  button:active {
+  .btn-welcome:active {
     box-shadow: inset 0px 0.1em 0.6em #3c4fe0;
     transform: translateY(0em);
   }
-  button a {
+  .btn-welcome a {
     text-decoration: none;
     color:aliceblue;
   }
@@ -103,10 +103,23 @@ button {
     font-size: 1.2em; /* Tamaño del check */
     margin-right: 0.5em; /* Espacio entre el check y el texto */
   }
+
+  .green {
+    color: green;
+    font-size: 20px;
+  }
+  .red {
+    color: red;
+    font-size: 20px;
+  }
   
   @media (max-width: 650px) {
     .beneficios {
       margin: 50px 0px;
+    }
+    .btn-welcome {
+      font-size: 14px;
+      margin: 0px 7px;
     }
   }
   

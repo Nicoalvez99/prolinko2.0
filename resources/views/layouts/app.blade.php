@@ -32,7 +32,7 @@
     </main>
     @if(Auth::user()->premium != "Premium")
     <section class="premium">
-        <a href="#">
+        <a href="{{ route('plan') }}" target="_blank">
             <svg width="50" heigth="50" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" width="117.49861mm" viewBox="0 0 416.33366 321.81223" id="svg2" version="1.1" inkscape:version="0.91 r13725" sodipodi:docname="crown-remix.svg">
                 <defs id="defs4" />
                 <sodipodi:namedview id="base" pagecolor="#ffffff" bordercolor="#666666" borderopacity="1.0" inkscape:pageopacity="0.0" inkscape:pageshadow="2" inkscape:zoom="0.7" inkscape:cx="355.279" inkscape:cy="39.280992" inkscape:document-units="px" inkscape:current-layer="layer1" showgrid="false" fit-margin-top="0" fit-margin-left="0" fit-margin-right="0" fit-margin-bottom="0" inkscape:window-width="2495" inkscape:window-height="1416" inkscape:window-x="1985" inkscape:window-y="24" inkscape:window-maximized="1" />
