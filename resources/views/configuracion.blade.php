@@ -1,5 +1,13 @@
 <x-app-layout>
-    <h2 style="font-family: 'Poppins', sans-serif;" class="my-2">Configuraciónes generales</h2>
+    <div class="row">
+        <div class="col-11">
+            <h2 style="font-family: 'Poppins', sans-serif;" class="my-2">Configuraciónes generales</h2>
+        </div>
+        <div class="col-1 text-end">
+            <a href="" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"> <i class="bi bi-question-circle"></i>Ayuda</a>
+            @include('layouts.offcanvas')
+        </div>
+    </div>
 <form action="" method="post">
     @csrf @method('patch')
     <div class="row d-block">
