@@ -112,6 +112,54 @@ header {
     color: red;
     font-size: 20px;
   }
+  .conteiner {
+    margin-top: 30px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.cita {
+    font-size: 25px;
+    max-width: 100%;
+    position: absolute;
+    letter-spacing: 5px;
+    animation: cita 15s infinite ease-in-out;
+    opacity: 0;
+}
+
+.cita:nth-child(1) {
+    animation-delay: 2s;
+
+}
+
+.cita:nth-child(2) {
+    animation-delay: 5s;
+}
+.cita:nth-child(3) {
+  animation-delay: 8s;
+}
+.cita:nth-child(4) {
+  animation-delay: 12s;
+}
+
+@keyframes cita {
+
+    0%,
+    5%,
+    100% {
+        filter: blur(0px);
+        opacity: 1;
+    }
+
+    10%,
+    90% {
+        filter: blur(35px);
+        opacity: 0;
+    }
+}
   
   @media (max-width: 650px) {
     .beneficios {
@@ -119,7 +167,13 @@ header {
     }
     .btn-welcome {
       font-size: 14px;
-      margin: 0px 7px;
+      padding: 0px 1em;
+    }
+    h1 {
+      margin: 20px 0px;
+    }
+    .subtitulo, span {
+      font-size: 45px;
     }
   }
   

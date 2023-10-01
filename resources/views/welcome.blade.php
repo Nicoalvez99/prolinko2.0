@@ -39,10 +39,10 @@
                 @auth
                 <button class="btn-welcome"><a href="{{ url('/tienda') }}" class="">Tienda</a></button>
                 @else
-                <button class="btn-welcome"><a href="{{ route('login') }}" class="">Log in</a></button>
+                <button class="btn-welcome"><a href="{{ route('login') }}" class=""><i class="bi bi-fingerprint"></i> Log in</a></button>
 
                 @if (Route::has('register'))
-                <button class="btn-welcome"><a href="{{ route('register') }}" class="">Register</a></button>
+                <button class="btn-welcome"><a href="{{ route('register') }}" class=""><i class="bi bi-person-add"></i> Register</a></button>
                 @endif
                 @endauth
                 @endif
@@ -54,7 +54,7 @@
             <div class="col-12 col-sm-6 my-auto">
                 <h1 class="degradado-texto-h1">Prolinko</h1>
                 <hr style="color:aliceblue;">
-                <h2>Tu solución de Punto de Venta <span class="typed"></span></h2>
+                <h2 class="subtitulo">Tu solución de Punto de Venta <span class="typed"></span></h2>
             </div>
             <div class="col-12 col-sm-6 my-auto">
                 <img src="{{ asset('images/657shots_so.png') }}" data-aos="fade-up" class="img-fluid" style="border-radius: 10px;" alt="">
@@ -120,22 +120,22 @@
                 <div class="col-12 col-sm-3 px-1 px-sm-4" data-aos="fade-up" data-aos-duration="3000">
                     <i class="bi bi-shop"></i>
                     <h4 style="font-family: 'Josefin Sans', sans-serif;">Tienda</h4>
-                    <p>Potencia tu capacidad de cobro y gestión de ventas con el Panel de Prolinko. Simplifica el proceso de cobranza y administra de manera eficiente las transacciones con tus clientes. Con Prolinko, brinda una experiencia de compra fluida y personalizada, fortaleciendo así tus relaciones comerciales.</p>
+                    <p>Potencia tus ventas y gestión de cobros con Prolinko. Simplifica el proceso de cobranza y administra transacciones eficientemente. Brinda una experiencia de compra personalizada para fortalecer tus relaciones comerciales.</p>
                 </div>
                 <div class="col-12 col-sm-3 px-1 px-sm-4" data-aos="fade-up" data-aos-duration="3000">
                     <i class="bi bi-layers"></i>
                     <h4 style="font-family: 'Josefin Sans', sans-serif;">Stock</h4>
-                    <p>Con Prolinko, toma el control total de tus productos y categorías. Agrega, modifica o elimina tus productos con facilidad, permitiendo una gestión ágil y precisa de tu inventario. Empodera tu negocio con la flexibilidad que necesitas.</p>
+                    <p>Con Prolinko, controla tus productos y categorías con facilidad. Agrega, modifica o elimina productos para una gestión ágil de inventario. Empodera tu negocio con flexibilidad y control total.</p>
                 </div>
                 <div class="col-12 col-sm-3 px-1 px-sm-4" data-aos="fade-up" data-aos-duration="3000">
                     <i class="bi bi-bar-chart-line"></i>
                     <h4 style="font-family: 'Josefin Sans', sans-serif;">Dashboard</h4>
-                    <p>Accede a un análisis detallado de tus transacciones. Observa con precisión las estadísticas de tus compras tanto a nivel semanal como mensual, y sumérgete en tu historial de ventas diario, semanal, mensual y anual. Además, cuando lo necesites, exporta de manera sencilla un archivo completo con todos los detalles e información esencial de tu negocio. Toma el control de tus datos y potencia tu éxito con Prolinko.</p>
+                    <p>Accede a análisis detallados de tus transacciones. Observa estadísticas de compras semanales y mensuales, y explora tu historial de ventas diario, semanal, mensual y anual. Exporta datos esenciales cuando lo necesites. Toma control total con Prolinko.</p>
                 </div>
                 <div class="col-12 col-sm-3 px-1 px-sm-4" data-aos="fade-up" data-aos-duration="3000">
                     <i class="bi bi-people"></i>
                     <h4 style="font-family: 'Josefin Sans', sans-serif;">Proveedores</h4>
-                    <p>Optimiza la gestión de tus proveedores. Centraliza y administra eficazmente toda la información relacionada con tus proveedores, desde detalles de contacto hasta historiales de transacciones. Además, guarda de manera organizada todas las facturas que recibas de ellos. Simplifica tu proceso de abastecimiento y mantén un control completo de tu cadena de suministro con Prolinko.</p>
+                    <p>Optimiza la gestión de proveedores con Prolinko. Centraliza y administra información de proveedores, incluyendo contactos e historiales de transacciones. Organiza tus facturas fácilmente. Simplifica el abastecimiento y controla tu cadena de suministro.</p>
                 </div>
             </div>
         </div>
@@ -145,7 +145,7 @@
                     <h3 class="degradado-texto-h1" style="font-size: 40px;">¡Queremos trabajar con vos!</h3>
                 </div>
             </div>
-            <div class="row row-cols-1 row-cols-md-2 px-5 mb-3 text-center">
+            <div class="row row-cols-1 row-cols-md-2 px-2 px-sm-5 mb-3 text-center">
                 <div class="col">
                     <div class="card mb-4 rounded-3 shadow-sm">
                         <div class="card-header py-3">
@@ -154,28 +154,28 @@
                         <div class="card-body">
                             <h1 class="card-title pricing-card-title">$0<small class="text-muted fw-light">/año</small></h1>
                             <ul class="list-unstyled mt-3 mb-4">
-                                <li>Agregá tu Stock</li>
-                                <li>Agregá tus Rubros</li>
-                                <li>Gestioná tus ventas</li>
-                                <li>Sistema de cobro</li>
-                                
+                                <li><i class="bi bi-check2 green"></i>Agregá tu Stock</li>
+                                <li><i class="bi bi-check2 green"></i>Agregá tus Rubros</li>
+                                <li><i class="bi bi-check2 green"></i>Gestioná tus ventas</li>
+                                <li><i class="bi bi-check2 green"></i>Sistema de cobro</li>
+
                             </ul>
                             <a class="w-100 btn btn-lg btn-outline-primary" href="{{ route('register') }}">Registrate gratis</a>
                         </div>
                     </div>
                 </div>
                 <div class="col">
-                    <div class="card mb-4 rounded-3 shadow-sm">
-                        <div class="card-header py-3">
+                    <div class="card mb-4 rounded-3 shadow-sm border-primary">
+                        <div class="card-header py-3 text-bg-primary border-primary">
                             <h4 class="my-0 fw-normal">Premium</h4>
                         </div>
                         <div class="card-body">
                             <h1 class="card-title pricing-card-title">$50.000<small class="text-muted fw-light">/año</small></h1>
                             <ul class="list-unstyled mt-3 mb-4">
-                                <li>Agregá tus proveedores</li>
-                                <li>Agregá tus facturas electrónicas</li>
-                                <li>Acceso al Dashboard</li>
-                                <li>Generá tu reporte en PDF</li>
+                                <li><i class="bi bi-check2 green"></i>Agregá tus proveedores</li>
+                                <li><i class="bi bi-check2 green"></i>Agregá tus facturas electrónicas</li>
+                                <li><i class="bi bi-check2 green"></i>Acceso al Dashboard</li>
+                                <li><i class="bi bi-check2 green"></i>Generá tu reporte en PDF</li>
                             </ul>
                             <button type="button" class="w-100 btn btn-lg btn-primary">Contratar</button>
                         </div>
@@ -199,13 +199,13 @@
                             <th scope="row" class="text-start">Tienda</th>
                             <td><i class="bi bi-check2-circle green"></i></td>
                             <td><i class="bi bi-check2-circle green"></i></td>
-                            
+
                         </tr>
                         <tr>
                             <th scope="row" class="text-start">Stock</th>
                             <td><i class="bi bi-check2-circle green"></i></td>
                             <td><i class="bi bi-check2-circle green"></i></td>
-                            
+
                         </tr>
                     </tbody>
 
@@ -214,25 +214,43 @@
                             <th scope="row" class="text-start">Proveedores</th>
                             <td><i class="bi bi-x-circle red"></i></td>
                             <td><i class="bi bi-check2-circle green"></i></td>
-                            
+
                         </tr>
                         <tr>
                             <th scope="row" class="text-start">Dashboard</th>
                             <td><i class="bi bi-x-circle red"></i></td>
                             <td><i class="bi bi-check2-circle green"></i></td>
-                            
+
                         </tr>
                         <tr>
                             <th scope="row" class="text-start">Reportes</th>
                             <td><i class="bi bi-x-circle red"></i></td>
                             <td><i class="bi bi-check2-circle green"></i></td>
-                            
+
                         </tr>
                     </tbody>
                 </table>
             </div>
         </section>
     </main>
+    <footer>
+        <div class="row">
+            <div class="col-12 text-center mb-5">
+                <img src="{{ asset('images/logo.PNG') }}" width="40" alt="Prolinko">
+                <div class="conteiner">
+                    <span class="cita degradado-texto-h1">Parte de tus ventas</span>
+                    <span class="cita degradado-texto-h1">Parte de tus sueños</span>
+                    <span class="cita degradado-texto-h1">Parte de tus ventas</span>
+                    <span class="cita degradado-texto-h1">Parte de tus sueños</span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 text-center">
+                <p class="gray-400">&copy;Prolinko-2023</p>
+            </div>
+        </div>
+    </footer>
     <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
     <script src="{{ asset('js/typed.js') }}"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>

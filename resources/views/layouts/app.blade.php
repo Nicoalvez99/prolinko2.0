@@ -59,17 +59,15 @@
     </section>
     @endif
     <footer>
-        <div class="row sesionWelcome">
-            <div class="col-12 text-center">
-                @if(session()->has('mensaje'))
-                <div class="alert alert-success">
-                    {{ session()->get('mensaje') }}
-                </div>
-                @php
-                session()->forget('mensaje');
-                @endphp
-                @endif
+        <div class="row">
+            @if(session()->has('mensaje'))
+            <div class="col-12 col-sm-2 offset-sm-5 alert alert-success sesionWelcome text-center">
+                {{ session()->get('mensaje') }}
             </div>
+            @php
+            session()->forget('mensaje');
+            @endphp
+            @endif
         </div>
     </footer>
 

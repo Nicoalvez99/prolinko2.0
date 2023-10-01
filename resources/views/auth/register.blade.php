@@ -34,14 +34,14 @@
 
                 <div class="row">
                     <!-- Password -->
-                    <div class="col-6 my-2 px-3">
+                    <div class="col-12 col-sm-6 my-2 px-3">
                         <label for="password">Contraseña</label>
                         <input type="password" name="password" id="password" class="form-control" required autocomplete="new-password">
                         <x-input-error :messages="$errors->get('password')" class="mt-2" />
                     </div>
 
                     <!-- Confirm Password -->
-                    <div class="col-6 my-2 px-3">
+                    <div class="col-12 col-sm-6 my-2 px-3">
                         <label for="confirmar_contraseña">Confirmar contraseña</label>
                         <input type="password" name="password_confirmation" class="form-control" required autocomplete="new-password">
                         <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
