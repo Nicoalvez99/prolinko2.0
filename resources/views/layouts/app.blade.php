@@ -69,8 +69,12 @@
             @endphp
             @endif
         </div>
+        <div class="d-none">
+            <a href="https://lordicon.com/">Icons by Lordicon.com</a>
+        </div>
     </footer>
 
+    <script src="https://cdn.lordicon.com/bhenfmcm.js"></script>
     <script src="{{ asset('js/contador.js') }}"></script>
     <script src="{{ asset('js/modalFactura.js') }}"></script>
     <script src="{{ asset('js/vuelto.js') }}"></script>

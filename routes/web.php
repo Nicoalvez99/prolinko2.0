@@ -20,14 +20,15 @@ Route::get('/', function () {
 //SuperAdmin
 Route::get('administrador', [AdministradorAuthController::class, 'index'])->middleware(['admin.access'])->name('administrador');
 Route::patch('administrador/{user}', [AdministradorAuthController::class, 'update'])->middleware(['admin.access'])->name('update.user');
+Route::delete('administrador/{user}', [AdministradorAuthController::class, 'destroy'])->middleware(['admin.access'])->name('destroy.user');
 // Rutas de navegación básicas
 
 
 Route::get('/tienda', [CompraController::class, 'index'])
-->middleware(['auth', 'verified'])
-->name('tienda');
+    ->middleware(['auth', 'verified'])
+    ->name('tienda');
 
-Route::get('/plan', function() {
+Route::get('/plan', function () {
     return view('plan');
 })->name('plan');
 
@@ -57,4 +58,4 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';

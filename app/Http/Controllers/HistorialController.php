@@ -26,7 +26,7 @@ class HistorialController extends Controller
         $totalRubros = count(Rubros::where('user_id', '=', $user->id)->get());
         $totalHistorial = Historials::where('user_id', '=', $user->id)->sum('total');
 
-        if (now()->dayOfWeek == Carbon::SUNDAY && now()->format('H:i') === '00:00') {
+        if (now()->dayOfWeek == Carbon::SUNDAY) {
             // Si es domingo, eliminar todos los registros de la tabla Historials
             Historials::truncate();
             $totalHistorial = 0; // Establecer el totalHistorial en 0

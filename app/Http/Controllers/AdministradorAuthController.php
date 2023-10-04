@@ -33,5 +33,9 @@ class AdministradorAuthController extends Controller
         ]);
         return redirect()->route('administrador')->with('status', 'Usuario editado correctamente');
     }
-    
+    public function destroy(User $user)
+    {
+        $user->delete();
+        return redirect()->route('administrador')->with('status', 'Usuario eliminado correctamente');
+    }
 }

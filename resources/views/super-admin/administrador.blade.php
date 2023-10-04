@@ -191,7 +191,7 @@
                             <td>{{ $user->premium }}</td>
                             <td class="d-flex">
                                 <button class="botonEdit" data-bs-toggle="modal" data-bs-target="#exampleModal{{ $user->email }}"><i class="bi bi-pencil-square"></i></button>
-                                <form action="" method="post">
+                                <form action="{{ route('destroy.user', $user) }}" method="post">
                                     @csrf @method('delete')
                                     <button type="submit" class="botonDelete mx-2"><i class="bi bi-trash3"></i></button>
                                 </form>

@@ -140,12 +140,19 @@
             </div>
         </div>
         <section class="p-5">
-            <div class="row pb-3">
-                <div class="col-12 text-center">
-                    <h3 class="degradado-texto-h1" style="font-size: 40px;">¡Queremos trabajar con vos!</h3>
+            <div class="row pb-3 mt-1">
+                <div class="col-12 mb-2 text-center">
+                    <lord-icon
+                        src="https://cdn.lordicon.com/uukerzzv.json"
+                        trigger="loop"
+                        delay="2000"
+                        colors="primary:#121331,secondary:#16a9c7"
+                        style="width:150px;height:150px">
+                    </lord-icon>
+                    <h3 class="degradado-texto-h1 my-1" style="font-size: 45px;">¡Queremos trabajar con vos!</h3>
                 </div>
             </div>
-            <div class="row row-cols-1 row-cols-md-2 px-2 px-sm-5 mb-3 text-center">
+            <div class="row row-cols-1 row-cols-md-2 px-2 px-sm-5 mb-5 text-center">
                 <div class="col">
                     <div class="card mb-4 rounded-3 shadow-sm">
                         <div class="card-header py-3">
@@ -251,6 +258,7 @@
             </div>
         </div>
     </footer>
+    <script src="https://cdn.lordicon.com/bhenfmcm.js"></script>
     <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
     <script src="{{ asset('js/typed.js') }}"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>

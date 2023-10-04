@@ -8,7 +8,12 @@
                         <span class="contador">{{ $totalProductos }}</span>
                     </div>
                     <div class="col-6 text-center">
-                        <i class="bi bi-stack"></i>
+                    <lord-icon
+                        src="https://cdn.lordicon.com/jvucoldz.json"
+                        trigger="hover"
+                        colors="primary:#121331,secondary:#104891"
+                        style="width:70px;height:70px;font-size:30px">
+                    </lord-icon>
                     </div>
                 </div>
             </div>
@@ -21,7 +26,12 @@
                         <span class="contador">{{ $totalRubros }}</span>
                     </div>
                     <div class="col-6 text-center">
-                        <i class="bi bi-diagram-3"></i>
+                    <lord-icon
+                        src="https://cdn.lordicon.com/ybfcwnqv.json"
+                        trigger="hover"
+                        colors="primary:#121331,secondary:#104891"
+                        style="width:70px;height:70px;font-size:30px;">
+                    </lord-icon>
                     </div>
                 </div>
             </div>
@@ -34,7 +44,12 @@
                         <span class="contador">{{ $totalProveedores }}</span>
                     </div>
                     <div class="col-6 text-center">
-                        <i class="bi bi-person-lines-fill"></i>
+                    <lord-icon
+                        src="https://cdn.lordicon.com/eszyyflr.json"
+                        trigger="hover"
+                        colors="primary:#121331,secondary:#104891"
+                        style="width:70px;height:70px;font-size:30px;">
+                    </lord-icon>
                     </div>
                 </div>
             </div>
@@ -44,12 +59,17 @@
                 <div class="row">
                     <div class="col-6 caja">
                         <h6 class="total">Ventas:</h6>
-                        <div class="d-flex">
-                            <p class="m-0">$</p><span class="contador">{{ $totalHistorial }}</span>
+                        <div class="text-center">
+                            <p class="m-0">$<span class="contador">{{ $totalHistorial }}</span></p>
                         </div>
                     </div>
                     <div class="col-6 text-center">
-                        <i class="bi bi-bag-check"></i>
+                    <lord-icon
+                        src="https://cdn.lordicon.com/slkvcfos.json"
+                        trigger="hover"
+                        colors="primary:#121331,secondary:#107c91"
+                        style="width:70px;height:70px;font-size:30px">
+                    </lord-icon>
                     </div>
                 </div>
             </div>
@@ -147,7 +167,7 @@
         <div class="col-12 flex-end">
             <form action="{{ route('dashboard.pdf') }}" method="post">
                 @csrf
-                <button type="submit" class="btn btn-danger">Generar PDF <i class="bi bi-file-pdf"></i></button>
+                <button type="submit" class="btn btn-danger">Reporte PDF <i class="bi bi-file-pdf"></i></button>
             </form>
         </div>
     </div>
