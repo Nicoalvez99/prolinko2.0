@@ -1,18 +1,18 @@
 <x-guest-layout>
-    <section class="pt-3">
-        <div class="shadow">
-            <div class="col-12 pt-2 text-center">
-                <img src="{{ asset('images/Logo.PNG') }}" class="img-fluid logoProlinkoLogin" alt="prolinko">
-            </div>
-            <div class="col-12 text-center">
-                <img src="{{ asset('images/Prolinko.png') }}" class="img-fluid px-5" alt="prolinko">
-            </div>
-            <div class="text-center">
-                <h1 style="font-family: 'Poppins', sans-serif;; font-size: 30px;" class="px-5 text-center">¡Registrate!</h1>
-                <a href="{{ route('login') }}" style="color: blue;">¿Ya estas registrado?</a>
-            </div>
-            <form method="POST" action="{{ route('register') }}">
-                @csrf
+    <form action="{ route('register') }" method="post">
+        @csrf
+        <section class="card1 pt-3">
+            <div class="shadow">
+                <div class="col-12 pt-2 text-center">
+                    <img src="{{ asset('images/Logo.PNG') }}" class="img-fluid logoProlinkoLogin" alt="prolinko">
+                </div>
+                <div class="col-12 text-center">
+                    <img src="{{ asset('images/Prolinko.png') }}" class="img-fluid px-5" alt="prolinko">
+                </div>
+                <div class="text-center">
+                    <h1 style="font-family: 'Poppins', sans-serif;; font-size: 30px;" class="px-5 text-center">¡Registrate!</h1>
+                    <a href="{{ route('login') }}" style="color: blue;">¿Ya estas registrado?</a>
+                </div>
                 <!-- Name -->
                 <div class="col-12 my-2 px-3">
                     <label for="nombre">Nombre</label>
@@ -48,9 +48,45 @@
                     </div>
                 </div>
                 <div class="col-12 d-grid gap-2 col-6 mx-auto mt-3 mb-2 pb-4 px-3">
+                    <button type="button" id="btnContinuar" class="btn btn-primary">Continuar</button>
+                </div>
+            </div>
+        </section>
+        <section class="card2 visually-hidden">
+            <div class="shadow">
+                <div class="col-12 pt-2 text-center">
+                    <img src="{{ asset('images/Logo.PNG') }}" class="img-fluid logoProlinkoLogin" alt="prolinko">
+                </div>
+                <div class="col-12 text-center">
+                    <img src="{{ asset('images/Prolinko.png') }}" class="img-fluid px-5" alt="prolinko">
+                </div>
+                <div class="text-center">
+                    <h1 style="font-family: 'Poppins', sans-serif;; font-size: 30px;" class="px-5 text-center">¡Registrate!</h1>
+                    <a href="{{ route('login') }}" style="color: blue;">¿Ya estas registrado?</a>
+                </div>
+                <div class="col-12 mt-3 text-center">
+                    <h5>Tipo de usuario</h5>
+                </div>
+                <div class="row px-5 my-5">
+                    <div class="col-6 text-center optRegister">
+                        <lord-icon src="https://cdn.lordicon.com/qgmwimwj.json" trigger="hover" style="width:100px;height:100px">
+                        <input type="checkbox" name="tienda" class="form-check-input visually-hidden" id="">
+                        </lord-icon>
+                        <p>Tienda</p>
+                        
+                    </div>
+                    <div class="col-6 text-center optRegister">
+                        <lord-icon src="https://cdn.lordicon.com/tvogyfhn.json" trigger="hover" style="width:100px;height:100px">
+                        <input type="checkbox" name="contador" class="form-check-input visually-hidden" id="">
+                        </lord-icon>
+                        <p>Contador</p>
+                        
+                    </div>
+                </div>
+                <div class="col-12 d-grid gap-2 col-6 mx-auto mt-3 mb-2 pb-4 px-3">
                     <button type="submit" class="btn btn-primary">Registrarme</button>
                 </div>
-            </form>
-        </div>
-    </section>
+            </div>
+        </section>
+    </form>
 </x-guest-layout>

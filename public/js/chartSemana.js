@@ -15,6 +15,7 @@ new Chart(ctx, {
         labels: ['Domingo', 'Lunes', 'Martes', 'Miercoles', 'Jueves', 'Viernes', 'Sabado'],
         datasets: [{
             label: 'Cantidad de ventas por día',
+            
             data: [domingo, lunes, martes, miercoles, jueves, viernes, sabado],
             borderWidth: 1
         }]

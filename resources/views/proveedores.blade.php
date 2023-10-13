@@ -21,8 +21,8 @@
                     <div class="text-center my-2">
                         <h6 class="card-subtitle mb-2 text-body-secondary">{{ $proveedor->direccion }}</h6>
                     </div>
-                    <a href="#" class="card-link">Card link</a>
-                    <a href="#" class="card-link">Another link</a>
+                    <a href="#" class="card-link">Editar</a>
+                    <a href="#" class="card-link">Eliminar</a>
                 </div>
             </div>
         </div>

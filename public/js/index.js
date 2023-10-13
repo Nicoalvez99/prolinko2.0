@@ -1,7 +1,9 @@
-let btnSesion = document.getElementById('btn-sesion');
+let btnContinuar = document.getElementById('btnContinuar');
 
-btnSesion.addEventListener("click", () => {
-    let btn = document.getElementById('btn');
-    btnSesion.classList.add('btnSesionNone');
-    btn.classList.toggle('btnBlock');
+btnContinuar.addEventListener("click", () => {
+    let card1 = document.querySelector(".card1");
+    let card2 = document.querySelector(".card2");
+
+    card1.classList.add('visually-hidden');
+    card2.classList.remove('visually-hidden');
 });

@@ -10,7 +10,7 @@
           <a href="{{ route('tienda') }}" class="nav-link {{ setActive('tienda') }}" aria-current="page"><i class="bi bi-shop-window"></i> Tienda</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link {{ setActive('stock') }}" href="{{ route('stock') }}"><i class="bi bi-stack"></i> Stock</a>
+          <a href="{{ route('stock') }}" class="nav-link {{ setActive('stock') }}"><i class="bi bi-stack"></i> Stock</a>
         </li>
         @if(Auth::user()->premium == 'Premium')
         <li class="nav-item">

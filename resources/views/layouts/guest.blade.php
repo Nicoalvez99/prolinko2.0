@@ -34,6 +34,7 @@
             <img src="{{ asset('images/fondo.png') }}" class="img-fluid shadow" alt="Fondo Prolinko">
         </div>
     </div>
+    <script src="https://cdn.lordicon.com/lordicon-1.1.0.js"></script>
     <script src="{{ asset('js/index.js') }}"></script>
 </body>
 

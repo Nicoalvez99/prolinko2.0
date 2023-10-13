@@ -43,6 +43,7 @@
     bottom: 0;
     left: 0;
     width: 0;
+    color:aliceblue;
     height: 2px;
     background: linear-gradient(to right, orange, red);
     /* Cambia los colores aquí */
@@ -205,6 +206,11 @@
 }
 .logoProlinkoLogin {
     width: 70px;
+}
+.optRegister:hover {
+    border: 2px solid blue;
+    border-radius: 30px;
+    cursor: pointer;
 }
 @media (max-width: 650px) {
     .fondoNoneLogin{
