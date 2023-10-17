@@ -178,7 +178,8 @@
                         <th class="media">Nombre</th>
                         <th>DNI</th>
                         <th class="media">Email</th>
-                        <th>Tipo de usuario</th>
+                        <th>Tipo de cuenta</th>
+                        <th>Tipo de Usuario</th>
                         <th>Acción</th>
                     </thead>
                     <tbody>
@@ -189,6 +190,7 @@
                             <td>{{ $user->dni }}</td>
                             <td class="media">{{ $user->email }}</td>
                             <td>{{ $user->premium }}</td>
+                            <td>{{ $user->tipoDeUsuario }}</td>
                             <td class="d-flex">
                                 <button class="botonEdit" data-bs-toggle="modal" data-bs-target="#exampleModal{{ $user->email }}"><i class="bi bi-pencil-square"></i></button>
                                 <form action="{{ route('destroy.user', $user) }}" method="post">

@@ -207,11 +207,8 @@
 .logoProlinkoLogin {
     width: 70px;
 }
-.optRegister:hover {
-    border: 2px solid blue;
-    border-radius: 30px;
-    cursor: pointer;
-}
+
+
 @media (max-width: 650px) {
     .fondoNoneLogin{
         display: none;

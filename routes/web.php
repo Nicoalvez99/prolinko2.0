@@ -1,7 +1,6 @@
 <?php
 
 use App\Http\Controllers\AdministradorAuthController;
-use App\Http\Controllers\Auth\loginSuperAdminController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductoController;
@@ -9,14 +8,13 @@ use App\Http\Controllers\CompraController;
 use App\Http\Controllers\ProveedorController;
 use App\Http\Controllers\HistorialController;
 use App\Http\Controllers\UserController;
-use App\Http\Controllers\TotalController;
-use App\Http\Controllers\SuperAdminController;
+use App\Http\Controllers\ContadorController;
 
 
 Route::get('/', function () {
     return view('welcome');
 });
-
+Route::get('/contador', [ContadorController::class, 'index'])->middleware('auth')->name('contador');
 //SuperAdmin
 Route::get('administrador', [AdministradorAuthController::class, 'index'])->middleware(['admin.access'])->name('administrador');
 Route::patch('administrador/{user}', [AdministradorAuthController::class, 'update'])->middleware(['admin.access'])->name('update.user');

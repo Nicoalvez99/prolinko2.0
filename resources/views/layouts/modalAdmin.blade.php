@@ -20,10 +20,14 @@
             <label for="name">Email: </label>
             <input type="text" class="form-control" disabled value="{{ $user->email }}" name="">
           </div>
+          <div class="col-12">
+            <label for="name">Tipo de Usuario: </label>
+            <input type="text" class="form-control" disabled value="{{ $user->tipoDeUsuario }}" name="">
+          </div>
           <form action="{{ route('update.user', $user) }}" method="post">
             @csrf @method('patch')
             <div class="col-12">
-              <label for="name">Tipo de usuario: </label>
+              <label for="name">Tipo de Cuenta: </label>
               <select name="premium" id="" class="form-control">
                 @if($user->premium == "Simple")
                 <option value="{{ $user->premium }}" selected>{{ $user->premium }}</option>

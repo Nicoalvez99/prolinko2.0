@@ -42,13 +42,18 @@ class RegisteredUserController extends Controller
             'email' => $request->email,
             'dni' => $request->dni,
             'password' => Hash::make($request->password),
-            'premium' => 'Simple'
+            'premium' => 'Simple',
+            'tipoDeUsuario' => $request->tipoDeUsuario
         ]);
 
         event(new Registered($user));
 
         Auth::login($user);
-
-        return redirect(RouteServiceProvider::HOME);
+        if($request->tipoDeUsuario == 'contador'){
+            return redirect(RouteServiceProvider::CONTADOR);
+        } else {
+            return redirect(RouteServiceProvider::HOME);
+        }
+        
     }
 }

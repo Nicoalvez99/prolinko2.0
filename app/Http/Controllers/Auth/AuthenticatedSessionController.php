@@ -31,8 +31,10 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerate();
 
-        if(Auth::user()->email == 'nicoalvez99@gmail.com'){
+        if(Auth::user()->premium == 'Administrador'){
             return redirect()->intended(RouteServiceProvider::ADMIN);
+        } else if(Auth::user()->tipoDeUsuario == 'contador') {
+            return redirect()->intended(RouteServiceProvider::CONTADOR);
         } else {
             return redirect()->intended(RouteServiceProvider::HOME);
         }

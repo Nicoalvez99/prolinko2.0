@@ -1,5 +1,5 @@
 <x-guest-layout>
-    <form action="{ route('register') }" method="post">
+    <form action="{{ route('register') }}" method="post">
         @csrf
         <section class="card1 pt-3">
             <div class="shadow">
@@ -70,16 +70,16 @@
                 <div class="row px-5 my-5">
                     <div class="col-6 text-center optRegister">
                         <lord-icon src="https://cdn.lordicon.com/qgmwimwj.json" trigger="hover" style="width:100px;height:100px">
-                        <input type="checkbox" name="tienda" class="form-check-input visually-hidden" id="">
                         </lord-icon>
                         <p>Tienda</p>
+                        <input type="checkbox" name="tipoDeUsuario" value="tienda" class="form-check-input" style="border: 1px solid black;" id="">
                         
                     </div>
                     <div class="col-6 text-center optRegister">
                         <lord-icon src="https://cdn.lordicon.com/tvogyfhn.json" trigger="hover" style="width:100px;height:100px">
-                        <input type="checkbox" name="contador" class="form-check-input visually-hidden" id="">
                         </lord-icon>
                         <p>Contador</p>
+                        <input type="checkbox" name="tipoDeUsuario" value="contador" class="form-check-input" style="border: 1px solid black;" id="">
                         
                     </div>
                 </div>
