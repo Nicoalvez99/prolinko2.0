@@ -14,11 +14,11 @@ class SuperadminMiddleware
     {
         $user = auth()->user();
 
-        if ($user && $user->email === 'nicoalvez99@gmail.com') {
+        if ($user && $user->tipoDeUsuario == 'Administrador') {
             return $next($request);
         }
 
-        return abort(404, 'Página no encontrada'); 
+        return abort(404, 'Página no encontrada');
     }
 }
 

@@ -14,25 +14,30 @@ use App\Http\Controllers\ContadorController;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/contador', [ContadorController::class, 'index'])->middleware('auth')->name('contador');
-//SuperAdmin
-Route::get('administrador', [AdministradorAuthController::class, 'index'])->middleware(['admin.access'])->name('administrador');
-Route::patch('administrador/{user}', [AdministradorAuthController::class, 'update'])->middleware(['admin.access'])->name('update.user');
-Route::delete('administrador/{user}', [AdministradorAuthController::class, 'destroy'])->middleware(['admin.access'])->name('destroy.user');
-// Rutas de navegación básicas
-
-
-Route::get('/tienda', [CompraController::class, 'index'])
-    ->middleware(['auth', 'verified'])
-    ->name('tienda');
-
 Route::get('/plan', function () {
     return view('plan');
 })->name('plan');
 
-Route::get('/dashboard', [HistorialController::class, 'index'])->middleware(['premium.user'])->name('dashboard');
-Route::get('/stock', [ProductoController::class, 'index'])->middleware(['auth', 'verified'])->name('stock');
-Route::get('/proveedores', [ProveedorController::class, 'index'])->middleware(['premium.user'])->name('proveedores');
+//SuperAdmin
+Route::get('administrador', [AdministradorAuthController::class, 'index'])->middleware(['admin.access'])->name('administrador');
+Route::patch('administrador/{user}', [AdministradorAuthController::class, 'update'])->middleware(['admin.access'])->name('update.user');
+Route::delete('administrador/{user}', [AdministradorAuthController::class, 'destroy'])->middleware(['admin.access'])->name('destroy.user');
+// RUTAS DE NAVEGACION BÁSICAS
+
+// Rutas para Contador
+Route::get('/contador', [ContadorController::class, 'index'])->middleware('contador.user')->name('contador');
+
+
+
+//Rutas para Tienda
+Route::get('/tienda', [CompraController::class, 'index'])
+    ->middleware(['auth', 'verified', 'tienda.user'])
+    ->name('tienda');
+
+
+Route::get('/dashboard', [HistorialController::class, 'index'])->middleware(['premium.user', 'tienda.user'])->name('dashboard');
+Route::get('/stock', [ProductoController::class, 'index'])->middleware(['auth', 'verified', 'tienda.user'])->name('stock');
+Route::get('/proveedores', [ProveedorController::class, 'index'])->middleware(['premium.user', 'tienda.user'])->name('proveedores');
 
 //Rutas a Controladores
 Route::post('/dashboard', [HistorialController::class, 'pdf'])->middleware(['premium.user'])->name('dashboard.pdf');
