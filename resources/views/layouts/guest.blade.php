@@ -36,6 +36,18 @@
     </div>
     <script src="https://cdn.lordicon.com/lordicon-1.1.0.js"></script>
     <script src="{{ asset('js/index.js') }}"></script>
+    <script>
+        let checkUno = document.getElementById('checkUno');
+        let checkDos = document.getElementById('checkDos');
+
+        checkUno.addEventListener("click", () => {
+            checkDos.disabled = checkUno.checked;
+        });
+
+        checkDos.addEventListener("click", () => {
+            checkUno.disabled = checkDos.checked;
+        });
+    </script>
 </body>
 
 </html>

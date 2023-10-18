@@ -72,14 +72,14 @@
                         <lord-icon src="https://cdn.lordicon.com/qgmwimwj.json" trigger="hover" style="width:100px;height:100px">
                         </lord-icon>
                         <p>Tienda</p>
-                        <input type="checkbox" name="tipoDeUsuario" value="tienda" class="form-check-input" style="border: 1px solid black;" id="">
+                        <input type="checkbox" name="tipoDeUsuario" value="tienda" class="form-check-input" style="border: 1px solid black;" id="checkUno">
                         
                     </div>
                     <div class="col-6 text-center optRegister">
                         <lord-icon src="https://cdn.lordicon.com/tvogyfhn.json" trigger="hover" style="width:100px;height:100px">
                         </lord-icon>
                         <p>Contador</p>
-                        <input type="checkbox" name="tipoDeUsuario" value="contador" class="form-check-input" style="border: 1px solid black;" id="">
+                        <input type="checkbox" name="tipoDeUsuario" value="contador" class="form-check-input" style="border: 1px solid black;" id="checkDos">
                         
                     </div>
                 </div>

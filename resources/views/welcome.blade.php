@@ -32,8 +32,8 @@
     <header class="container-fluid shadow">
         <div class="row">
             <div class="col-5 col-sm-6 d-flex p-1">
-                <img src="{{ asset('images/IMG_3462.PNG') }}" width="50" alt="Prolinko">
-                <nav class="nav">
+                <img src="{{ asset('images/IMG_3462.PNG') }}" width="50" height="50" alt="Prolinko">
+                <nav class="nav navbar navbar-expand-lg">
                     <ul class="d-flex my-2">
                         <li><a href="" class="mx-2">Inicio</a></li>
                         <li><a href="" class="mx-2">Tiendas</a></li>
