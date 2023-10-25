@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>{{ config('app.name', 'Prolinko | Home') }}</title>
     <link rel="shortcut icon" href="{{ asset('images/Logo.PNG') }}" type="image/x-icon">
 
@@ -20,6 +21,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
 
     <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
@@ -73,6 +75,64 @@
             <a href="https://lordicon.com/">Icons by Lordicon.com</a>
         </div>
     </footer>
+    <script>
+        $(document).ready(function() {
+            function loadNotifications() {
+                var csrfToken = $('meta[name="csrf-token"]').attr('content');
+                $.ajax({
+                    url: '/notification',
+                    type: 'GET',
+                    dataType: 'json',
+                    success: function(data) {
+                        if (data.length > 0) {
+                            data.forEach(function(notification) {
+                                // Comprueba si esta notificación ya existe en el contenedor
+                                if ($('#liveToast' + notification.id).length == 0) {
+                                    var notificationHtml = `
+                                <div class="toast-container position-fixed bottom-0 end-0 p-3">
+                                    <div id="liveToast${notification.id}" class="toast show" role="alert" aria-live="assertive" aria-atomic="true">
+                                        <div class="toast-header">
+                                            <img src="{{ asset('images/logo.PNG') }}" width="20" class="rounded me-2" alt="prolinko">
+                                            <strong class="me-auto">Notificación</strong>
+                                            <small>11 mins ago</small>
+                                            <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                                        </div>
+                                        <div class="toast-body">
+                                            Hola! ${notification.nombre} quiere contactarte, su email es: ${notification.email}
+                                            <div class="row">
+                                                <div class="col-12 d-flex my-1">
+                                                    <form action="" method="post">
+                                                        <input type="hidden" name="_token" value="${csrfToken}">
+                                                        <input type="hidden" name="_method" value="patch">
+                                                        <button type="submit" class="btn btn-danger btn-sm"><i class="bi bi-x-circle"></i> Denegar</button>
+                                                    </form>
+                                                    <form action="" method="post">
+                                                        <input type="hidden" name="_token" value="${csrfToken}">
+                                                        <button type="submit" class="btn btn-success btn-sm mx-1"><i class="bi bi-check-circle"></i> Permitir</button>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                `;
+                                    $('#notifications-container').append(notificationHtml);
+                                }
+                            });
+                        }
+                    },
+                    error: function() {
+                        console.log('Error al cargar las notificaciones.');
+                    }
+                });
+            }
+
+            loadNotifications();
+
+            setInterval(loadNotifications, 5000);
+        });
+    </script>
+
 
     <script src="https://cdn.lordicon.com/bhenfmcm.js"></script>
     <script src="{{ asset('js/contador.js') }}"></script>

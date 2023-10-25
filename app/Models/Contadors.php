@@ -18,7 +18,8 @@ class Contadors extends Authenticatable
      */
     
     protected $fillable = [
-        'clientes'
+        'clientes',
+        'id_contador'
     ];
     use HasFactory;
 }

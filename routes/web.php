@@ -7,6 +7,7 @@ use App\Http\Controllers\ProductoController;
 use App\Http\Controllers\CompraController;
 use App\Http\Controllers\ProveedorController;
 use App\Http\Controllers\HistorialController;
+use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ContadorController;
 
@@ -34,7 +35,7 @@ Route::get('/tienda', [CompraController::class, 'index'])
     ->middleware(['auth', 'verified', 'tienda.user'])
     ->name('tienda');
 
-
+Route::get('/notification', [NotificationController::class, 'getNotification']);
 Route::get('/dashboard', [HistorialController::class, 'index'])->middleware(['premium.user', 'tienda.user'])->name('dashboard');
 Route::get('/stock', [ProductoController::class, 'index'])->middleware(['auth', 'verified', 'tienda.user'])->name('stock');
 Route::get('/proveedores', [ProveedorController::class, 'index'])->middleware(['premium.user', 'tienda.user'])->name('proveedores');

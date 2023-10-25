@@ -50,7 +50,7 @@
                     @csrf
                     <a href="{{ route('logout') }}" onclick="event.preventDefault(); this.closest('form').submit();"><i class="bi bi-box-arrow-left px-2"></i>Cerrar sesion</a>
                 </form>
-                
+
             </div>
         </nav>
     </header>
@@ -61,12 +61,31 @@
             </div>
         </div>
         <div class="row">
-            @foreach($clientes as $cliente)
-                <p>{{ $cliente->name }}</p>
-            @endforeach
-            <p>{{ $prueba }}</p>
+            <div class="col-12 px-5">
+                <table class="table table-hover">
+                    <thead>
+                        <th>ID</th>
+                        <th>Nombre</th>
+                        <th>Email</th>
+                        <th>DNI</th>
+                    </thead>
+                    <tbody>
+                        @if(isset($usuarios))
+                        @foreach($usuarios as $usuario)
+                        <tr>
+                            <td>{{ $usuario->id_random }}</td>
+                            <td>{{ $usuario->name }}</td>
+                            <td>{{ $usuario->email }}</td>
+                            <td>{{ $usuario->dni }}</td>
+                        </tr>
+                        @endforeach
+                        @endif
+                    </tbody>
+                </table>
+            </div>
         </div>
     </main>
     @include('partials.session-status')
 </body>
+
 </html>

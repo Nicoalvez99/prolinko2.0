@@ -6,6 +6,8 @@ use App\Models\Compras;
 use App\Models\Productos;
 use App\Models\Historials;
 use App\Models\Historialmes;
+use App\Models\Notifications;
+use App\Models\Contadors;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Mike42\Escpos\PrintConnectors\FilePrintConnector;
@@ -22,8 +24,10 @@ class CompraController extends Controller
     public function index()
     {
         $user = Auth::user();
+        $notifications = Notifications::where('id_cliente', '=', $user->id_random)->get();
         return view('tienda', [
-            "compras" => Compras::where('user_id', '=', $user->id)->get()
+            "compras" => Compras::where('user_id', '=', $user->id)->get(),
+            "notifications" => $notifications
         ]);
     }
 
