@@ -44,7 +44,7 @@ Route::post('/dashboard', [HistorialController::class, 'pdf'])->middleware(['pre
 Route::post('/tienda/{tipo}', [CompraController::class, 'store'])->name('compra.store');
 Route::post('/stock/{tipo}', [ProductoController::class, 'store'])->name('productos.store');
 Route::post('/proveedores/{tipo}', [ProveedorController::class, 'store'])->middleware(['premium.user'])->name('proveedor.store');
-
+Route::post('contador', [ContadorController::class, 'store'])->middleware('contador.user')->name('contador.store');
 Route::patch('/stock/{producto}', [ProductoController::class, 'update'])->name('producto.edit');
 
 Route::delete('/dashboard', [HistorialController::class, 'destroy'])->name('historial.semana.delete');

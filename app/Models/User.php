@@ -26,6 +26,7 @@ class User extends Authenticatable
         'premium',
         'tipoDeTienda',
         'tipoDeUsuario',
+        'id_random',
         'impresora',
         'password'
     ];

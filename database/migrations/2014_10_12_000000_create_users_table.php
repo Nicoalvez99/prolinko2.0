@@ -18,7 +18,9 @@ return new class extends Migration
             $table->bigInteger('dni')->unique();
             $table->string('premium')->default('Simple');
             $table->string('tipoDeTienda')->default('Cantidad');
+            $table->string('id_random')->unique();
             $table->string('impresora')->nullable();
+            $table->string('tipoDeUsuario');
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password')->nullable();
             $table->string('google_id')->nullable();

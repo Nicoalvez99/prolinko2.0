@@ -25,6 +25,7 @@
 </head>
 
 <body>
+    @include('layouts.modalNuevoCliente')
     <header>
         <nav class="navbar navbar-expand-lg navBar">
             <div class="container-fluid">
@@ -54,7 +55,18 @@
         </nav>
     </header>
     <main class="container-fluid">
-        <h1>Hola {{ $nombre }}</h1>
+        <div class="row">
+            <div class="col-12">
+                <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalNuevoCliente">Nuevo cliente</button>
+            </div>
+        </div>
+        <div class="row">
+            @foreach($clientes as $cliente)
+                <p>{{ $cliente->name }}</p>
+            @endforeach
+            <p>{{ $prueba }}</p>
+        </div>
     </main>
+    @include('partials.session-status')
 </body>
 </html>

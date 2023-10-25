@@ -12,6 +12,13 @@
         @csrf @method('patch')
         <div class="row d-block">
             <div class="col-4">
+                <label>ID único</label>
+                <div class="d-flex">
+                    <input type="text" class="form-control" value="{{ Auth::user()->id_random }}" disabled>
+                    <button type="button" class="btn btn-outline-dark mx-1" data-bs-container="body" data-bs-toggle="popover" data-bs-placement="top" data-bs-content="¡ID copiado!">Copiar</button>
+                </div>
+            </div>
+            <div class="col-4">
                 <label for="cantidad">Tipo de venta</label>
                 <select name="optCantidad" class="form-control" id="">
                     <option value="seleccionar" disabled>Seleccionar</option>

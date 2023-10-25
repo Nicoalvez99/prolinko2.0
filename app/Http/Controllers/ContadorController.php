@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Contador;
+use App\Models\Contadors;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Models\User;
 
 class ContadorController extends Controller
 {
@@ -14,9 +15,14 @@ class ContadorController extends Controller
     public function index()
     {
         $user = Auth::user();
+        $clientes = Contadors::where('id_random', '=', $user->clientes);
+        //Hacer que esto funcione
+        $prueba = $user->clientes;
         return view('contador', [
             "nombre" => $user->name,
-            "email" => $user->email
+            "email" => $user->email,
+            "clientes" => $clientes,
+            "prueba" => $prueba
         ]);
     }
 
@@ -33,13 +39,16 @@ class ContadorController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Contadors::create([
+            "clientes" => request('id_cliente')
+        ]);
+        return redirect()->route('contador')->with('status', 'Cliente agregado correctamente');
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Contador $contador)
+    public function show(Contadors $contador)
     {
         //
     }
@@ -47,7 +56,7 @@ class ContadorController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Contador $contador)
+    public function edit(Contadors $contador)
     {
         //
     }
@@ -55,7 +64,7 @@ class ContadorController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Contador $contador)
+    public function update(Request $request, Contadors $contador)
     {
         //
     }
@@ -63,7 +72,7 @@ class ContadorController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Contador $contador)
+    public function destroy(Contadors $contador)
     {
         //
     }

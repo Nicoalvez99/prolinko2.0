@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
+use App\Models\Contadors;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\RedirectResponse;
@@ -37,22 +38,34 @@ class RegisteredUserController extends Controller
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ]);
 
+        // Función para crear un ID unico para cada usuario
+        function generateRandomID($length = 15) {
+            $characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
+            $randomID = '';
+        
+            for ($i = 0; $i < $length; $i++) {
+                $randomID .= $characters[rand(0, strlen($characters) - 1)];
+            }
+        
+            return $randomID;
+        }
+        $randomID = generateRandomID();
+        
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
             'dni' => $request->dni,
             'password' => Hash::make($request->password),
             'premium' => 'Simple',
-            'tipoDeUsuario' => $request->tipoDeUsuario
+            'tipoDeUsuario' => $request->tipoDeUsuario,
+            'id_random' => $randomID
         ]);
-
         event(new Registered($user));
-
         Auth::login($user);
-        if($request->tipoDeUsuario == 'contador'){
-            return redirect(RouteServiceProvider::CONTADOR);
-        } else {
+        if($request->tipoDeUsuario =='tienda'){
             return redirect(RouteServiceProvider::HOME);
+        } else {
+            return redirect(RouteServiceProvider::CONTADOR);
         }
         
     }
