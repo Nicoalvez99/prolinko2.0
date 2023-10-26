@@ -41,6 +41,7 @@ Route::get('/stock', [ProductoController::class, 'index'])->middleware(['auth', 
 Route::get('/proveedores', [ProveedorController::class, 'index'])->middleware(['premium.user', 'tienda.user'])->name('proveedores');
 
 //Rutas a Controladores
+Route::post('/tienda', [ContadorController::class, 'create'])->name('notification.accept');
 Route::post('/dashboard', [HistorialController::class, 'pdf'])->middleware(['premium.user'])->name('dashboard.pdf');
 Route::post('/tienda/{tipo}', [CompraController::class, 'store'])->name('compra.store');
 Route::post('/stock/{tipo}', [ProductoController::class, 'store'])->name('productos.store');

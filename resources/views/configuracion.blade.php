@@ -11,7 +11,7 @@
     <form action="" method="post">
         @csrf @method('patch')
         <div class="row d-block">
-            <div class="col-4">
+            <div class="col-12 col-sm-4">
                 <label>ID único</label>
                 <div class="d-flex">
                     <input type="text" class="form-control" value="{{ Auth::user()->id_random }}" disabled>

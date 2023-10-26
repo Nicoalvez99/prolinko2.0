@@ -37,7 +37,13 @@ class ContadorController extends Controller
      */
     public function create()
     {
-        //
+        $user = Auth::user();
+        Contadors::create([
+            "clientes" => $user->id_random,
+            "id_contador" => Auth::user()->id
+        ]);
+        Notifications::where('id_cliente', '=', $user->id_random)->delete();
+        return redirect()->route('tienda')->with('status', 'Permisos validados');
     }
 
     /**
