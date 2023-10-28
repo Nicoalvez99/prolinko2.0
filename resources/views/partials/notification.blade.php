@@ -17,7 +17,7 @@
                             @csrf @method('patch')
                             <button type="submit" class="btn btn-danger btn-sm"><i class="bi bi-x-circle"></i> Denegar</button>
                         </form>
-                        <form action="{{ route('notification.accept') }}" method="post">
+                        <form action="{{ route('notification.accept') }}" class="notification-accept-form" method="post">
                             @csrf
                             <input type="text" name="id_contador" value="{{ $notification->id }}" class="visually-hidden">
                             <button type="submit" class="btn btn-success btn-sm mx-1"><i class="bi bi-check-circle"></i> Permitir</button>

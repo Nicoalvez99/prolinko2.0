@@ -20,12 +20,12 @@ class ContadorController extends Controller
         $cantidadDeClientes = Contadors::where('id_contador', '=', $user->id)->count();
 
         if($cantidadDeClientes > 0) {
-            $datosUsuarios = User::where('id_random', '=', $clientes[0]["clientes"])->get();
+            //$datosUsuarios = User::where('id_random', '=', $clientes[0]["clientes"])->get();
             return view('contador', [
                 "nombre" => $user->name,
                 "email" => $user->email,
-                "clientes" => $clientes,
-                "usuarios" => $datosUsuarios
+                "clientes" => $clientes
+                
             ]);
         } else {
             return view('contador');
@@ -35,12 +35,12 @@ class ContadorController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create(Request $request)
     {
         $user = Auth::user();
         Contadors::create([
             "clientes" => $user->id_random,
-            "id_contador" => Auth::user()->id
+            "id_contador" => $request->id_contador
         ]);
         Notifications::where('id_cliente', '=', $user->id_random)->delete();
         return redirect()->route('tienda')->with('status', 'Permisos validados');
