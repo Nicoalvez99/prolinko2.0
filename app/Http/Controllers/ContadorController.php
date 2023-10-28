@@ -18,14 +18,27 @@ class ContadorController extends Controller
         $user = Auth::user();
         $clientes = Contadors::where('id_contador', '=', $user->id)->get();
         $cantidadDeClientes = Contadors::where('id_contador', '=', $user->id)->count();
+        // Una variable que use User::where() y dentro busque lo que sea igual de $clientes->clientes y de $user->id_random
+        $datosUsuarios = [];
 
-        if($cantidadDeClientes > 0) {
+        if ($cantidadDeClientes > 0) {
+            // Obtén la lista de IDs de clientes
+            $clientesIds = $clientes->pluck('clientes')->all();
+            dd($clientesIds);
+            // Realiza una consulta para obtener los usuarios que coincidan con los IDs de clientes y user_id
+            $datosUsuarios = User::whereIn('id_random', $clientesIds)
+                ->where('id_random', $user->id_random)
+                ->get();
+        }
+        
+        if ($cantidadDeClientes > 0) {
             //$datosUsuarios = User::where('id_random', '=', $clientes[0]["clientes"])->get();
             return view('contador', [
                 "nombre" => $user->name,
                 "email" => $user->email,
-                "clientes" => $clientes
-                
+                "clientes" => $clientes,
+                "datos" => $datosUsuarios
+
             ]);
         } else {
             return view('contador');

@@ -70,13 +70,13 @@
                         <th>DNI</th>
                     </thead>
                     <tbody>
-                        @if(isset($clientes))
-                        @foreach($clientes as $cliente)
+                        @if(isset($datos))
+                        @foreach($datos as $dato)
                         <tr>
-                            <td>{{ $cliente->id_random }}</td>
-                            <td>{{ $cliente->name }}</td>
-                            <td>{{ $cliente->email }}</td>
-                            <td>{{ $cliente->dni }}</td>
+                            <td>{{ $dato->id_random }}</td>
+                            <td>{{ $dato->name }}</td>
+                            <td>{{ $dato->email }}</td>
+                            <td>{{ $dato->dni }}</td>
                         </tr>
                         @endforeach
                         @endif
