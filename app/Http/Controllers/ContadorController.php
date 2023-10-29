@@ -24,15 +24,12 @@ class ContadorController extends Controller
         if ($cantidadDeClientes > 0) {
             // Obtén la lista de IDs de clientes
             $clientesIds = $clientes->pluck('clientes')->all();
-            dd($clientesIds);
+            
             // Realiza una consulta para obtener los usuarios que coincidan con los IDs de clientes y user_id
-            $datosUsuarios = User::whereIn('id_random', $clientesIds)
-                ->where('id_random', $user->id_random)
-                ->get();
+            $datosUsuarios = User::whereIn('id_random', $clientesIds) ->get();
         }
         
         if ($cantidadDeClientes > 0) {
-            //$datosUsuarios = User::where('id_random', '=', $clientes[0]["clientes"])->get();
             return view('contador', [
                 "nombre" => $user->name,
                 "email" => $user->email,
@@ -64,10 +61,6 @@ class ContadorController extends Controller
      */
     public function store(Request $request)
     {
-        /*Contadors::create([
-            "clientes" => request('id_cliente'),
-            "id_contador" => Auth::user()->id
-        ]);*/
         $user = Auth::user();
         Notifications::create([
             "id_contador" => $user->id,

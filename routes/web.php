@@ -28,8 +28,6 @@ Route::delete('administrador/{user}', [AdministradorAuthController::class, 'dest
 // Rutas para Contador
 Route::get('/contador', [ContadorController::class, 'index'])->middleware('contador.user')->name('contador');
 
-
-
 //Rutas para Tienda
 Route::get('/tienda', [CompraController::class, 'index'])
     ->middleware(['auth', 'verified', 'tienda.user'])
@@ -49,6 +47,7 @@ Route::post('/proveedores/{tipo}', [ProveedorController::class, 'store'])->middl
 Route::post('contador', [ContadorController::class, 'store'])->middleware('contador.user')->name('contador.store');
 Route::patch('/stock/{producto}', [ProductoController::class, 'update'])->name('producto.edit');
 
+//Route::delete('/tienda', [NotificationController::class, 'destroy'])->name('notification');
 Route::delete('/dashboard', [HistorialController::class, 'destroy'])->name('historial.semana.delete');
 Route::delete('/tienda/{compra}', [CompraController::class, 'destroy'])->name('compra.delete');
 Route::delete('/tienda', [CompraController::class, 'cobrarDestroy'])->name('cobro.delete');

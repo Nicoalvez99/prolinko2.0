@@ -14,7 +14,7 @@
                 <div class="row">
                     <div class="col-12 d-flex my-1">
                         <form action="" method="post">
-                            @csrf @method('patch')
+                            @csrf @method('delete')
                             <button type="submit" class="btn btn-danger btn-sm"><i class="bi bi-x-circle"></i> Denegar</button>
                         </form>
                         <form action="{{ route('notification.accept') }}" class="notification-accept-form" method="post">

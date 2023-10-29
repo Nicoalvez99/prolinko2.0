@@ -79,7 +79,7 @@
             </div>
         </div>
         @endif
-        @include('partials.notification')
+        
     </div>
     @include('partials.session-status-danger')
     

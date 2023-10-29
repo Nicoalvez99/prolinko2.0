@@ -74,6 +74,7 @@
         <div class="d-none">
             <a href="https://lordicon.com/">Icons by Lordicon.com</a>
         </div>
+        @include('partials.notification')
     </footer>
     <script>
         $(document).ready(function() {
@@ -89,7 +90,6 @@
                                 // Comprueba si esta notificación ya existe en el contenedor
                                 if ($('#liveToast' + notification.id).length == 0) {
                                     var notificationHtml = `
-                            <!-- Tu contenido de notificación aquí -->
                             <div class="toast-container position-fixed bottom-0 end-0 p-3">
                                 <div id="liveToast${notification.id}" class="toast show" role="alert" aria-live="assertive" aria-atomic="true">
                                     <div class="toast-header">
@@ -104,7 +104,7 @@
                                             <div class="col-12 d-flex my-1">
                                                 <form action="" method="post">
                                                     <input type="hidden" name="_token" value="${csrfToken}">
-                                                    <input type="hidden" name="_method" value="patch">
+                                                    <input type="hidden" name="_method" value="delete">
                                                     <button type="submit" class="btn btn-danger btn-sm"><i class="bi bi-x-circle"></i> Denegar</button>
                                                 </form>
                                                 <form action="{{ route('notification.accept') }}" method="post" class="notification-accept-form">
