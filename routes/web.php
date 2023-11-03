@@ -18,7 +18,9 @@ Route::get('/', function () {
 Route::get('/plan', function () {
     return view('plan');
 })->name('plan');
-
+Route::get('contadores', function() {
+    return view('contadores');
+})->name('contadores');
 //SuperAdmin
 Route::get('administrador', [AdministradorAuthController::class, 'index'])->middleware(['admin.access'])->name('administrador');
 Route::patch('administrador/{user}', [AdministradorAuthController::class, 'update'])->middleware(['admin.access'])->name('update.user');

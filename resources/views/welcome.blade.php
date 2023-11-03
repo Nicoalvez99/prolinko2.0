@@ -37,7 +37,7 @@
                     <ul class="d-flex my-2">
                         <li><a href="" class="mx-2">Inicio</a></li>
                         <li><a href="" class="mx-2">Tiendas</a></li>
-                        <li><a href="" class="mx-2">Contadores</a></li>
+                        <li><a href="{{ url('/contadores') }}" class="mx-2">Contadores</a></li>
                         <li><a href="" class="mx-2">Nosotros</a></li>
                         <li><a href="" class="mx-2">Contacto</a></li>
                     </ul>
