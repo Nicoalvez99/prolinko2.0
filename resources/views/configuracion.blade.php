@@ -14,8 +14,8 @@
             <div class="col-12 col-sm-4">
                 <label>ID único</label>
                 <div class="d-flex">
-                    <input type="text" class="form-control" value="{{ Auth::user()->id_random }}" disabled>
-                    <button type="button" class="btn btn-outline-dark mx-1" data-bs-container="body" data-bs-toggle="popover" data-bs-placement="top" data-bs-content="¡ID copiado!">Copiar</button>
+                    <input type="text" class="form-control copy" value="{{ Auth::user()->id_random }}" disabled>
+                    <button type="button" id="copiarBoton" class="btn btn-outline-dark mx-1">Copiar</button>
                 </div>
             </div>
             <div class="col-4">

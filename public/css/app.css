@@ -2,10 +2,29 @@
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 
+
+.body {
+    background: rgb(12, 10, 43);
+    background: linear-gradient(90deg, rgba(12, 10, 43, 1) 0%, rgba(15, 15, 88, 1) 35%, rgba(21, 37, 103, 1) 100%);
+}
+.login {
+    background-color: #fff;
+    border-radius: 10px;
+}
 .navBar {
     background: rgb(7, 3, 71);
     background: linear-gradient(90deg, rgba(7, 3, 71, 1) 0%, rgba(24, 24, 147, 1) 35%, rgba(0, 148, 255, 1) 100%);
 }
+
+#particles-js {
+    background: rgb(12, 10, 43);
+    background: linear-gradient(90deg, rgba(12, 10, 43, 1) 0%, rgba(15, 15, 88, 1) 35%, rgba(21, 37, 103, 1) 100%);
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
 
 .navBar a {
     color: aliceblue;
@@ -25,14 +44,16 @@
 }
 
 /* Estilos base de los enlaces */
-.ulBot a, button {
+.ulBot a,
+button {
     text-decoration: none;
     color: aliceblue;
     padding: 5px 10px;
     position: relative;
 }
 
-.ulBot a, button:hover {
+.ulBot a,
+button:hover {
     color: aliceblue;
 }
 
@@ -43,7 +64,7 @@
     bottom: 0;
     left: 0;
     width: 0;
-    color:aliceblue;
+    color: aliceblue;
     height: 2px;
     background: linear-gradient(to right, orange, red);
     /* Cambia los colores aquí */
@@ -65,6 +86,7 @@
     bottom: 10px;
     left: 10px;
 }
+
 .premium {
     position: fixed;
     bottom: 20px;
@@ -109,7 +131,8 @@
     padding-top: 10px;
 }
 
-.caja p, .contador {
+.caja p,
+.contador {
     font-family: 'Quicksand', sans-serif;
     font-weight: 500;
     font-size: 30px;
@@ -196,20 +219,25 @@
     @apply bg-black text-white;
     /* Aplica estilos de Tailwind CSS */
 }
+
 #btn {
     display: none;
 }
+
 .btnSesionNone {
     display: none;
 }
+
 .btnBlock {
     display: block;
 }
+
 .logoProlinkoLogin {
     width: 70px;
 }
 
-.error, .success {
+.error,
+.success {
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     width: 320px;
     padding: 12px;
@@ -220,47 +248,55 @@
     background: #EF665B;
     border-radius: 8px;
     box-shadow: 0px 0px 5px -3px #111;
-  }
-  .success {
+}
+
+.success {
     background: #509AF8;
-  }
-  
-  .error__icon, .success__icon {
+}
+
+.error__icon,
+.success__icon {
     width: 20px;
     height: 20px;
     transform: translateY(-2px);
     margin-right: 8px;
-  }
-  
-  .error__icon, .success__icon path {
+}
+
+.error__icon,
+.success__icon path {
     fill: #fff;
-  }
-  
-  .error__title, .success__title {
+}
+
+.error__title,
+.success__title {
     font-weight: 500;
     font-size: 14px;
     color: #fff;
-  }
-  
-  .error__close, .success__close {
+}
+
+.error__close,
+.success__close {
     width: 20px;
     height: 20px;
     cursor: pointer;
     margin-left: auto;
-  }
-  
-  .error__close, .success__close path {
+}
+
+.error__close,
+.success__close path {
     fill: #fff;
-  }
+}
 
 
 @media (max-width: 650px) {
-    .fondoNoneLogin{
+    .fondoNoneLogin {
         display: none;
     }
+
     .logoProlinkoLogin {
         width: 50px;
     }
+
     .paraResponsive {
         display: none;
     }

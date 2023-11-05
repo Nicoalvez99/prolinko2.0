@@ -1,7 +1,7 @@
 <x-guest-layout>
     <div class="pt-5">
-        <div class="shadow h-full">
-            <div class="col-12 pt-2 text-center">
+        <div class="shadow h-full login">
+            <div class="col-12 pt-3 text-center">
                 <img src="{{ asset('images/Logo.PNG') }}" class="img-fluid logoProlinkoLogin"  alt="">
             </div>
             <div class="col-12 text-center mb-2">
@@ -25,7 +25,7 @@
                     <label for="password">Contraseña</label>
                     <input type="password" id="password" name="password" class="form-control" :value="old('password')" required autocomplete="current-password">
                 </div>
-                <div class="row d-block d-sm-flex px-5">
+                <div class="row d-block px-5">
                     <div class="col-12 col-sm-4">
                         <div class="form-check">
                             <input class="form-check-input" type="checkbox" name="remember" value="" id="flexCheckDefault">
@@ -36,7 +36,7 @@
 
                     </div>
 
-                    <div class="col-12 col-sm-4 col-offset-sm-4 text-center">
+                    <div class="col-12 text-center">
                         @if (Route::has('password.request'))
                         <a href="{{ route('password.request') }}" style="color: blue;">{{ __('¿Olvidaste tu contraseña?') }}</a>
                         @endif

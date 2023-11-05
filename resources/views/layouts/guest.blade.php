@@ -25,16 +25,19 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
 </head>
 
-<body>
+<body class="body">
+    <div id="particles-js"></div>
     <div class="row">
-        <div class="col-12 col-sm-5 px-5">
+        <div class="col-12 col-sm-4 offset-sm-4 px-5">
             {{ $slot }}
         </div>
-        <div class="col-7 p-0 fondoNoneLogin">
+        <!--<div class="col-7 p-0 fondoNoneLogin">
             <img src="{{ asset('images/fondo.png') }}" class="img-fluid shadow" alt="Fondo Prolinko">
-        </div>
+        </div> -->
     </div>
     <script src="https://cdn.lordicon.com/lordicon-1.1.0.js"></script>
+    <script src="{{ asset('js/particles.min.js') }}"></script>
+    <script src="{{ asset('js/app-particles.js') }}"></script>
     <script src="{{ asset('js/index.js') }}"></script>
     <script>
         let checkUno = document.getElementById('checkUno');

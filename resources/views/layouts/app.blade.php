@@ -134,9 +134,6 @@
             setInterval(loadNotifications, 5000);
         });
     </script>
-
-
-
     <script src="https://cdn.lordicon.com/bhenfmcm.js"></script>
     <script src="{{ asset('js/contador.js') }}"></script>
     <script src="{{ asset('js/modalFactura.js') }}"></script>

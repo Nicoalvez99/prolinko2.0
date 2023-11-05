@@ -2,7 +2,7 @@
     <form action="{{ route('register') }}" method="post">
         @csrf
         <section class="card1 pt-3">
-            <div class="shadow">
+            <div class="shadow login">
                 <div class="col-12 pt-2 text-center">
                     <img src="{{ asset('images/Logo.PNG') }}" class="img-fluid logoProlinkoLogin" alt="prolinko">
                 </div>
@@ -53,7 +53,7 @@
             </div>
         </section>
         <section class="card2 visually-hidden">
-            <div class="shadow">
+            <div class="shadow login">
                 <div class="col-12 pt-2 text-center">
                     <img src="{{ asset('images/Logo.PNG') }}" class="img-fluid logoProlinkoLogin" alt="prolinko">
                 </div>
