@@ -43,7 +43,16 @@
                     </ul>
                 </nav>
             </div>
-            <div class="col-7 col-sm-6 p-1  text-end">
+            
+        </div>
+    </header>
+    <main class="container-fluid p-0">
+        <div class="row p-3 " data-aos="fade-up">
+            <div class="col-12 my-5 text-center">
+                <h1 class="degradado-texto-h1">Prolinko</h1>
+                <hr>
+                <h2 class="subtitulo">Tu solución de <br> Punto de Venta <span class="typed"></span></h2>
+                <div class="mt-3 p-1">
                 @if (Route::has('login'))
                 @auth
                 <button class="btn-welcome"><a href="{{ url('/tienda') }}" class="">Tienda</a></button>
@@ -56,18 +65,8 @@
                 @endauth
                 @endif
             </div>
-        </div>
-    </header>
-    <main class="container-fluid p-0">
-        <div class="row p-3 fondo" data-aos="fade-right">
-            <div class="col-12 col-sm-6 my-auto">
-                <h1 class="degradado-texto-h1">Prolinko</h1>
-                <hr style="color:aliceblue;">
-                <h2 class="subtitulo">Tu solución de Punto de Venta <span class="typed"></span></h2>
             </div>
-            <div class="col-12 col-sm-6 my-auto">
-                <img src="{{ asset('images/657shots_so.png') }}" data-aos="fade-up" class="img-fluid" style="border-radius: 10px;" alt="">
-            </div>
+            
         </div>
 
         <section class="row beneficios">

@@ -30,7 +30,7 @@ class ContadorController extends Controller
         }
         
         if ($cantidadDeClientes > 0) {
-            return view('contador', [
+            return view('contadoresDos', [
                 "nombre" => $user->name,
                 "email" => $user->email,
                 "clientes" => $clientes,

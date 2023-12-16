@@ -193,7 +193,7 @@
             <p>ventas del mes septiembre: <span id="septiembre">{{ $ventasPorMeses['September'] ?? 0 }}</span></p>
             <p>ventas del mes octubre: <span id="octubre">{{ $ventasPorMeses['October'] ?? 0 }}</span></p>
             <p>ventas del mes noviember: <span id="noviembre">{{ $ventasPorMeses['November'] ?? 0 }}</span></p>
-            <p>ventas del mes diciembre: <span id="diciembre">{{ $ventasPorMeses['Dicember'] ?? 0 }}</span></p>
+            <p>ventas del mes diciembre: <span id="diciembre">{{ $ventasPorMeses['December'] ?? 0 }}</span></p>
         </div>
     </div>
     @include('partials.session-status')
