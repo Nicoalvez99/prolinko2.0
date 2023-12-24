@@ -34,7 +34,8 @@ class ContadorController extends Controller
                 "nombre" => $user->name,
                 "email" => $user->email,
                 "clientes" => $clientes,
-                "datos" => $datosUsuarios
+                "datos" => $datosUsuarios,
+                "cantidades" => $cantidadDeClientes
 
             ]);
         } else {
@@ -70,7 +71,17 @@ class ContadorController extends Controller
         ]);
         return redirect()->route('contador')->with('status', 'Solicitud enviada correctamente');
     }
-
+    public function clientes(){
+        $user = Auth::user();
+        $clientes = Contadors::where('id_contador', '=', $user->id)->get();
+        $clientesIds = $clientes->pluck('clientes')->all();
+            
+            // Realiza una consulta para obtener los usuarios que coincidan con los IDs de clientes y user_id
+        $datosUsuarios = User::whereIn('id_random', $clientesIds) ->get();
+        return view('clientes', [
+            "clientes" => $datosUsuarios
+        ]);
+    }
     /**
      * Display the specified resource.
      */

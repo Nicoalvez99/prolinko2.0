@@ -64,8 +64,8 @@
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                                Total Vendedores</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800 contador">45</div>
+                                                Total Clientes</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800 contador">{{ $cantidades }}</div>
                                         </div>
                                         <div class="col-auto">
                                             <i class="fas fa-calendar fa-2x text-gray-300"></i>
@@ -149,7 +149,7 @@
                                 @if(isset($datos))
                                 @foreach($datos as $dato)
                                 <tr>
-                                    <td>{{ $dato->id_random }}</td>
+                                    <td><b>{{ $dato->id_random }}</b></td>
                                     <td>{{ $dato->name }}</td>
                                     <td>{{ $dato->email }}</td>
                                     <td>{{ $dato->dni }}</td>
@@ -185,7 +185,7 @@
         <i class="fas fa-angle-up"></i>
     </a>
 
-    <!-- Logout Modal-->
+    @include('partials.session-status')
     <script>
         window.onload = function() {
             const elementos = document.querySelectorAll(".contador");

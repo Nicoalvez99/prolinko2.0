@@ -29,7 +29,7 @@ Route::delete('administrador/{user}', [AdministradorAuthController::class, 'dest
 
 // Rutas para Contador
 Route::get('/contador', [ContadorController::class, 'index'])->middleware('contador.user')->name('contador');
-
+Route::get('clientes', [ContadorController::class, 'clientes'])->middleware('contador.user')->name('clientes');
 //Rutas para Tienda
 Route::get('/tienda', [CompraController::class, 'index'])
     ->middleware(['auth', 'verified', 'tienda.user'])
