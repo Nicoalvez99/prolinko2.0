@@ -75,7 +75,7 @@
                                     <td>{{ $cliente->name }}</td>
                                     <td>{{ $cliente->email }}</td>
                                     <td>{{ $cliente->dni }}</td>
-                                    <td><a href="#"><i class="bi bi-bar-chart"></i></a></td>
+                                    <td><a href="{{ route('cliente', $cliente) }}"><i class="bi bi-bar-chart"></i></a></td>
                                 </tr>
                                 @endforeach
                                 @endif

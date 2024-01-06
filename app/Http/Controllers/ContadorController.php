@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Historialmes;
 use App\Models\Contadors;
 use App\Models\Notifications;
 use Illuminate\Http\Request;
@@ -80,6 +81,35 @@ class ContadorController extends Controller
         $datosUsuarios = User::whereIn('id_random', $clientesIds) ->get();
         return view('clientes', [
             "clientes" => $datosUsuarios
+        ]);
+    }
+    public function obtenerCliente($cliente){
+        $datosDelCliente = User::where('id', '=', $cliente)->get();
+        //dd($datosDelCliente);
+        $nombre = $datosDelCliente[0]['name'];
+        $dni = $datosDelCliente[0]['dni'];
+
+        $ventasPorMes = Historialmes::where('user_id', '=', $cliente)
+            ->whereYear('created_at', now()->year) // Filtrar por el año actual
+            ->selectRaw('MONTH(created_at) as mes, COUNT(*) as cantidad_ventas')
+            ->groupBy('mes')
+            ->orderBy('mes')
+            ->get();
+
+        // Crear un arreglo asociativo para almacenar las ventas por mes
+        $ventasPorMeses = [];
+        foreach ($ventasPorMes as $venta) {
+            // Obtener el nombre del mes
+            $nombreMes = date('F', mktime(0, 0, 0, $venta->mes, 1));
+
+            // Almacenar en el arreglo asociativo
+            $ventasPorMeses[$nombreMes] = $venta->cantidad_ventas;
+        }
+
+        return view('contador.cliente', [
+            "nombre" => $nombre,
+            "dni" => $dni,
+            "ventasPorMeses" => $ventasPorMeses
         ]);
     }
     /**

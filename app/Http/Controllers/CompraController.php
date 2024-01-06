@@ -15,6 +15,7 @@ use Mike42\Escpos\Printer;
 use Mike42\Escpos\EscposImage;
 use Mike42\Escpos\PrintConnectors\WindowsPrintConnector;
 use PhpParser\Node\Stmt\TryCatch;
+use Afip;
 
 class CompraController extends Controller
 {
@@ -56,6 +57,7 @@ class CompraController extends Controller
             }
             
             $user = Auth::user();
+            $afip = new Afip(array('CUIT' => 20409378472));
             //Luego si esos valores coinciden con algún producto que tengas en la BBDD, lo guarda en la table de compras
             $aProductos = Productos::where('user_id', '=', $user->id)->get();
             $productoNoEncontrado = 0;
