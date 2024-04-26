@@ -138,6 +138,7 @@
     <script src="{{ asset('js/contador.js') }}"></script>
     <script src="{{ asset('js/modalFactura.js') }}"></script>
     <script src="{{ asset('js/vuelto.js') }}"></script>
+    <script src="{{ asset('js/descuento.js') }}"></script>
     <script src="{{ asset('js/app.js') }}"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="{{ asset('js/chartSemana.js') }}"></script>

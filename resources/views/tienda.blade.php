@@ -1,5 +1,7 @@
 <x-app-layout>
     @include('layouts.modal')
+    @include('layouts.modalAumento')
+    @include('layouts.modalDescuento')
     <!-- Cuerpo de la Tienda -->
     <div class="row container">
         <div class="col-12 col-sm-6 my-2">
@@ -17,6 +19,7 @@
             </form>
         </div>
         <div class="col-12 col-sm-6 my-2">
+            <span class="visually-hidden" id="total">{{ $compras->sum('precioTotal') }}</span>
             <h2 style="color: green;">Total: ${{ number_format($compras->sum('precioTotal'), 2) }}</h2>
             <h4>Su vuelto es: <span id="vuelto">$0.00</span></h4>
             <div class="d-flex">
@@ -29,6 +32,11 @@
                     @csrf
                     <button type="submit" class="btn btn-danger {{ count($compras) == 0 ? 'disabled' : '' }}"><i class="bi bi-printer"></i> Ticket</button>
                 </form>
+                <div class="btn-group mx-2" role="group" aria-label="Basic example">
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModalAumento"><i class="bi bi-arrow-up-short"></i> Aumento</button>
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModalDescuento"><i class="bi bi-arrow-down-short"></i> Descuento</button>
+                </div>
+                
             </div>
         </div>
     </div>
@@ -79,8 +87,8 @@
             </div>
         </div>
         @endif
-        
+
     </div>
     @include('partials.session-status-danger')
-    
+
 </x-app-layout>
